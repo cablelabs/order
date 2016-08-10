@@ -1,4 +1,3 @@
-[ ![Codeship Status for cablelabs/mef-order]]
 
 # mef-order
 Web Services focused on MEF Order
