@@ -1,0 +1,15 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "description": "Explore the MEF Order APIs below. Want to know more? Checkout out our <a href=\"https://github.com/cablelabs/mef-order\">MEF Order</a> project on GitHub.",
+    "version": "0.0.1"
+  },
+  "host": "cable-api.herokuapp.com",
+  "basePath": "/api-docs",
+  "schemes": [
+    "https"
+  ],
+  "paths": {},
+  "definitions": {}
+}

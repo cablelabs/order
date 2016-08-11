@@ -1,0 +1,1 @@
+JSON schema and XML schema definitions are provided here.
