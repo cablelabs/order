@@ -2,7 +2,6 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "link",
   "id": "link",
-  "version": "2.0.0",
   "description": "Specifies relationships between the current document and an external resource.",
   "type": "object",
   "required": [ "href", "rel" ],

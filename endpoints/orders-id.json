@@ -1,0 +1,96 @@
+{
+  "/orders/{id}": {
+    "get": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Find a Order.",
+      "description": "This service looks up a Order.",
+      "displayName": "Order",
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "ID of Order that needs to be fetched.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "view",
+          "description": "View of the resource that you want to get.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful operation.",
+          "schema": {
+            "$ref": "#/definitions/order"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        }
+      }
+    },
+    "put": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Partially update an existing Order based on its ID.",
+      "description": "This service partially updates an existing Order based on its ID.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "ID of Order that needs to be patched.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "body",
+          "description": "",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/order-create-update"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Instance updated.",
+          "schema": {
+            "$ref": "#/definitions/order"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        },
+        "405": {
+          "description": "Invalid input."
+        }
+      }
+    }
+  }
+}
