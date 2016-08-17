@@ -1,0 +1,76 @@
+{
+  "/orders": {
+    "get": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Fetch all Orders that meet the query criteria.",
+      "description": "This service fetches all Orders that meet the query criteria.",
+      "displayName": "Orders",
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Query criteria for filtering the list of Orders.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "view",
+          "description": "View of the resource that you want to get.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful operation.",
+          "schema": {
+            "$ref": "#/definitions/orderList"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        }
+      }
+    },
+    "post": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Create a new Order.",
+      "description": "This service creates a new Order.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "body",
+          "description": "",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/order-create-update"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Instance created."
+        },
+        "405": {
+          "description": "Invalid input."
+        }
+      }
+    }
+  }
+}
