@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "addressReference",
+  "id": "addressReference",
+  "description": "This represents the reference of the address in some address inventory.",
+  "type": "object",
+  "properties": {
+    "referenceType": {
+      "type": "string",
+      "description": "The type of the reference."
+    },
+    "reference": {
+      "type": "string",
+      "description": "The reference can be used to identify an address by id in some address inventory, some arbitrary geocode from a geospatial system."
+    }
+  }
+}
