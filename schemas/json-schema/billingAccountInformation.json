@@ -2,34 +2,19 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "billingAccountInformation",
     "id": "billingAccountInformation",
-    "description": "A billing account information to set up a new billing account.",
+    "description": "A billing account information represents contact and address information of a billing account.",
     "type": "object",
-    "required": [
-        "id",
-        "billingAccount"
-    ],
     "properties": {
-        "id": {
-            "type": "string",
-            "description": "Unique identifier for the billing account information."
-        },
-        "link": {
-            "$ref": "link.json#",
-            "description": "A self referencing link to the order."
-        },
-        "billingAccount": {
-            "type": "string",
-            "description": "Identifies the billing account to which the recurring and non-recurring charges for this request will be billed.",
-            "maxLength": 13
-        },
         "billingContact": {
             "$ref": "contact.json#",
             "description": "Identifies the information of the person or office to be contacted on billing matters."
         },
-        "billingContactAddress": {
-            "type": "string",
-            "description": "Identifies the address of the person or office to be contacted on billing matters.",
-            "maxLength": 16
+        "billingAddress": {
+            "oneOf": [
+                {"$ref": "formattedAddress.json#"},
+                {"$ref": "fieldedAddress.json#"}
+            ],
+            "description": "Identifies the address of the person or office to be contacted on billing matters."
         }
     }
 }

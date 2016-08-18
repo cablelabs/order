@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "billingInformation",
+    "id": "billingInformation",
+    "description": "A billing information to set up a new billing account.",
+    "type": "object",
+    "required": [
+        "billingAccount"
+    ],
+    "properties": {
+        "billingAccount": {
+            "type": "string",
+            "description": "Identifies the billing account to which the recurring and non-recurring charges for this request will be billed.",
+            "maxLength": 13
+        },
+        "billingAccountInformation": {
+            "$ref": "billingAccountInformation.json#",
+            "description": "Identifies the information of the billing account."
+        }
+    }
+}

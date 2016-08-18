@@ -5,20 +5,11 @@
     "description": "Represents a contact.",
     "type": "object",
     "required": [
-        "id",
         "name",
         "telephoneNumber",
         "email"
     ],
     "properties": {
-        "id": {
-            "type": "string",
-            "description": "Unique identifier for a contact."
-        },
-        "link": {
-            "$ref": "link.json#",
-            "description": "A self referencing link to the order."
-        },
         "name": {
             "type": "string",
             "description": "Identifies the name of the person or office.",
