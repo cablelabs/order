@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "addressReference",
   "id": "addressReference",
-  "description": "This represents the reference of the address in some address inventory.",
+  "description": "This represents a reference to an address. The reference should be an address id from an address inventory, a geocoded reference from a geospatial system, etc.",
   "type": "object",
   "properties": {
     "referenceType": {
@@ -11,7 +11,7 @@
     },
     "reference": {
       "type": "string",
-      "description": "The reference can be used to identify an address by id in some address inventory, some arbitrary geocode from a geospatial system."
+      "description": "The reference can be used to identify an address."
     }
   }
 }

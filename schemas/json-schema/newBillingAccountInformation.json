@@ -16,7 +16,9 @@
         "address": {
             "oneOf": [
                 {"$ref": "formattedAddress.json#"},
-                {"$ref": "fieldedAddress.json#"}
+                {"$ref": "fieldedAddress.json#"},
+                {"$ref": "geographicPoint.json#"},
+                {"$ref": "addressReference.json#"}
             ],
             "description": "Identifies the address of the person or office to be contacted on billing matters."
         }
