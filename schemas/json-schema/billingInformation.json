@@ -5,17 +5,18 @@
     "description": "A billing information to set up a new billing account.",
     "type": "object",
     "required": [
-        "billingAccount"
+        "existingBillingAccountNumber",
+        "newBillingAccountInformation"
     ],
     "properties": {
-        "billingAccount": {
+        "existingBillingAccountNumber": {
             "type": "string",
             "description": "Identifies the billing account to which the recurring and non-recurring charges for this request will be billed.",
             "maxLength": 13
         },
-        "billingAccountInformation": {
-            "$ref": "billingAccountInformation.json#",
-            "description": "Identifies the information of the billing account."
+        "newBillingAccountInformation": {
+            "$ref": "newBillingAccountInformation.json#",
+            "description": "Identifies the information of a new billing account."
         }
     }
 }

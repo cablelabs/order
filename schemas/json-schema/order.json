@@ -88,9 +88,9 @@
             "type": "integer",
             "description": "Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system."
         },
-        "buyerBillingInfo": {
-            "$ref": "billingAccountInformation.json#",
-            "description": "An existing billing account information to set up a new billing account."
+        "billingInfo": {
+            "$ref": "billingInformation.json#",
+            "description": "An existing billing information to set up a new billing account."
         },
         "buyerOrderContact": {
             "$ref": "contact.json#",

@@ -1,15 +1,15 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "billingAccountInformation",
-    "id": "billingAccountInformation",
+    "title": "newBillingAccountInformation",
+    "id": "newBillingAccountInformation",
     "description": "A billing account information represents contact and address information of a billing account.",
     "type": "object",
     "properties": {
-        "billingContact": {
+        "contact": {
             "$ref": "contact.json#",
             "description": "Identifies the information of the person or office to be contacted on billing matters."
         },
-        "billingAddress": {
+        "address": {
             "oneOf": [
                 {"$ref": "formattedAddress.json#"},
                 {"$ref": "fieldedAddress.json#"}
