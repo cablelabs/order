@@ -4,10 +4,6 @@
     "id": "billingInformation",
     "description": "A billing information to set up a new billing account.",
     "type": "object",
-    "required": [
-        "existingBillingAccountNumber",
-        "newBillingAccountInformation"
-    ],
     "properties": {
         "existingBillingAccountNumber": {
             "type": "string",

@@ -4,6 +4,10 @@
     "id": "newBillingAccountInformation",
     "description": "A billing account information represents contact and address information of a billing account.",
     "type": "object",
+    "required": [
+        "contact",
+        "address"
+    ],
     "properties": {
         "contact": {
             "$ref": "contact.json#",
