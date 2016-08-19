@@ -135,6 +135,13 @@
         "serviceabilityResponse": {
             "$ref": "resourceReference.json#",
             "description": "Value that associates this order with a previously assigned serviceability response."
+        },
+        "orderItems":{
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/orderItem"
+            },
+            "description": "The line items being ordered (added, removed, or modified) on this order."
         }
     }
 }
