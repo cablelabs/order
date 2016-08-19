@@ -50,6 +50,21 @@
             ],
             "description": "The type of order, as defined by the business (e.g.,install, change, disconnect)."
         },
+        "status": {
+            "type": "string",
+            "enum": [
+                "Acknowledged",
+                "In Progress",
+                "Cancelled",
+                "Completed",
+                "Rejected",
+                "Pending",
+                "Held",
+                "Failed",
+                "Partial"
+            ],
+            "description": "The status of the order."
+        },
         "desiredResponses": {
             "type": "string",
             "enum": [
