@@ -29,21 +29,6 @@
             ],
             "description": "The action to be taken for this order item (E.g. Install, Change)."
         },
-        "status": {
-            "type": "string",
-            "enum": [
-                "Acknowledged",
-                "In Progress",
-                "Cancelled",
-                "Completed",
-                "Rejected",
-                "Pending",
-                "Held",
-                "Failed",
-                "Partial"
-            ],
-            "description": "The status of the order item."
-        },
         "product": {
             "type": "object",
             "description": "An orderable representation of a product.",
