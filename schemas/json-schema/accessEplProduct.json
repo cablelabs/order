@@ -51,8 +51,7 @@
         },
         "colorForwardingEnabled": {
             "type": "boolean",
-            "description": "Color Forwarding is an OVC attribute defining the relationship between the color on an egress ENNI frame and the color of the corresponding ingress ENNI Frame or Service Frame.  For ordering, this attribute identifies if the Buyer requests Color Forwarding for this service",
-            "maxlength": 2
+            "description": "Color Forwarding is an OVC attribute defining the relationship between the color on an egress ENNI frame and the color of the corresponding ingress ENNI Frame or Service Frame.  For ordering, this attribute identifies if the Buyer requests Color Forwarding for this service"
         },
         "classOfService": {
             "type": "string",

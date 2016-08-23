@@ -38,8 +38,8 @@
         "colorMode": {
             "type": "string",
             "enum": [
-                "Color Aware",
-                "Color Blind"
+                "COLOR_AWARE",
+                "COLOR_BLIND"
             ],
             "description": "Color Mode parameter indicates whether the color-aware or color-blind property is employed by the Bandwidth Profile."
         },

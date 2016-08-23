@@ -5,7 +5,8 @@
   "description": "A reference to an existing or ordered ENNI.",
   "type": "object",
   "required": [
-      "objectType"
+      "objectType",
+      "referenceType"
   ],
   "properties": {
     "objectType": {
@@ -17,15 +18,23 @@
     },
     "referenceType": {
       "type": "string",
+      "enum": [
+        "EXISTING",
+        "ORDERED"
+      ],
       "description": "The type of the reference."
     },
-    "sellerEnniId": {
-      "type": "string",
-      "description": "The circuit identifier that the seller uses to refer to this ENNI."
-    },
-    "buyerEnniId": {
-      "type": "string",
-      "description": "The circuit identifier that the buyer uses to refer to this ENNI."
+    "enniReference": {
+      "type": "object",
+      "description": "A reference to an existing or ordered ENNI.",
+      "oneOf": [
+        {
+          "$ref": "orderedEnniReference.json#"
+        },
+        {
+          "$ref": "existingEnniReference.json#"
+        }
+      ]
     }
   }
 }

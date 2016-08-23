@@ -5,7 +5,8 @@
   "description": "A reference to an existing or ordered UNI.",
   "type": "object",
   "required": [
-      "objectType"
+      "objectType",
+      "referenceType"
   ],
   "properties": {
     "objectType": {
@@ -17,15 +18,23 @@
     },
     "referenceType": {
       "type": "string",
+      "enum": [
+        "EXISTING",
+        "ORDERED"
+      ],
       "description": "The type of the reference."
     },
-    "sellerUniId": {
-      "type": "string",
-      "description": "The circuit identifier that the seller uses to refer to this UNI."
-    },
-    "buyerUniId": {
-      "type": "string",
-      "description": "The circuit identifier that the buyer uses to refer to this UNI."
+    "uniReference": {
+      "type": "object",
+      "description": "A reference to an existing or ordered UNI.",
+      "oneOf": [
+        {
+          "$ref": "orderedUniReference.json#"
+        },
+        {
+          "$ref": "existingUniReference.json#"
+        }
+      ]
     }
   }
 }
