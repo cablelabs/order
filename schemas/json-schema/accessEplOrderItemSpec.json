@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "accessEplProduct",
-    "id": "accessEplProduct",
-    "description": "An orderable representation of an Access EPL Product. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
+    "title": "accessEplOrderItemSpec",
+    "id": "accessEplOrderItemSpec",
+    "description": "An orderable representation of an Access EPL Order Item Spec. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
     "type": "object",
     "required": [
         "objectType",
@@ -15,9 +15,9 @@
         "objectType": {
             "type": "string",
             "enum": [
-                "accessEplProduct"
+                "accessEplOrderItemSpec"
             ],
-            "description": "The type of the object, accessEplProduct."
+            "description": "The type of the object, accessEplOrderItemSpec."
         },
         "sellerOvcId": {
             "type": "string",
