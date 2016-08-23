@@ -35,14 +35,14 @@
             "maxlength": 25
         },
         "enniSvlanId" : {
-            "type": "string",
+            "type": "integer",
             "description": "The S-VLAN ID to be used for this service or the 1st value requested when a range is used.",
-            "maxlength": 4
+            "minimum": 1
         },
         "enniSvlanIdLast" : {
-            "type": "string",
+            "type": "integer",
             "description": "The last S-VLAN ID to be used for this service when a range is requested.",
-            "maxlength": 4
+            "minimum": 1
         },
         "mtuSize": {
             "type": "integer",

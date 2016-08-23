@@ -18,28 +18,28 @@
         "committedInformationRate": {
             "type": "integer",
             "description": "Defines the average rate in bits/s of Service or ENNI Frames up to which the network delivers Service or ENNI Frames and meets the performance objectives defined by the CoS.",
-            "maxlength": 4
+            "minimum": 0
         },
         "committedBurstSize": {
             "type": "integer",
             "description": "Limits the maximum number of bytes available for a burst of Service or ENNI Frames sent at the EI speed to remain CIR- onformant. MUST be >= 12176.",
-            "maxlength": 4
+            "minimum": 0
         },
         "excessInformationRate": {
             "type": "integer",
             "description": "If specified, defines the average rate in bits/s of Service or ENNI Frames up to which the network may deliver Service or Network Frames but without any performance objectives.",
-            "maxlength": 4
+            "minimum": 0
         },
         "excessBurstSize": {
             "type": "integer",
             "description": "If specified, limits the maximum number of bytes available for a burst of Service or ENNI Frames sent at the EI speed to remain EIR-conformant.",
-            "maxlength": 4
+            "minimum": 0
         },
         "colorMode": {
             "type": "string",
             "enum": [
-                "color-aware",
-                "color-blind"
+                "Color Aware",
+                "Color Blind"
             ],
             "description": "Color Mode parameter indicates whether the color-aware or color-blind property is employed by the Bandwidth Profile."
         },
