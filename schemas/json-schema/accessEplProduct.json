@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "accessEplProduct",
+    "id": "accessEplProduct",
+    "description": "An orderable representation of an Access EPL Product. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
+    "type": "object",
+    "required": [
+        "objectType",
+        "buyerOvcId",
+        "enniReference",
+        "enniSiteContact",
+        "uniReference"
+    ],
+    "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "accessEplProduct"
+            ],
+            "description": "The type of the object, accessEplProduct."
+        },
+        "sellerOvcId": {
+            "type": "string",
+            "description": "The circuit identifier that the Seller uses to refer to this OVC.",
+            "maxlength": 45
+        },
+        "buyerOvcId": {
+            "type": "string",
+            "description": "The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.",
+            "maxlength": 45
+        },
+        "productSpecification": {
+            "type": "string",
+            "description": "An identifier of the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering at the Access-EPL level.",
+            "maxlength": 25
+        },
+        "enniSvlanId" : {
+            "type": "integer",
+            "description": "The S-VLAN ID to be used for this service or the 1st value requested when a range is used.",
+            "minimum": 1
+        },
+        "enniSvlanIdLast" : {
+            "type": "integer",
+            "description": "The last S-VLAN ID to be used for this service when a range is requested.",
+            "minimum": 1
+        },
+        "mtuSize": {
+            "type": "integer",
+            "description": "The maximum transmission unit size specifies the maximum length ENNI Frame in bytes allowed at the ENNI. An integer greater or equal to 1526.",
+            "minimum": 1526
+        },
+        "colorForwardingEnabled": {
+            "type": "boolean",
+            "description": "Color Forwarding is an OVC attribute defining the relationship between the color on an egress ENNI frame and the color of the corresponding ingress ENNI Frame or Service Frame.  For ordering, this attribute identifies if the Buyer requests Color Forwarding for this service"
+        },
+        "classOfService": {
+            "type": "string",
+            "description": "The name of the service level for this Access EPL. (E.g. Gold).",
+            "maxlength": 20
+        },
+        "enniReference": {
+            "$ref": "enniReference.json#",
+            "description": "A reference to an existing ENNI (this is either a reference to an in service ENNI ID or an In-Flight/Pending Order/Order Item)"
+        },
+        "enniSiteContact": {
+            "$ref": "contact.json#",
+            "description": "The primary site contact for the ENNI site."
+        },
+        "enniSiteAlternateContact": {
+            "$ref": "contact.json#",
+            "description": "The secondary site contact for the ENNI site."
+        },
+        "enniIngressBandwidthProfile": {
+            "$ref": "bandwidthProfile.json#",
+            "description": "The ingress bandwidth profile at the ENNI end of the OVC that implements the Access EPL."
+        },
+        "uniReference": {
+            "$ref": "uniReference.json#",
+            "description": "A reference to an existing or ordered UNI."
+        },
+        "uniSiteContact": {
+            "$ref": "contact.json#",
+            "description": "The primary site contact for the UNI site. The UNI site contacts are ONLY required when the UNI is NOT on the same Order as the Access EPL."
+        },
+        "uniSiteAlternateContact": {
+            "$ref": "contact.json#",
+            "description": "The secondary site contact for the UNI site. The UNI site contacts are ONLY required when the UNI is NOT on the same Order as the Access EPL."
+        },
+        "uniIngressBandwidthProfile": {
+            "$ref": "bandwidthProfile.json#",
+            "description": "The ingress bandwidth profile at the UNI end of the OVC that implements the Access EPL."
+        }
+    }
+}

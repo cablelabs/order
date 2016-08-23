@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "orderedEnniReference",
+    "id": "orderedEnniReference",
+    "description": "A reference to an ordered ENNI. The ENNI is referenced on an Order by customer order number (PON), and order item reference.",
+    "type": "object",
+    "required": [
+        "objectType",
+        "orderItemReference"
+    ],
+    "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "orderedEnniReference"
+            ],
+            "description": "The type of the object, orderedEnniReference."
+        },
+        "orderId": {
+            "type": "string",
+            "description": "An unique identifier for an order.",
+            "maxlength": 15
+        },
+        "buyerPurchaseOrderNumber": {
+            "type": "string",
+            "description": "The purchase order number for the order that contains the referenced ENNI. This is required if the ordered ENNI is not on the same order as the orderedUniReference.",
+            "maxlength": 16
+        },
+        "orderItemReference": {
+            "type": "string",
+            "description": "The order item reference for the ENNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.",
+            "maxlength": 4
+        }
+    }
+}
