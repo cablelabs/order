@@ -32,15 +32,15 @@
         },
         "product": {
             "type": "object",
-            "description": "An orderable representation of a product.",
             "oneOf": [
                 {
-                    "$ref": "accessEplProduct.json#"
+                    "$ref": "accessEplOrderItemSpec.json#"
                 },
                 {
-                    "$ref": "uniProduct.json#"
+                    "$ref": "uniOrderItemSpec.json#"
                 }
-            ]
+            ],
+            "description": "An orderable representation of a product."
         }
     }
 }
