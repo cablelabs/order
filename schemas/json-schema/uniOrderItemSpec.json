@@ -113,7 +113,7 @@
             "enum": [
                 "CTA",
                 "CTB",
-                "CTB-2"
+                "CTB_2"
             ],
             "description": "Identifies the discard/pass action for all non-peered layer two control protocols. Enumeration: 'CTA', 'CTB' or 'CTB-2'."
         },
