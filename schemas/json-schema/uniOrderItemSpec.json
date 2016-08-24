@@ -41,18 +41,18 @@
         "physicalLayer": {
             "type": "string",
             "enum": [
-                "10BASE-T",
-                "100BASE-TX",
-                "100BASE-FX",
-                "1000BASE-T",
-                "1000BASE-SX",
-                "1000BASE-LX",
-                "10GBASE-SR",
-                "10GBASE-SW",
-                "10GBASE-LR",
-                "10GBASE-LW",
-                "10GBASE-ER",
-                "10GBASE-EW"
+                "10BASE_T",
+                "100BASE_TX",
+                "100BASE_FX",
+                "1000BASE_T",
+                "1000BASE_SX",
+                "1000BASE_LX",
+                "10GBASE_SR",
+                "10GBASE_SW",
+                "10GBASE_LR",
+                "10GBASE_LW",
+                "10GBASE_ER",
+                "10GBASE_EW"
             ],
             "description": "The layer (layer 1) that provides transparent transmission of a bit stream over a circuit built from some physical communications medium."
         },
@@ -80,15 +80,19 @@
             "description": "Indicates the maximum service frame size at the UNI ENNI level.",
             "minimum": 1522
         },
-        "serviceMultiplexing": {
+        "tokenShareEnabled": {
+            "type": "boolean",
+            "description": "Identifies whether a given UNI is capable of sharing tokens across Bandwidth Profile Flows in an Envelope. MEF valid values are Enabled or Disabled."
+        },
+        "serviceMultiplexingEnabled": {
             "type": "boolean",
             "description": "Service Multiplexing can be either Enabled or Disabled.  A value of True would equate to 'Enabled'."
         },
-        "bundling": {
+        "bundlingEnabled": {
             "type": "boolean",
             "description": "Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'."
         },
-        "allToOneBundling": {
+        "allToOneBundlingEnabled": {
             "type": "boolean",
             "description": "All-to-One Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'."
         },
