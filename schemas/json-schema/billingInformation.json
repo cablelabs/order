@@ -4,7 +4,17 @@
     "id": "billingInformation",
     "description": "A billing information to set up a new billing account.",
     "type": "object",
+    "required": [
+        "objectType"
+    ],
     "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "billingInformation"
+            ],
+            "description": "The type of the object, billingInformation."
+        },
         "existingBillingAccountNumber": {
             "type": "string",
             "description": "Identifies the billing account to which the recurring and non-recurring charges for this request will be billed.",

@@ -4,7 +4,17 @@
 	"id": "resourceReference",
 	"description": "A reference to a resource, including it's ID, type, and a link to retrieve the resource.",
 	"type": "object",
+    "required": [
+        "objectType"
+    ],
 	"properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "resourceReference"
+            ],
+            "description": "The type of the object, resourceReference."
+        },
 		"id": {
 			"type": "string",
 			"description": "The resource's unique identifier."

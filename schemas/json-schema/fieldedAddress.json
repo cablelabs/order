@@ -4,7 +4,17 @@
   "id": "fieldedAddress",
   "description": "A full representation of an address, as well as geocoding reference for the property.",
   "type": "object",
+  "required": [
+    "objectType"
+  ],
   "properties": {
+    "objectType": {
+      "type": "string",
+      "enum": [
+        "fieldedAddress"
+      ],
+      "description": "The type of the object, fieldedAddress."
+    },
     "streetNr": {
       "type": "string",
       "description": "Number identifying a specific property on a public street. It may be combined with streetNrLast for ranged addresses.",

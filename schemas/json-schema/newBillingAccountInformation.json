@@ -5,10 +5,18 @@
     "description": "A billing account information represents contact and address information of a billing account.",
     "type": "object",
     "required": [
+        "objectType",
         "contact",
         "address"
     ],
     "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "newBillingAccountInformation"
+            ],
+            "description": "The type of the object, newBillingAccountInformation."
+        },
         "contact": {
             "$ref": "contact.json#",
             "description": "Identifies the information of the person or office to be contacted on billing matters."

@@ -4,8 +4,19 @@
   "id": "link",
   "description": "Specifies relationships between the current document and an external resource.",
   "type": "object",
-  "required": [ "href", "rel" ],
+  "required": [
+    "objectType",
+    "href",
+    "rel"
+  ],
   "properties": {
+    "objectType": {
+      "type": "string",
+      "enum": [
+        "link"
+      ],
+      "description": "The type of the object, link."
+    },
     "href": {
       "type": "string",
       "description": "A URL. Specifies the location of the linked document."

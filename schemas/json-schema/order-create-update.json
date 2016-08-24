@@ -5,6 +5,7 @@
     "description": "A representation of an Order, used only for creating and updating an Order.",
     "type": "object",
     "required": [
+        "objectType",
         "buyerId",
         "sellerId",
         "buyerPurchaseOrderNumber",
@@ -16,6 +17,13 @@
         "orderType"
     ],
     "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "order-create-update"
+            ],
+            "description": "The type of the object, order-create-update."
+        },
         "buyerId": {
             "type": "string",
             "description": "A Party Role played by an Individual or an Organization that buys products and services from a Seller. Specifically, the ID of the Service Provider (Buyer) organization placing the order.",
