@@ -4,7 +4,17 @@
   "id": "formattedAddress",
   "description": "A structured textual way of describing how to find an address, using unformatted strings for the street address.",
   "type": "object",
+  "required": [
+    "objectType"
+  ],
   "properties": {
+    "objectType": {
+      "type": "string",
+      "enum": [
+        "formattedAddress"
+      ],
+      "description": "The type of the object, formattedAddress."
+    },
     "formattedAddressLine1": {
       "type": "string",
       "description": "A formatted address line that contains a non-fielded street address.",

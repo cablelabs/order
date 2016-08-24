@@ -5,11 +5,19 @@
     "description": "Represents a contact.",
     "type": "object",
     "required": [
+        "objectType",
         "name",
         "telephoneNumber",
         "email"
     ],
     "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "contact"
+            ],
+            "description": "The type of the object, contact."
+        },
         "name": {
             "type": "string",
             "description": "Identifies the name of the person or office.",
