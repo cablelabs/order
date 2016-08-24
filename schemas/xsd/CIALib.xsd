@@ -7,7 +7,7 @@
       <xs:element minOccurs="0" name="orderList" type="CIALib:orderList"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="accessEplProduct">
+  <xs:complexType name="accessEplOrderItemSpec">
     <xs:sequence>
       <xs:element minOccurs="0" name="sellerOvcId" type="xs:string">
         <xs:annotation>
@@ -1107,8 +1107,8 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="accessEplProduct" type="CIALib:accessEplProduct"/>
-            <xs:element name="uniProduct" type="CIALib:uniProduct"/>
+            <xs:element name="accessEplOrderItemSpec" type="CIALib:accessEplOrderItemSpec"/>
+            <xs:element name="uniOrderItemSpec" type="CIALib:uniOrderItemSpec"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -1196,6 +1196,183 @@
       <xs:element minOccurs="0" name="link" type="CIALib:link">
         <xs:annotation>
           <xs:documentation>A link for accessing the resource.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceSiteInformation">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="siteCompanyName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The name of the company that is located at the Service location. This may be different from the name of the Customer that ordered services at that Service Site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="customerName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The name of the end (retail) customer for the UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="siteAddress">
+        <xs:annotation>
+          <xs:documentation>A property address for the site. Either a Site Address, a Site Code or a Site Gorgraphic Point must be specified.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="formattedAddress" type="CIALib:formattedAddress"/>
+            <xs:element name="fieldedAddress" type="CIALib:fieldedAddress"/>
+            <xs:element name="geographicPoint" type="CIALib:geographicPoint"/>
+            <xs:element name="addressReference" type="CIALib:addressReference"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="additionalSiteInformation" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Additional information about the Site. Equates to the ASR AAI field.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="siteContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The primary site contact for the site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="siteAlternateContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The secondary site contact for the site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uniOrderItemSpec">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sellerUniId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerUniId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="productSpecification" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An identifier of the sellers product specification (product catalog item) that the buyer is ordering. This is optional, and specified if known to assist the seller in identifying the exact Access EPL Product that is being ordered.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerOrderReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>When the Seller has not yet assigned the Seller UNI Identifier, this field identifies the in-flight Order associated with this UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="physicalLayer">
+        <xs:annotation>
+          <xs:documentation>The layer (layer 1) that provides transparent transmission of a bit stream over a circuit built from some physical communications medium.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="10BASE_T"/>
+            <xs:enumeration value="100BASE_TX"/>
+            <xs:enumeration value="100BASE_FX"/>
+            <xs:enumeration value="1000BASE_T"/>
+            <xs:enumeration value="1000BASE_SX"/>
+            <xs:enumeration value="1000BASE_LX"/>
+            <xs:enumeration value="10GBASE_SR"/>
+            <xs:enumeration value="10GBASE_SW"/>
+            <xs:enumeration value="10GBASE_LR"/>
+            <xs:enumeration value="10GBASE_LW"/>
+            <xs:enumeration value="10GBASE_ER"/>
+            <xs:enumeration value="10GBASE_EW"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="synchronousModeEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Identifies if the synchronous transmissions are to proceed at a constant rate.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="numberOfLinks">
+        <xs:annotation>
+          <xs:documentation>The number of links supporting the UNI.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniResiliency">
+        <xs:annotation>
+          <xs:documentation>Indicates UNI resiliency and corresponding value.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="2_LINK_ACTIVE_STANDBY"/>
+            <xs:enumeration value="ALL_ACTIVE"/>
+            <xs:enumeration value="OTHER"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="maxServiceFrameSize">
+        <xs:annotation>
+          <xs:documentation>Indicates the maximum service frame size at the UNI ENNI level.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1522"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="tokenShareEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Identifies whether a given UNI is capable of sharing tokens across Bandwidth Profile Flows in an Envelope. MEF valid values are Enabled or Disabled.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="serviceMultiplexingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Service Multiplexing can be either Enabled or Disabled.  A value of True would equate to 'Enabled'.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="bundlingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="allToOneBundlingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>All-to-One Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="linkOamEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Link OAM enables the operator to monitor and troubleshoot a single Ethernet link. For ordering, this is an optional parameter that may be requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniMegEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Request for monitoring of a UNI. For ordering, this is an optional parameter that may be requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="elmiEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Indicates the desire for management of the customer interface. For ordering, this is an optional parameter that may be requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniL2cpAddressSet">
+        <xs:annotation>
+          <xs:documentation>Identifies the discard/pass action for all non-peered layer two control protocols. Enumeration: 'CTA', 'CTB' or 'CTB-2'.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CTA"/>
+            <xs:enumeration value="CTB"/>
+            <xs:enumeration value="CTB_2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="serviceSiteInformation" type="CIALib:serviceSiteInformation">
+        <xs:annotation>
+          <xs:documentation>The service site for the UNI.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
