@@ -154,7 +154,7 @@
         "orderItems":{
             "type": "array",
             "items": {
-                "$ref": "#/definitions/orderItem"
+                "$ref": "orderItem.json#"
             },
             "description": "The line items being ordered (added, removed, or modified) on this order."
         }
