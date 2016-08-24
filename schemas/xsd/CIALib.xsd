@@ -1,0 +1,1229 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:CIALib="http://cableapi.cablelabs.com/schemas/v2" elementFormDefault="qualified" targetNamespace="http://cableapi.cablelabs.com/schemas/v2">
+  <xs:element name="cialib" type="CIALib:cialib"/>
+  <xs:complexType name="cialib">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="order" type="CIALib:order"/>
+      <xs:element minOccurs="0" name="order-create-update" type="CIALib:order-create-update"/>
+      <xs:element minOccurs="0" name="orderList" type="CIALib:orderList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accessEplProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sellerOvcId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the Seller uses to refer to this OVC.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerOvcId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="productSpecification" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An identifier of the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering at the Access-EPL level.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="enniSvlanId">
+        <xs:annotation>
+          <xs:documentation>The S-VLAN ID to be used for this service or the 1st value requested when a range is used.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="enniSvlanIdLast">
+        <xs:annotation>
+          <xs:documentation>The last S-VLAN ID to be used for this service when a range is requested.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="mtuSize">
+        <xs:annotation>
+          <xs:documentation>The maximum transmission unit size specifies the maximum length ENNI Frame in bytes allowed at the ENNI. An integer greater or equal to 1526.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1526"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="colorForwardingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Color Forwarding is an OVC attribute defining the relationship between the color on an egress ENNI frame and the color of the corresponding ingress ENNI Frame or Service Frame.  For ordering, this attribute identifies if the Buyer requests Color Forwarding for this service</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="classOfService" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The name of the service level for this Access EPL. (E.g. Gold).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="enniReference" type="CIALib:enniReference">
+        <xs:annotation>
+          <xs:documentation>A reference to an existing ENNI (this is either a reference to an in service ENNI ID or an In-Flight/Pending Order/Order Item)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="enniSiteContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The primary site contact for the ENNI site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="enniSiteAlternateContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The secondary site contact for the ENNI site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="enniIngressBandwidthProfile" type="CIALib:bandwidthProfile">
+        <xs:annotation>
+          <xs:documentation>The ingress bandwidth profile at the ENNI end of the OVC that implements the Access EPL.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="uniReference" type="CIALib:uniReference">
+        <xs:annotation>
+          <xs:documentation>A reference to an existing or ordered UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniSiteContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The primary site contact for the UNI site. The UNI site contacts are ONLY required when the UNI is NOT on the same Order as the Access EPL.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniSiteAlternateContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The secondary site contact for the UNI site. The UNI site contacts are ONLY required when the UNI is NOT on the same Order as the Access EPL.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniIngressBandwidthProfile" type="CIALib:bandwidthProfile">
+        <xs:annotation>
+          <xs:documentation>The ingress bandwidth profile at the UNI end of the OVC that implements the Access EPL.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addressReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="referenceType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The type of the reference.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="reference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The reference can be used to identify an address.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bandwidthProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="committedInformationRate">
+        <xs:annotation>
+          <xs:documentation>Defines the average rate in bits/s of Service or ENNI Frames up to which the network delivers Service or ENNI Frames and meets the performance objectives defined by the CoS.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="committedBurstSize">
+        <xs:annotation>
+          <xs:documentation>Limits the maximum number of bytes available for a burst of Service or ENNI Frames sent at the EI speed to remain CIR- onformant. MUST be &gt;= 12176.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="excessInformationRate">
+        <xs:annotation>
+          <xs:documentation>If specified, defines the average rate in bits/s of Service or ENNI Frames up to which the network may deliver Service or Network Frames but without any performance objectives.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="excessBurstSize">
+        <xs:annotation>
+          <xs:documentation>If specified, limits the maximum number of bytes available for a burst of Service or ENNI Frames sent at the EI speed to remain EIR-conformant.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="colorMode">
+        <xs:annotation>
+          <xs:documentation>Color Mode parameter indicates whether the color-aware or color-blind property is employed by the Bandwidth Profile.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="COLOR_AWARE"/>
+            <xs:enumeration value="COLOR_BLIND"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="couplingFlag" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>The Coupling Flag allows the choice between two modes of operation of the Bandwidth Profile algorithm.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="billingInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="existingBillingAccountNumber">
+        <xs:annotation>
+          <xs:documentation>Identifies the billing account to which the recurring and non-recurring charges for this request will be billed.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="13"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="newBillingAccountInformation" type="CIALib:newBillingAccountInformation">
+        <xs:annotation>
+          <xs:documentation>Identifies the information of a new billing account.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contact">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="name">
+        <xs:annotation>
+          <xs:documentation>Identifies the name of the person or office.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="telephoneNumber">
+        <xs:annotation>
+          <xs:documentation>Identifies the telephone number (excluding extension) of the Contact.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="telephoneNumberExt">
+        <xs:annotation>
+          <xs:documentation>Identifies the telephone number extension of the Contact.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="email">
+        <xs:annotation>
+          <xs:documentation>Identifies the electronic mail address of the Contact.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="enniReference">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="referenceType">
+        <xs:annotation>
+          <xs:documentation>The type of the reference.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="EXISTING"/>
+            <xs:enumeration value="ORDERED"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="enniReference">
+        <xs:annotation>
+          <xs:documentation>A reference to an existing or ordered ENNI.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="orderedEnniReference" type="CIALib:orderedEnniReference"/>
+            <xs:element name="existingEnniReference" type="CIALib:existingEnniReference"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existingEnniReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sellerEnniId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the seller uses to refer to this ENNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerEnniId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the buyer uses to refer to this ENNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existingUniReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sellerUniId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerUniId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldedAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="streetNr">
+        <xs:annotation>
+          <xs:documentation>Number identifying a specific property on a public street. It may be combined with streetNrLast for ranged addresses.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="streetNrSuffix">
+        <xs:annotation>
+          <xs:documentation>The suffix of the first street number (in a street number range) or the suffix for the street number if there is no range.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="streetNrLast">
+        <xs:annotation>
+          <xs:documentation>Last number in a range of street numbers allocated to an address.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="streetName">
+        <xs:annotation>
+          <xs:documentation>The name of the street or other street type.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="streetType">
+        <xs:annotation>
+          <xs:documentation>The type of street (e.g., Street, St., Road, Rd., Alley).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="streetSuffix">
+        <xs:annotation>
+          <xs:documentation>A modifier denoting a relative direction.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="subUnitType">
+        <xs:annotation>
+          <xs:documentation>The type of subunit (e.g., Flat, Suite, Tower, Unit).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="subUnitNr">
+        <xs:annotation>
+          <xs:documentation>The discriminator used for the subunit, often just a sumple number but may also be a range.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="levelType">
+        <xs:annotation>
+          <xs:documentation>Describes level types within a building (e.g., Floor).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="levelNr">
+        <xs:annotation>
+          <xs:documentation>Used where a level type may be repeated (e.g., BASEMENT 1, BASEMENT 2).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="buildingName">
+        <xs:annotation>
+          <xs:documentation>Allows for buildings with well-known names to be used in an address.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="privateStreetName">
+        <xs:annotation>
+          <xs:documentation>Private streets internal to a property (e.g., a university) with an internal name not recorded by the land title office.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="locality">
+        <xs:annotation>
+          <xs:documentation>A bounded locality within a city, town or shire principally of urban character.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="city">
+        <xs:annotation>
+          <xs:documentation>The city that the address is in.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="stateOrProvince">
+        <xs:annotation>
+          <xs:documentation>The state or province that the address is in.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="postcode">
+        <xs:annotation>
+          <xs:documentation>A descriptor for a postal delivery area, used to speed and simplify the delivery of mail.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="postcodeExtension">
+        <xs:annotation>
+          <xs:documentation>The four-digit extension on an American postal code, what comes after the hyphen when specified.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="country">
+        <xs:annotation>
+          <xs:documentation>The country that the address is in.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formattedAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formattedAddressLine1">
+        <xs:annotation>
+          <xs:documentation>A formatted address line that contains a non-fielded street address.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="formattedAddressLine2">
+        <xs:annotation>
+          <xs:documentation>A formatted address line that contains a non-fielded street address, sub-address (e.g. Suite number), etc.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="locality">
+        <xs:annotation>
+          <xs:documentation>A bounded locality within a city, town or shire principally of urban character.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="city">
+        <xs:annotation>
+          <xs:documentation>City that the address is in.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="stateOrProvince">
+        <xs:annotation>
+          <xs:documentation>The state or province that the address is in.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="postcode">
+        <xs:annotation>
+          <xs:documentation>A descriptor for a postal delivery area, used to speed and simplify the delivery of mail.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="postcodeExtension">
+        <xs:annotation>
+          <xs:documentation>The four-digit extension on an American postal code, what comes after the hyphen when specified.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="country">
+        <xs:annotation>
+          <xs:documentation>The country that the address is in.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="geographicPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="latitude" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Latitude of the point.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="longitude" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Longitude of the point.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="geographicDatum" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Geocoding Referential.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="link">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="href" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A URL. Specifies the location of the linked document.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="rel" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the relationship between the current document and the linked document.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="title" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Provide additional / advisory information (expand on the meaning of the link).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="method">
+        <xs:annotation>
+          <xs:documentation>Specifies how to send the data (e.g. get, post).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="get"/>
+            <xs:enumeration value="post"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the media type of the linked document.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="newBillingAccountInformation">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="contact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>Identifies the information of the person or office to be contacted on billing matters.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="address">
+        <xs:annotation>
+          <xs:documentation>Identifies a property address or postal delivery address.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="formattedAddress" type="CIALib:formattedAddress"/>
+            <xs:element name="fieldedAddress" type="CIALib:fieldedAddress"/>
+            <xs:element name="geographicPoint" type="CIALib:geographicPoint"/>
+            <xs:element name="addressReference" type="CIALib:addressReference"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="order-create-update">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="buyerId">
+        <xs:annotation>
+          <xs:documentation>A Party Role played by an Individual or an Organization that buys products and services from a Seller. Specifically, the ID of the Service Provider (Buyer) organization placing the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="sellerId">
+        <xs:annotation>
+          <xs:documentation>services to a buyer. Specifically, the ID of the Partner/Access Provider (Seller) organization receiving the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerPurchaseOrderNumber">
+        <xs:annotation>
+          <xs:documentation>A number that uniquely identifies a order within the buyer's enterprise.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerOrderVersion">
+        <xs:annotation>
+          <xs:documentation>The version number that the Buyer uses to refer to this particular version of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Date when the order was created.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderActivity">
+        <xs:annotation>
+          <xs:documentation>The type of order, as defined by the business (e.g.,install, change, disconnect).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Install"/>
+            <xs:enumeration value="Change"/>
+            <xs:enumeration value="Disconnect"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="status">
+        <xs:annotation>
+          <xs:documentation>The status of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Acknowledged"/>
+            <xs:enumeration value="In Progress"/>
+            <xs:enumeration value="Cancelled"/>
+            <xs:enumeration value="Completed"/>
+            <xs:enumeration value="Rejected"/>
+            <xs:enumeration value="Pending"/>
+            <xs:enumeration value="Held"/>
+            <xs:enumeration value="Failed"/>
+            <xs:enumeration value="Partial"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="desiredResponses">
+        <xs:annotation>
+          <xs:documentation>The type of order responses that the buyer wishes to receive from the seller.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Confirmation Only"/>
+            <xs:enumeration value="Confirmation And Engineering Design"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="projectId">
+        <xs:annotation>
+          <xs:documentation>An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="requestedCompletionDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Identifies the buyer's desired due date (requested delivery date) formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="requestedStartDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="priority" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="billingInfo" type="CIALib:billingInformation">
+        <xs:annotation>
+          <xs:documentation>An existing billing information to set up a new billing account.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerOrderContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The contact information for the buyer of this order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerImplementationContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The contact information for the implementation of this order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerTechnicalContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The technical contact information for this order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="pricingMethod">
+        <xs:annotation>
+          <xs:documentation>The pricing authority to be used to price the products on this order. Choice of Tariff, Contract, Individual Case Basis (ICB), Other.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Contract"/>
+            <xs:enumeration value="Tariff"/>
+            <xs:enumeration value="ICB"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pricingReference">
+        <xs:annotation>
+          <xs:documentation>The value associated with the Pricing Method selected (e.g. a contract or tariff id).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pricingTerm" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The length of the service contract in months. Example: 12, 60, 120.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="promotionId">
+        <xs:annotation>
+          <xs:documentation>A set of characters identifying a promotion. Company specific.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="18"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderType">
+        <xs:annotation>
+          <xs:documentation>Identifies the type of MEF service or service component that is being ordered.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="UNI Product"/>
+            <xs:enumeration value="Access EPL Product"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes">
+        <xs:annotation>
+          <xs:documentation>Free form text used to clarify or explain the Order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="300"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="serviceabilityResponse" type="CIALib:resourceReference">
+        <xs:annotation>
+          <xs:documentation>Value that associates this order with a previously assigned serviceability response.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="orderItems">
+        <xs:annotation>
+          <xs:documentation>The line items being ordered (added, removed, or modified) on this order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItem" type="CIALib:orderItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="order">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="id">
+        <xs:annotation>
+          <xs:documentation>Unique identifier for the order that is generated by the Seller when the order is initially accepted via an API.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="link" type="CIALib:link">
+        <xs:annotation>
+          <xs:documentation>A self referencing link to the order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerId">
+        <xs:annotation>
+          <xs:documentation>A Party Role played by an Individual or an Organization that buys products and services from a Seller. Specifically, the ID of the Service Provider (Buyer) organization placing the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="sellerId">
+        <xs:annotation>
+          <xs:documentation>services to a buyer. Specifically, the ID of the Partner/Access Provider (Seller) organization receiving the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerPurchaseOrderNumber">
+        <xs:annotation>
+          <xs:documentation>A number that uniquely identifies a order within the buyer's enterprise.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerOrderVersion">
+        <xs:annotation>
+          <xs:documentation>The version number that the Buyer uses to refer to this particular version of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Date when the order was created.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderActivity">
+        <xs:annotation>
+          <xs:documentation>The type of order, as defined by the business (e.g.,install, change, disconnect).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Install"/>
+            <xs:enumeration value="Change"/>
+            <xs:enumeration value="Disconnect"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="status">
+        <xs:annotation>
+          <xs:documentation>The status of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Acknowledged"/>
+            <xs:enumeration value="In Progress"/>
+            <xs:enumeration value="Cancelled"/>
+            <xs:enumeration value="Completed"/>
+            <xs:enumeration value="Rejected"/>
+            <xs:enumeration value="Pending"/>
+            <xs:enumeration value="Held"/>
+            <xs:enumeration value="Failed"/>
+            <xs:enumeration value="Partial"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="desiredResponses">
+        <xs:annotation>
+          <xs:documentation>The type of order responses that the buyer wishes to receive from the seller.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Confirmation Only"/>
+            <xs:enumeration value="Confirmation And Engineering Design"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="projectId">
+        <xs:annotation>
+          <xs:documentation>An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="requestedCompletionDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Identifies the buyer's desired due date (requested delivery date) formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="requestedStartDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="priority" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="billingInfo" type="CIALib:billingInformation">
+        <xs:annotation>
+          <xs:documentation>An existing billing information to set up a new billing account.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerOrderContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The contact information for the buyer of this order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerImplementationContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The contact information for the implementation of this order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerTechnicalContact" type="CIALib:contact">
+        <xs:annotation>
+          <xs:documentation>The technical contact information for this order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="pricingMethod">
+        <xs:annotation>
+          <xs:documentation>The pricing authority to be used to price the products on this order. Choice of Tariff, Contract, Individual Case Basis (ICB), Other.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Contract"/>
+            <xs:enumeration value="Tariff"/>
+            <xs:enumeration value="ICB"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pricingReference">
+        <xs:annotation>
+          <xs:documentation>The value associated with the Pricing Method selected (e.g. a contract or tariff id).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pricingTerm" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The length of the service contract in months. Example: 12, 60, 120.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="promotionId">
+        <xs:annotation>
+          <xs:documentation>A set of characters identifying a promotion. Company specific.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="18"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderType">
+        <xs:annotation>
+          <xs:documentation>Identifies the type of MEF service or service component that is being ordered.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="UNI Product"/>
+            <xs:enumeration value="Access EPL Product"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes">
+        <xs:annotation>
+          <xs:documentation>Free form text used to clarify or explain the Order.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="300"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="serviceabilityResponse" type="CIALib:resourceReference">
+        <xs:annotation>
+          <xs:documentation>Value that associates this order with a previously assigned serviceability response.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="orderItems">
+        <xs:annotation>
+          <xs:documentation>The line items being ordered (added, removed, or modified) on this order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItem" type="CIALib:orderItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="quantity" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The quantity for the order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="action">
+        <xs:annotation>
+          <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Install"/>
+            <xs:enumeration value="Change"/>
+            <xs:enumeration value="Disconnect"/>
+            <xs:enumeration value="No Change"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="product">
+        <xs:annotation>
+          <xs:documentation>An orderable representation of a product.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="accessEplProduct" type="CIALib:accessEplProduct"/>
+            <xs:element name="uniProduct" type="CIALib:uniProduct"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="available" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>The number of items available for this list.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="returned" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>The number of items returned for this list.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="link" type="CIALib:link">
+        <xs:annotation>
+          <xs:documentation>A self referencing link to the Order list.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="orders">
+        <xs:annotation>
+          <xs:documentation>An array of Order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="order" type="CIALib:order"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderedEnniReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orderId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An unique identifier for an order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerPurchaseOrderNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The purchase order number for the order that contains the referenced ENNI. This is required if the ordered ENNI is not on the same order as the orderedUniReference.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The order item reference for the ENNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderedUniReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="orderId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An unique identifier for an order.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerPurchaseOrderNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The purchase order number for the order that contains the referenced UNI. This is required if the ordered UNI is not on the same order as the orderedUniReference.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The order item reference for the UNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resourceReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The resource's unique identifier.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Specifies the type for the referenced resource.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="link" type="CIALib:link">
+        <xs:annotation>
+          <xs:documentation>A link for accessing the resource.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uniReference">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="referenceType">
+        <xs:annotation>
+          <xs:documentation>The type of the reference.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="EXISTING"/>
+            <xs:enumeration value="ORDERED"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniReference">
+        <xs:annotation>
+          <xs:documentation>A reference to an existing or ordered UNI.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="orderedUniReference" type="CIALib:orderedUniReference"/>
+            <xs:element name="existingUniReference" type="CIALib:existingUniReference"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
