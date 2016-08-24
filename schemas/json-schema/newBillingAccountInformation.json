@@ -15,10 +15,18 @@
         },
         "address": {
             "oneOf": [
-                {"$ref": "formattedAddress.json#"},
-                {"$ref": "fieldedAddress.json#"},
-                {"$ref": "geographicPoint.json#"},
-                {"$ref": "addressReference.json#"}
+                {
+                    "$ref": "formattedAddress.json#"
+                },
+                {
+                    "$ref": "fieldedAddress.json#"
+                },
+                {
+                    "$ref": "geographicPoint.json#"
+                },
+                {
+                    "$ref": "addressReference.json#"
+                }
             ],
             "description": "Identifies a property address or postal delivery address."
         }
