@@ -52,33 +52,33 @@
         "orderActivity": {
             "type": "string",
             "enum": [
-                "Install",
-                "Change",
-                "Disconnect"
+                "INSTALL",
+                "CHANGE",
+                "DISCONNECT"
             ],
             "description": "The type of order, as defined by the business (e.g.,install, change, disconnect)."
         },
         "status": {
             "type": "string",
             "enum": [
-                "Acknowledged",
-                "In Progress",
-                "Cancelled",
-                "Completed",
-                "Rejected",
-                "Pending",
-                "Held",
-                "Failed",
-                "Partial"
+                "ACKNOWLEDGED",
+                "IN_PROGRESS",
+                "CANCELLED",
+                "COMPLETED",
+                "REJECTED",
+                "PENDING",
+                "HELD",
+                "FAILED",
+                "PARTIAL"
             ],
             "description": "The status of the order."
         },
         "desiredResponses": {
             "type": "string",
             "enum": [
-                "None",
-                "Confirmation Only",
-                "Confirmation And Engineering Design"
+                "NONE",
+                "CONFIRMATION_ONLY",
+                "CONFIRMATION_AND_ENGINEERING_DESIGN"
             ],
             "description": "The type of order responses that the buyer wishes to receive from the seller."
         },
@@ -120,10 +120,10 @@
         "pricingMethod": {
             "type": "string",
             "enum": [
-                "Contract",
-                "Tariff",
+                "CONTRACT",
+                "TARIFF",
                 "ICB",
-                "Other"
+                "OTHER"
             ],
             "description": "The pricing authority to be used to price the products on this order. Choice of Tariff, Contract, Individual Case Basis (ICB), Other."
         },
@@ -145,8 +145,8 @@
         "orderType": {
             "type": "string",
             "enum": [
-                "UNI Product",
-                "Access EPL Product"
+                "UNI_PRODUCT",
+                "ACCESS_EPL_PRODUCT"
             ],
             "description": "Identifies the type of MEF service or service component that is being ordered."
         },
