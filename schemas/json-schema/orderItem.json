@@ -31,10 +31,10 @@
         "action": {
             "type": "string",
             "enum": [
-                "Install",
-                "Change",
-                "Disconnect",
-                "No Change"
+                "INSTALL",
+                "CHANGE",
+                "DISCONNECT",
+                "NO_CHANGE"
             ],
             "description": "The action to be taken for this order item (E.g. Install, Change)."
         },
