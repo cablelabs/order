@@ -694,9 +694,9 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Install"/>
-            <xs:enumeration value="Change"/>
-            <xs:enumeration value="Disconnect"/>
+            <xs:enumeration value="INSTALL"/>
+            <xs:enumeration value="CHANGE"/>
+            <xs:enumeration value="DISCONNECT"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -706,15 +706,15 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Acknowledged"/>
-            <xs:enumeration value="In Progress"/>
-            <xs:enumeration value="Cancelled"/>
-            <xs:enumeration value="Completed"/>
-            <xs:enumeration value="Rejected"/>
-            <xs:enumeration value="Pending"/>
-            <xs:enumeration value="Held"/>
-            <xs:enumeration value="Failed"/>
-            <xs:enumeration value="Partial"/>
+            <xs:enumeration value="ACKNOWLEDGED"/>
+            <xs:enumeration value="IN_PROGRESS"/>
+            <xs:enumeration value="CANCELLED"/>
+            <xs:enumeration value="COMPLETED"/>
+            <xs:enumeration value="REJECTED"/>
+            <xs:enumeration value="PENDING"/>
+            <xs:enumeration value="HELD"/>
+            <xs:enumeration value="FAILED"/>
+            <xs:enumeration value="PARTIAL"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -724,9 +724,9 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="None"/>
-            <xs:enumeration value="Confirmation Only"/>
-            <xs:enumeration value="Confirmation And Engineering Design"/>
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="CONFIRMATION_ONLY"/>
+            <xs:enumeration value="CONFIRMATION_AND_ENGINEERING_DESIGN"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -781,10 +781,10 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Contract"/>
-            <xs:enumeration value="Tariff"/>
+            <xs:enumeration value="CONTRACT"/>
+            <xs:enumeration value="TARIFF"/>
             <xs:enumeration value="ICB"/>
-            <xs:enumeration value="Other"/>
+            <xs:enumeration value="OTHER"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -819,8 +819,8 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="UNI Product"/>
-            <xs:enumeration value="Access EPL Product"/>
+            <xs:enumeration value="UNI"/>
+            <xs:enumeration value="ACCESS_EPL"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -919,9 +919,9 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Install"/>
-            <xs:enumeration value="Change"/>
-            <xs:enumeration value="Disconnect"/>
+            <xs:enumeration value="INSTALL"/>
+            <xs:enumeration value="CHANGE"/>
+            <xs:enumeration value="DISCONNECT"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -931,15 +931,15 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Acknowledged"/>
-            <xs:enumeration value="In Progress"/>
-            <xs:enumeration value="Cancelled"/>
-            <xs:enumeration value="Completed"/>
-            <xs:enumeration value="Rejected"/>
-            <xs:enumeration value="Pending"/>
-            <xs:enumeration value="Held"/>
-            <xs:enumeration value="Failed"/>
-            <xs:enumeration value="Partial"/>
+            <xs:enumeration value="ACKNOWLEDGED"/>
+            <xs:enumeration value="IN_PROGRESS"/>
+            <xs:enumeration value="CANCELLED"/>
+            <xs:enumeration value="COMPLETED"/>
+            <xs:enumeration value="REJECTED"/>
+            <xs:enumeration value="PENDING"/>
+            <xs:enumeration value="HELD"/>
+            <xs:enumeration value="FAILED"/>
+            <xs:enumeration value="PARTIAL"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -949,9 +949,9 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="None"/>
-            <xs:enumeration value="Confirmation Only"/>
-            <xs:enumeration value="Confirmation And Engineering Design"/>
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="CONFIRMATION_ONLY"/>
+            <xs:enumeration value="CONFIRMATION_AND_ENGINEERING_DESIGN"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1006,10 +1006,10 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Contract"/>
-            <xs:enumeration value="Tariff"/>
+            <xs:enumeration value="CONTRACT"/>
+            <xs:enumeration value="TARIFF"/>
             <xs:enumeration value="ICB"/>
-            <xs:enumeration value="Other"/>
+            <xs:enumeration value="OTHER"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1044,8 +1044,8 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="UNI Product"/>
-            <xs:enumeration value="Access EPL Product"/>
+            <xs:enumeration value="UNI"/>
+            <xs:enumeration value="ACCESS_EPL"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1094,10 +1094,10 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Install"/>
-            <xs:enumeration value="Change"/>
-            <xs:enumeration value="Disconnect"/>
-            <xs:enumeration value="No Change"/>
+            <xs:enumeration value="INSTALL"/>
+            <xs:enumeration value="CHANGE"/>
+            <xs:enumeration value="DISCONNECT"/>
+            <xs:enumeration value="NO_CHANGE"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
