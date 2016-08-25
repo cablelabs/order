@@ -155,8 +155,8 @@
         "orderType": {
             "type": "string",
             "enum": [
-                "UNI_PRODUCT",
-                "ACCESS_EPL_PRODUCT"
+                "UNI",
+                "ACCESS_EPL"
             ],
             "description": "Identifies the type of MEF service or service component that is being ordered."
         },
