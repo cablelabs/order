@@ -1,0 +1,34 @@
+{
+  "/order-notifications": {
+    "post": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Create a new Order Notification.",
+      "description": "This service creates a new Order Notification.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "body",
+          "description": "",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/orderNotification"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Instance created."
+        },
+        "405": {
+          "description": "Invalid input."
+        }
+      }
+    }
+  }
+}

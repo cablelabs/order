@@ -1,0 +1,143 @@
+{
+  "/order-notifications/{id}": {
+    "get": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Find an Order Notification.",
+      "description": "This service looks up an Order Notification.",
+      "displayName": "Order Notification",
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "ID of Order Notification that needs to be fetched.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "view",
+          "description": "View of the resource that you want to get.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful operation.",
+          "schema": {
+            "$ref": "#/definitions/orderNotification"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        }
+      }
+    },
+    "put": {
+      "tags": [
+          "Order"
+      ],
+      "summary": "Update the Order Notification by replacing the Order Notification data with the instance provided.",
+      "description": "This service updates an existing Order Notification based on its ID by replacing the Order Notification with the instance provided.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "ID of instance that needs to be updated.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "data",
+          "description": "Resource instance data.",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/orderNotification"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK (instance updated).",
+          "schema": {
+            "$ref": "#/definitions/orderNotification"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        }
+      }
+    },
+    "patch": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Partially update an existing Order Notification based on its ID.",
+      "description": "This service partially updates an existing Order Notification based on its ID.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "ID of Order that needs to be patched.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "body",
+          "name": "body",
+          "description": "Resource instance data.",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/orderNotification"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Instance updated.",
+          "schema": {
+            "$ref": "#/definitions/orderNotification"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        },
+        "405": {
+          "description": "Invalid input."
+        }
+      }
+    }
+  }
+}
