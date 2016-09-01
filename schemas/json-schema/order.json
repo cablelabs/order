@@ -170,10 +170,18 @@
             "description": "Value that associates this order with a previously assigned serviceability response."
         },
         "orderItems":{
-            "type": "array",
-            "items": {
-                "$ref": "orderItem.json#"
-            },
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "accessEplOrderItem.json#"
+                },
+                {
+                    "$ref": "uniOrderItem.json#"
+                },
+                {
+                    "$ref": "disconnectOrderItem.json#"
+                }
+            ],
             "description": "The line items being ordered (added, removed, or modified) on this order."
         }
     }

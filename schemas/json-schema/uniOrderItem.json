@@ -1,11 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "uniOrderItemSpec",
-    "id": "uniOrderItemSpec",
-    "description": "An orderable representation of a UNI Order Item Spec. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
+    "title": "uniOrderItem",
+    "id": "uniOrderItem",
+    "description": "An orderable representation of a UNI Order Item. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
     "type": "object",
     "required": [
         "objectType",
+        "orderItemReference",
+        "quantity",
+        "action",
         "buyerUniId",
         "physicalLayer",
         "serviceSiteInformation"
@@ -14,9 +17,27 @@
         "objectType": {
             "type": "string",
             "enum": [
-                "uniOrderItemSpec"
+                "uniOrderItem"
             ],
-            "description": "The type of the object, uniOrderItemSpec."
+            "description": "The type of the object, uniOrderItem."
+        },
+        "orderItemReference": {
+            "type": "string",
+            "description": "A reference number that can be used to refer to this order item.",
+            "maxlength": 4
+        },
+        "quantity": {
+            "type": "integer",
+            "description": "The quantity for the order item."
+        },
+        "action": {
+            "type": "string",
+            "enum": [
+                "INSTALL",
+                "CHANGE",
+                "NO_CHANGE"
+            ],
+            "description": "The action to be taken for this order item (E.g. Install, Change)."
         },
         "sellerUniId": {
             "type": "string",
