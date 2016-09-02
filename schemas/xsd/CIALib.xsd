@@ -5,6 +5,7 @@
       <xs:element minOccurs="0" name="order" type="CIALib:order"/>
       <xs:element minOccurs="0" name="order-create-update" type="CIALib:order-create-update"/>
       <xs:element minOccurs="0" name="orderList" type="CIALib:orderList"/>
+      <xs:element minOccurs="0" name="orderNotification" type="CIALib:orderNotification"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="accessEplOrderItemSpec">
