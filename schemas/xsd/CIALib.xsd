@@ -8,8 +8,30 @@
       <xs:element minOccurs="0" name="orderNotification" type="CIALib:orderNotification"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="accessEplOrderItemSpec">
+  <xs:complexType name="accessEplOrderItem">
     <xs:sequence>
+      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="quantity" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The quantity for the order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="action">
+        <xs:annotation>
+          <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="INSTALL"/>
+            <xs:enumeration value="CHANGE"/>
+            <xs:enumeration value="NO_CHANGE"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element minOccurs="0" name="sellerOvcId" type="xs:string">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Seller uses to refer to this OVC.</xs:documentation>
@@ -244,8 +266,28 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="disconnectOrderItemSpec">
+  <xs:complexType name="disconnectOrderItem">
     <xs:sequence>
+      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="quantity" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The quantity for the order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="action">
+        <xs:annotation>
+          <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="DISCONNECT"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element minOccurs="1" name="sellerServiceOrEndpointId">
         <xs:annotation>
           <xs:documentation>One or more of the following Seller-assigned values may be included: OVC Identifier, EVC Identifier, UNI Identifier, ENNI Identifier.</xs:documentation>
@@ -869,9 +911,11 @@
           <xs:documentation>The line items being ordered (added, removed, or modified) on this order.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItem" type="CIALib:orderItem"/>
-          </xs:sequence>
+          <xs:choice>
+            <xs:element name="accessEplOrderItem" type="CIALib:accessEplOrderItem"/>
+            <xs:element name="uniOrderItem" type="CIALib:uniOrderItem"/>
+            <xs:element name="disconnectOrderItem" type="CIALib:disconnectOrderItem"/>
+          </xs:choice>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -1094,46 +1138,10 @@
           <xs:documentation>The line items being ordered (added, removed, or modified) on this order.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItem" type="CIALib:orderItem"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="orderItem">
-    <xs:sequence>
-      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="1" name="quantity" type="xs:int">
-        <xs:annotation>
-          <xs:documentation>The quantity for the order item.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="1" name="action">
-        <xs:annotation>
-          <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="INSTALL"/>
-            <xs:enumeration value="CHANGE"/>
-            <xs:enumeration value="DISCONNECT"/>
-            <xs:enumeration value="NO_CHANGE"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element minOccurs="1" name="product">
-        <xs:annotation>
-          <xs:documentation>An orderable representation of a product.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
           <xs:choice>
-            <xs:element name="accessEplOrderItemSpec" type="CIALib:accessEplOrderItemSpec"/>
-            <xs:element name="uniOrderItemSpec" type="CIALib:uniOrderItemSpec"/>
+            <xs:element name="accessEplOrderItem" type="CIALib:accessEplOrderItem"/>
+            <xs:element name="uniOrderItem" type="CIALib:uniOrderItem"/>
+            <xs:element name="disconnectOrderItem" type="CIALib:disconnectOrderItem"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -1429,8 +1437,30 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="uniOrderItemSpec">
+  <xs:complexType name="uniOrderItem">
     <xs:sequence>
+      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="quantity" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>The quantity for the order item.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="action">
+        <xs:annotation>
+          <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="INSTALL"/>
+            <xs:enumeration value="CHANGE"/>
+            <xs:enumeration value="NO_CHANGE"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element minOccurs="0" name="sellerUniId" type="xs:string">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
