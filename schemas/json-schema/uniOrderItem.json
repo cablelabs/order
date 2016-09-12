@@ -9,9 +9,7 @@
         "orderItemReference",
         "quantity",
         "action",
-        "buyerUniId",
-        "physicalLayer",
-        "serviceSiteInformation"
+        "buyerUniId"
     ],
     "properties": {
         "objectType": {

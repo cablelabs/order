@@ -7,8 +7,7 @@
     "required": [
         "objectType",
         "name",
-        "telephoneNumber",
-        "email"
+        "telephoneNumber"
     ],
     "properties": {
         "objectType": {
