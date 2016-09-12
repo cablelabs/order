@@ -5,7 +5,8 @@
   "description": "A reference to an existing UNI.",
   "type": "object",
   "required": [
-      "objectType"
+      "objectType",
+      "sellerUniId"
   ],
   "properties": {
     "objectType": {

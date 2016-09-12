@@ -9,10 +9,7 @@
         "orderItemReference",
         "quantity",
         "action",
-        "buyerOvcId",
-        "enniReference",
-        "enniSiteContact",
-        "uniReference"
+        "buyerOvcId"
     ],
     "properties": {
         "objectType": {

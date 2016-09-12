@@ -30,9 +30,6 @@
                     "$ref": "fieldedAddress.json#"
                 },
                 {
-                    "$ref": "geographicPoint.json#"
-                },
-                {
                     "$ref": "addressReference.json#"
                 }
             ],

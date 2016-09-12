@@ -6,7 +6,9 @@
     "type": "object",
     "required": [
         "objectType",
-        "siteCompanyName"
+        "siteCompanyName",
+        "siteAddress",
+        "siteContact"
     ],
     "properties": {
         "objectType": {

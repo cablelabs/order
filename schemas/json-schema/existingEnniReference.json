@@ -5,7 +5,8 @@
   "description": "A reference to an existing ENNI.",
   "type": "object",
   "required": [
-      "objectType"
+      "objectType",
+      "sellerEnniId"
   ],
   "properties": {
     "objectType": {

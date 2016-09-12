@@ -14,7 +14,9 @@
         "orderActivity",
         "desiredResponses",
         "requestedCompletionDate",
-        "orderType"
+        "buyerOrderContact",
+        "orderType",
+        "orderItems"
     ],
     "properties": {
         "objectType": {
