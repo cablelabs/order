@@ -634,19 +634,14 @@
   </xs:complexType>
   <xs:complexType name="geographicPoint">
     <xs:sequence>
-      <xs:element minOccurs="0" name="latitude" type="xs:string">
+      <xs:element minOccurs="1" name="latitude" type="xs:string">
         <xs:annotation>
-          <xs:documentation>Latitude of the point.</xs:documentation>
+          <xs:documentation>Latitude of the point in decimal degrees format.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="longitude" type="xs:string">
+      <xs:element minOccurs="1" name="longitude" type="xs:string">
         <xs:annotation>
-          <xs:documentation>Longitude of the point.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="geographicDatum" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>Geocoding Referential.</xs:documentation>
+          <xs:documentation>Longitude of the point in decimal degrees format.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
