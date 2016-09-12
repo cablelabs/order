@@ -5,7 +5,9 @@
   "description": "Specifies a particular point on earth based upon geo coding information. Provides the means for quantitative description of the spatial characteristics of features, including dimension, position, size, shape, and orientation. Most commonly used for position (location).",
   "type": "object",
   "required": [
-    "objectType"
+    "objectType",
+    "latitude",
+    "longitude"
   ],
   "properties": {
     "objectType": {
@@ -17,15 +19,11 @@
     },
     "latitude": {
       "type": "string",
-      "description": "Latitude of the point."
+      "description": "Latitude of the point in decimal degrees format."
     },
     "longitude": {
       "type": "string",
-      "description": "Longitude of the point."
-    },
-    "geographicDatum": {
-      "type": "string",
-      "description": "Geocoding Referential."
+      "description": "Longitude of the point in decimal degrees format."
     }
   }
 }
