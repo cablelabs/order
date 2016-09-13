@@ -111,7 +111,8 @@
         },
         "priority": {
             "type": "integer",
-            "description": "Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system."
+            "description": "Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system.",
+            "minimum": 0
         },
         "billingInfo": {
             "$ref": "billingInformation.json#",
@@ -147,7 +148,8 @@
         "pricingTerm": {
             "type": "integer",
             "description": "The length of the service contract in months. Example: 12, 60, 120.",
-            "maxLength": 3
+            "maxLength": 3,
+            "minimum": 0
         },
         "promotionId": {
             "type": "string",
