@@ -15,10 +15,15 @@
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="quantity" type="xs:int">
+      <xs:element minOccurs="1" name="quantity">
         <xs:annotation>
           <xs:documentation>The quantity for the order item.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="action">
         <xs:annotation>
@@ -273,10 +278,15 @@
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="quantity" type="xs:int">
+      <xs:element minOccurs="1" name="quantity">
         <xs:annotation>
           <xs:documentation>The quantity for the order item.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="action">
         <xs:annotation>
@@ -811,10 +821,15 @@
           <xs:documentation>If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00).</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="priority" type="xs:int">
+      <xs:element minOccurs="0" name="priority">
         <xs:annotation>
           <xs:documentation>Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="billingInfo" type="CIALib:billingInformation">
         <xs:annotation>
@@ -859,10 +874,15 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="pricingTerm" type="xs:int">
+      <xs:element minOccurs="0" name="pricingTerm">
         <xs:annotation>
           <xs:documentation>The length of the service contract in months. Example: 12, 60, 120.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="promotionId">
         <xs:annotation>
@@ -1038,10 +1058,15 @@
           <xs:documentation>If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00).</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="priority" type="xs:int">
+      <xs:element minOccurs="0" name="priority">
         <xs:annotation>
           <xs:documentation>Indicates that expedited treatment is requested and any charges generated in provisioning this request (e.g., additional engineering charges or labor charges if applicable) will be accepted; optional, can be used to indicate the assigned priority of this order relative to other orders in the Order Management system.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="billingInfo" type="CIALib:billingInformation">
         <xs:annotation>
@@ -1086,10 +1111,15 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="pricingTerm" type="xs:int">
+      <xs:element minOccurs="0" name="pricingTerm">
         <xs:annotation>
           <xs:documentation>The length of the service contract in months. Example: 12, 60, 120.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="promotionId">
         <xs:annotation>
@@ -1438,10 +1468,15 @@
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="quantity" type="xs:int">
+      <xs:element minOccurs="1" name="quantity">
         <xs:annotation>
           <xs:documentation>The quantity for the order item.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="action">
         <xs:annotation>
