@@ -26,7 +26,8 @@
         },
         "quantity": {
             "type": "integer",
-            "description": "The quantity for the order item."
+            "description": "The quantity for the order item.",
+            "minimum": 1
         },
         "action": {
             "type": "string",
