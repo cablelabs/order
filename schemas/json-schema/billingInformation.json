@@ -17,12 +17,26 @@
         },
         "existingBillingAccountNumber": {
             "type": "string",
-            "description": "Identifies the billing account to which the recurring and non-recurring charges for this request will be billed.",
+            "description": "Identifies an existing billing account to which the recurring and non-recurring charges for this request will be billed. Must be specified if billing contact and billing address are not specified",
             "maxLength": 13
         },
-        "newBillingAccountInformation": {
-            "$ref": "newBillingAccountInformation.json#",
-            "description": "Identifies the information of a new billing account."
+        "billingContact": {
+            "$ref": "contact.json#",
+            "description": "Identifies the information of the person or office to be contacted on billing matters. Used to establish a new billing account. Must be specified if existingBillingAccountNumber is not specified."
+        },
+        "billingAddress": {
+            "oneOf": [
+                {
+                    "$ref": "formattedAddress.json#"
+                },
+                {
+                    "$ref": "fieldedAddress.json#"
+                },
+                {
+                    "$ref": "addressReference.json#"
+                }
+            ],
+            "description": "Identifies a property address or postal delivery address. Used to establish a new billing account. Must be specified if existingBillingAccountNumber is not specified."
         }
     }
 }
