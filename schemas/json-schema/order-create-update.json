@@ -138,8 +138,8 @@
         "pricingTerm": {
             "type": "integer",
             "description": "The length of the service contract in months. Example: 12, 60, 120.",
-            "maxLength": 3,
-            "minimum": 0
+            "minimum": 0,
+            "maximum": 999
         },
         "promotionId": {
             "type": "string",
