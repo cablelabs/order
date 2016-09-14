@@ -1,0 +1,196 @@
+{
+  "objectType": "order-create-update",
+  "buyerId": "string",
+  "sellerId": "string",
+  "buyerPurchaseOrderNumber": "string",
+  "buyerOrderVersion": "string",
+  "orderDate": "YYYY-MM-DDTHH:MM+02:00",
+  "orderActivity": "INSTALL",
+  "desiredResponses": "CONFIRMATION_ONLY",
+  "projectId": "string",
+  "requestedCompletionDate": "YYYY-MM-DDTHH:MM+02:00",
+  "requestedStartDate": "YYYY-MM-DDTHH:MM+02:00",
+  "priority": 2,
+
+  "billingInfo": {
+    "objectType": "billingInformation",
+    "existingBillingAccountNumber": "string"
+  },
+
+  "buyerOrderContact": {
+    "objectType": "contact",
+    "name": "string",
+    "telephoneNumber": "string",
+    "telephoneNumberExt": "string",
+    "email":"string"
+  },
+  "buyerImplementationContact": {
+    "objectType": "contact",
+    "name": "string",
+    "telephoneNumber": "string",
+    "telephoneNumberExt": "string",
+    "email":"string"
+  },
+  "buyerTechnicalContact": {
+    "objectType": "contact",
+    "name": "string",
+    "telephoneNumber": "string",
+    "telephoneNumberExt": "string",
+    "email":"string"
+  },
+  "pricingMethod": "CONTRACT",
+  "pricingReference": "string",
+  "pricingTerm": 0,
+  "promotionId": "string",
+  "orderType": "ACCESS_EPL",
+  "notes": "string",
+  "serviceabilityResponse": {
+    "objectType": "resourceReference",
+    "id": "srr-cc-00234",
+    "type": "SERVICEABILITY_RESPONSE",
+    "link": {
+      "objectType": "link",
+      "href": "http://serviceability_responses/srr-cc-00234",
+      "rel": "self",
+      "title": "Retrieve the Serviceability Response",
+      "method": "get",
+      "type": "application/json"
+    }
+  },
+  "orderItems": [
+    {
+      "objectType": "accessEplOrderItem",
+      "orderItemReference": "01",
+      "quantity": 1,
+      "action": "INSTALL",
+      "buyerOvcId": "string",
+      "productSpecification": "string",
+      "enniSvlanId" : 100,
+      "enniSvlanIdLast" : 104,
+      "mtuSize": 1526,
+      "colorForwardingEnabled": true,
+      "classOfService": "silver",
+
+      "enniReference": {
+        "objectType": "enniReference",
+        "referenceType": "EXISTING",
+        "enniReference": {
+          "objectType": "existingEnniReference",
+          "sellerEnniId": "string",
+          "buyerEnniId": "string"
+        }
+      },
+
+      "enniSiteContact": {
+        "objectType": "contact",
+        "name": "string",
+        "telephoneNumber": "string",
+        "telephoneNumberExt": "string",
+        "email":"string"
+      },
+      "enniSiteAlternateContact": {
+          "objectType": "contact",
+          "name": "string",
+          "telephoneNumber": "string",
+          "telephoneNumberExt": "string",
+          "email":"string"
+      },
+      "enniIngressBandwidthProfile": {
+        "objectType": "bandwidthProfile",
+        "committedInformationRate": 10000000,
+        "committedBurstSize": 250000,
+        "excessInformationRate": 0,
+        "excessBurstSize": 0,
+        "colorMode": "COLOR_AWARE",
+        "couplingFlag": false
+      },
+
+      "uniReference": {
+        "objectType": "uniReference",
+        "referenceType": "ORDERED",
+        "uniReference": {
+          "objectType": "orderedUniReference",
+          "orderItemReference": "02"
+        }
+      },
+
+      "uniSiteContact": {
+        "objectType": "contact",
+        "name": "string",
+        "telephoneNumber": "string",
+        "telephoneNumberExt": "string",
+        "email":"string"
+      },
+      "uniSiteAlternateContact": {
+        "objectType": "contact",
+        "name": "string",
+        "telephoneNumber": "string",
+        "telephoneNumberExt": "string",
+        "email":"string"
+      },
+      "uniIngressBandwidthProfile": {
+        "objectType": "bandwidthProfile",
+        "committedInformationRate": 10000000,
+        "committedBurstSize": 250000,
+        "excessInformationRate": 0,
+        "excessBurstSize": 0,
+        "colorMode": "COLOR_AWARE",
+        "couplingFlag": false
+      }
+    },
+    {
+      "objectType": "uniOrderItem",
+      "orderItemReference": "02",
+      "quantity": 1,
+      "action": "INSTALL",
+      "buyerUniId": "string",
+      "productSpecification": "string",
+      "buyerOrderReference": "?????????????????????",
+      "physicalLayer": "10GBASE_SR",
+      "synchronousModeEnabled": true,
+      "numberOfLinks": 1,
+      "uniResiliency": "NONE",
+      "maxServiceFrameSize": 1522,
+      "tokenShareEnabled": false,
+      "serviceMultiplexingEnabled": false,
+      "bundlingEnabled": false,
+      "allToOneBundlingEnabled": true,
+      "linkOamEnabled": true,
+      "uniMegEnabled": true,
+      "elmiEnabled": false,
+      "uniL2cpAddressSet": "CTB",
+
+      "serviceSiteInformation": {
+        "objectType": "serviceSiteInformation",
+        "siteCompanyName": "string",
+        "customerName": "string",
+        "siteAddress": {
+          "objectType": "formattedAddress",
+          "formattedAddressLine1": "2112 E California",
+          "formattedAddressLine2": "Suite 250",
+          "city": "Oklahoma City",
+          "stateOrProvince": "OK",
+          "postcode": "73102",
+          "postcodeExtension": "4617",
+          "country": "US"
+        },
+        
+        "additionalSiteInformation": "Enter through rear of building",
+        "siteContact": {
+          "objectType": "contact",
+          "name": "string",
+          "telephoneNumber": "string",
+          "telephoneNumberExt": "string",
+          "email":"string"
+        },
+        "siteAlternateContact": {
+          "objectType": "contact",
+          "name": "string",
+          "telephoneNumber": "string",
+          "telephoneNumberExt": "string",
+          "email":"string"
+        }
+      }
+    }
+  ]
+}
