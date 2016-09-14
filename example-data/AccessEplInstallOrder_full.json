@@ -145,7 +145,6 @@
       "uniMegEnabled": true,
       "elmiEnabled": false,
       "uniL2cpAddressSet": "CTB",
-
       "serviceSiteInformation": {
         "objectType": "serviceSiteInformation",
         "siteCompanyName": "string",
@@ -160,7 +159,6 @@
           "postcodeExtension": "4617",
           "country": "US"
         },
-        
         "additionalSiteInformation": "Enter through rear of building",
         "siteContact": {
           "objectType": "contact",
