@@ -11,12 +11,10 @@
   "requestedCompletionDate": "YYYY-MM-DDTHH:MM+02:00",
   "requestedStartDate": "YYYY-MM-DDTHH:MM+02:00",
   "priority": 2,
-
   "billingInfo": {
     "objectType": "billingInformation",
     "existingBillingAccountNumber": "string"
   },
-
   "buyerOrderContact": {
     "objectType": "contact",
     "name": "string",
@@ -70,17 +68,11 @@
       "mtuSize": 1526,
       "colorForwardingEnabled": true,
       "classOfService": "silver",
-
       "enniReference": {
-        "objectType": "enniReference",
-        "referenceType": "EXISTING",
-        "enniReference": {
           "objectType": "existingEnniReference",
           "sellerEnniId": "string",
           "buyerEnniId": "string"
-        }
       },
-
       "enniSiteContact": {
         "objectType": "contact",
         "name": "string",
@@ -104,16 +96,10 @@
         "colorMode": "COLOR_AWARE",
         "couplingFlag": false
       },
-
       "uniReference": {
-        "objectType": "uniReference",
-        "referenceType": "ORDERED",
-        "uniReference": {
           "objectType": "orderedUniReference",
           "orderItemReference": "02"
-        }
       },
-
       "uniSiteContact": {
         "objectType": "contact",
         "name": "string",
@@ -159,7 +145,6 @@
       "uniMegEnabled": true,
       "elmiEnabled": false,
       "uniL2cpAddressSet": "CTB",
-
       "serviceSiteInformation": {
         "objectType": "serviceSiteInformation",
         "siteCompanyName": "string",
@@ -174,7 +159,6 @@
           "postcodeExtension": "4617",
           "country": "US"
         },
-        
         "additionalSiteInformation": "Enter through rear of building",
         "siteContact": {
           "objectType": "contact",
