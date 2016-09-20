@@ -10,10 +10,15 @@
   </xs:complexType>
   <xs:complexType name="accessEplOrderItem">
     <xs:sequence>
-      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+      <xs:element minOccurs="1" name="orderItemReference">
         <xs:annotation>
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="quantity">
         <xs:annotation>
@@ -37,20 +42,35 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="sellerOvcId" type="xs:string">
+      <xs:element minOccurs="0" name="sellerOvcId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Seller uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="buyerOvcId" type="xs:string">
+      <xs:element minOccurs="1" name="buyerOvcId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="productSpecification" type="xs:string">
+      <xs:element minOccurs="0" name="productSpecification">
         <xs:annotation>
           <xs:documentation>An identifier of the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering at the Access-EPL level.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="enniSvlanId">
         <xs:annotation>
@@ -87,10 +107,15 @@
           <xs:documentation>Color Forwarding is an OVC attribute defining the relationship between the color on an egress ENNI frame and the color of the corresponding ingress ENNI Frame or Service Frame.  For ordering, this attribute identifies if the Buyer requests Color Forwarding for this service</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="classOfService" type="xs:string">
+      <xs:element minOccurs="0" name="classOfService">
         <xs:annotation>
           <xs:documentation>The name of the service level for this Access EPL. (E.g. Gold).</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="enniReference">
         <xs:annotation>
@@ -148,15 +173,25 @@
   </xs:complexType>
   <xs:complexType name="addressReference">
     <xs:sequence>
-      <xs:element minOccurs="0" name="referenceType" type="xs:string">
+      <xs:element minOccurs="0" name="referenceType">
         <xs:annotation>
           <xs:documentation>The type of the reference.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="reference" type="xs:string">
+      <xs:element minOccurs="0" name="reference">
         <xs:annotation>
           <xs:documentation>The reference can be used to identify an address.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -297,10 +332,15 @@
   </xs:complexType>
   <xs:complexType name="disconnectOrderItem">
     <xs:sequence>
-      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+      <xs:element minOccurs="1" name="orderItemReference">
         <xs:annotation>
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="quantity">
         <xs:annotation>
@@ -346,29 +386,49 @@
   </xs:complexType>
   <xs:complexType name="existingEnniReference">
     <xs:sequence>
-      <xs:element minOccurs="1" name="sellerEnniId" type="xs:string">
+      <xs:element minOccurs="1" name="sellerEnniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the seller uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerEnniId" type="xs:string">
+      <xs:element minOccurs="0" name="buyerEnniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the buyer uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="existingUniReference">
     <xs:sequence>
-      <xs:element minOccurs="1" name="sellerUniId" type="xs:string">
+      <xs:element minOccurs="1" name="sellerUniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerUniId" type="xs:string">
+      <xs:element minOccurs="0" name="buyerUniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -642,34 +702,59 @@
   </xs:complexType>
   <xs:complexType name="geographicPoint">
     <xs:sequence>
-      <xs:element minOccurs="1" name="latitude" type="xs:string">
+      <xs:element minOccurs="1" name="latitude">
         <xs:annotation>
           <xs:documentation>Latitude of the point in decimal degrees format.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="longitude" type="xs:string">
+      <xs:element minOccurs="1" name="longitude">
         <xs:annotation>
           <xs:documentation>Longitude of the point in decimal degrees format.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="link">
     <xs:sequence>
-      <xs:element minOccurs="1" name="href" type="xs:string">
+      <xs:element minOccurs="1" name="href">
         <xs:annotation>
           <xs:documentation>A URL. Specifies the location of the linked document.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="rel" type="xs:string">
+      <xs:element minOccurs="1" name="rel">
         <xs:annotation>
           <xs:documentation>Specifies the relationship between the current document and the linked document.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="title" type="xs:string">
+      <xs:element minOccurs="0" name="title">
         <xs:annotation>
           <xs:documentation>Provide additional / advisory information (expand on the meaning of the link).</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="method">
         <xs:annotation>
@@ -682,10 +767,15 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="type" type="xs:string">
+      <xs:element minOccurs="0" name="type">
         <xs:annotation>
           <xs:documentation>Specifies the media type of the linked document.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -805,6 +895,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:int">
             <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="4"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1043,6 +1134,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:int">
             <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="4"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1152,12 +1244,12 @@
   </xs:complexType>
   <xs:complexType name="orderList">
     <xs:sequence>
-      <xs:element minOccurs="0" name="available" type="xs:decimal">
+      <xs:element minOccurs="0" name="available" type="xs:int">
         <xs:annotation>
           <xs:documentation>The number of items available for this list.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="returned" type="xs:decimal">
+      <xs:element minOccurs="0" name="returned" type="xs:int">
         <xs:annotation>
           <xs:documentation>The number of items returned for this list.</xs:documentation>
         </xs:annotation>
@@ -1289,107 +1381,197 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="sellerOvcId" type="xs:string">
+      <xs:element minOccurs="0" name="sellerOvcId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Seller uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="sellerEvcId" type="xs:string">
+      <xs:element minOccurs="0" name="sellerEvcId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Seller uses to refer to his EVC.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="sellerUniId" type="xs:string">
+      <xs:element minOccurs="0" name="sellerUniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Seller uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="sellerEnniId" type="xs:string">
+      <xs:element minOccurs="0" name="sellerEnniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Seller uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerOvcId" type="xs:string">
+      <xs:element minOccurs="0" name="buyerOvcId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerEvcId" type="xs:string">
+      <xs:element minOccurs="0" name="buyerEvcId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this EVC.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerUniId" type="xs:string">
+      <xs:element minOccurs="0" name="buyerUniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Partner/Access  Provider (Buyer) uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerEnniId" type="xs:string">
+      <xs:element minOccurs="0" name="buyerEnniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the Partner / Access Provider (Buyer) uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="svlanId" type="xs:string">
+      <xs:element minOccurs="0" name="svlanId">
         <xs:annotation>
           <xs:documentation>The S-VLAN ID assigned by the Seller for this service or the first S-VLAN ID when a range is used.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="svlanIdLast" type="xs:string">
+      <xs:element minOccurs="0" name="svlanIdLast">
         <xs:annotation>
           <xs:documentation>The S-VLAN ID assigned by the Seller for this service when a range is used.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="orderedEnniReference">
     <xs:sequence>
-      <xs:element minOccurs="0" name="orderId" type="xs:string">
+      <xs:element minOccurs="0" name="orderId">
         <xs:annotation>
           <xs:documentation>An unique identifier for an order.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerPurchaseOrderNumber" type="xs:string">
+      <xs:element minOccurs="0" name="buyerPurchaseOrderNumber">
         <xs:annotation>
           <xs:documentation>The purchase order number for the order that contains the referenced ENNI. This is required if the ordered ENNI is not on the same order as the orderedUniReference.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+      <xs:element minOccurs="1" name="orderItemReference">
         <xs:annotation>
           <xs:documentation>The order item reference for the ENNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="orderedUniReference">
     <xs:sequence>
-      <xs:element minOccurs="0" name="orderId" type="xs:string">
+      <xs:element minOccurs="0" name="orderId">
         <xs:annotation>
           <xs:documentation>An unique identifier for an order.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerPurchaseOrderNumber" type="xs:string">
+      <xs:element minOccurs="0" name="buyerPurchaseOrderNumber">
         <xs:annotation>
           <xs:documentation>The purchase order number for the order that contains the referenced UNI. This is required if the ordered UNI is not on the same order as the orderedUniReference.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+      <xs:element minOccurs="1" name="orderItemReference">
         <xs:annotation>
           <xs:documentation>The order item reference for the UNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="resourceReference">
     <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:string">
+      <xs:element minOccurs="0" name="id">
         <xs:annotation>
           <xs:documentation>The resource's unique identifier.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="type" type="xs:string">
+      <xs:element minOccurs="0" name="type">
         <xs:annotation>
           <xs:documentation>Specifies the type for the referenced resource.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="link" type="CIALib:link">
         <xs:annotation>
@@ -1400,15 +1582,25 @@
   </xs:complexType>
   <xs:complexType name="serviceSiteInformation">
     <xs:sequence>
-      <xs:element minOccurs="1" name="siteCompanyName" type="xs:string">
+      <xs:element minOccurs="1" name="siteCompanyName">
         <xs:annotation>
           <xs:documentation>The name of the company that is located at the Service location. This may be different from the name of the Customer that ordered services at that Service Site.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="customerName" type="xs:string">
+      <xs:element minOccurs="0" name="customerName">
         <xs:annotation>
           <xs:documentation>The name of the end (retail) customer for the UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="siteAddress">
         <xs:annotation>
@@ -1423,10 +1615,15 @@
           </xs:choice>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="additionalSiteInformation" type="xs:string">
+      <xs:element minOccurs="0" name="additionalSiteInformation">
         <xs:annotation>
           <xs:documentation>Additional information about the Site. Equates to the ASR AAI field.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="siteContact" type="CIALib:contact">
         <xs:annotation>
@@ -1442,10 +1639,15 @@
   </xs:complexType>
   <xs:complexType name="uniOrderItem">
     <xs:sequence>
-      <xs:element minOccurs="1" name="orderItemReference" type="xs:string">
+      <xs:element minOccurs="1" name="orderItemReference">
         <xs:annotation>
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="1" name="quantity">
         <xs:annotation>
@@ -1469,25 +1671,45 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="sellerUniId" type="xs:string">
+      <xs:element minOccurs="0" name="sellerUniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="buyerUniId" type="xs:string">
+      <xs:element minOccurs="1" name="buyerUniId">
         <xs:annotation>
           <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="productSpecification" type="xs:string">
+      <xs:element minOccurs="0" name="productSpecification">
         <xs:annotation>
           <xs:documentation>An identifier of the sellers product specification (product catalog item) that the buyer is ordering. This is optional, and specified if known to assist the seller in identifying the exact Access EPL Product that is being ordered.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerOrderReference" type="xs:string">
+      <xs:element minOccurs="0" name="buyerOrderReference">
         <xs:annotation>
           <xs:documentation>When the Seller has not yet assigned the Seller UNI Identifier, this field identifies the in-flight Order associated with this UNI.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="physicalLayer">
         <xs:annotation>
