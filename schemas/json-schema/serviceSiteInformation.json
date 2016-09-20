@@ -21,12 +21,12 @@
         "siteCompanyName": {
             "type": "string",
             "description": "The name of the company that is located at the Service location. This may be different from the name of the Customer that ordered services at that Service Site.",
-            "maxlength": 25
+            "maxLength": 25
         },
         "customerName": {
             "type": "string",
             "description": "The name of the end (retail) customer for the UNI.",
-            "maxlength": 25
+            "maxLength": 25
         },
         "siteAddress": {
             "type": "object",
@@ -50,7 +50,7 @@
         "additionalSiteInformation": {
             "type": "string",
             "description": "Additional information about the Site. Equates to the ASR AAI field.",
-            "maxlength": 100
+            "maxLength": 100
         },
         "siteContact": {
             "$ref": "contact.json#",

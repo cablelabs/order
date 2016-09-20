@@ -18,12 +18,12 @@
     "referenceType": {
       "type": "string",
       "description": "The type of the reference.",
-      "maxlength": 25
+      "maxLength": 25
     },
     "reference": {
       "type": "string",
       "description": "The reference can be used to identify an address.",
-      "maxlength": 60
+      "maxLength": 60
     }
   }
 }

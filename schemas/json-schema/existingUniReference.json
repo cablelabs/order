@@ -19,12 +19,12 @@
     "sellerUniId": {
       "type": "string",
       "description": "The circuit identifier that the seller uses to refer to this UNI.",
-      "maxlength": 45
+      "maxLength": 45
     },
     "buyerUniId": {
       "type": "string",
       "description": "The circuit identifier that the buyer uses to refer to this UNI.",
-      "maxlength": 45
+      "maxLength": 45
     }
   }
 }

@@ -20,17 +20,17 @@
     "href": {
       "type": "string",
       "description": "A URL. Specifies the location of the linked document.",
-      "maxlength": 2000
+      "maxLength": 2000
     },
     "rel": {
       "type": "string",
       "description": "Specifies the relationship between the current document and the linked document.",
-      "maxlength": 25
+      "maxLength": 25
     },
     "title": {
       "type": "string",
       "description": "Provide additional / advisory information (expand on the meaning of the link).",
-      "maxlength": 25
+      "maxLength": 25
     },
     "method": {
       "type": "string",
@@ -43,7 +43,7 @@
     "type": {
       "type": "string",
       "description": "Specifies the media type of the linked document.",
-      "maxlength": 25
+      "maxLength": 25
     }
   }
 }
