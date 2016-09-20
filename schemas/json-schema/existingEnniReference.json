@@ -18,11 +18,13 @@
     },
     "sellerEnniId": {
       "type": "string",
-      "description": "The circuit identifier that the seller uses to refer to this ENNI."
+      "description": "The circuit identifier that the seller uses to refer to this ENNI.",
+      "maxlength": 45
     },
     "buyerEnniId": {
       "type": "string",
-      "description": "The circuit identifier that the buyer uses to refer to this ENNI."
+      "description": "The circuit identifier that the buyer uses to refer to this ENNI.",
+      "maxlength": 45
     }
   }
 }
