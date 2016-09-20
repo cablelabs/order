@@ -19,11 +19,13 @@
     },
     "latitude": {
       "type": "string",
-      "description": "Latitude of the point in decimal degrees format."
+      "description": "Latitude of the point in decimal degrees format.",
+      "maxLength": 10
     },
     "longitude": {
       "type": "string",
-      "description": "Longitude of the point in decimal degrees format."
+      "description": "Longitude of the point in decimal degrees format.",
+      "maxLength": 10
     }
   }
 }

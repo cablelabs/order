@@ -17,11 +17,13 @@
     },
     "referenceType": {
       "type": "string",
-      "description": "The type of the reference."
+      "description": "The type of the reference.",
+      "maxLength": 25
     },
     "reference": {
       "type": "string",
-      "description": "The reference can be used to identify an address."
+      "description": "The reference can be used to identify an address.",
+      "maxLength": 60
     }
   }
 }

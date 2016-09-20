@@ -17,11 +17,13 @@
         },
 		"id": {
 			"type": "string",
-			"description": "The resource's unique identifier."
+			"description": "The resource's unique identifier.",
+      		"maxLength": 15
 		},
 		"type": {
 			"type": "string",
-			"description": "Specifies the type for the referenced resource."
+			"description": "Specifies the type for the referenced resource.",
+      		"maxLength": 25
 		},
 		"link": {
 			"$ref": "link.json#",

@@ -91,52 +91,52 @@
         "sellerOvcId": {
             "type": "string",
             "description": "The circuit identifier that the Seller uses to refer to this OVC.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "sellerEvcId": {
             "type": "string",
             "description": "The circuit identifier that the Seller uses to refer to his EVC.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "sellerUniId": {
             "type": "string",
             "description": "The circuit identifier that the Seller uses to refer to this UNI.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "sellerEnniId": {
             "type": "string",
             "description": "The circuit identifier that the Seller uses to refer to this ENNI.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "buyerOvcId": {
             "type": "string",
             "description": "The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "buyerEvcId": {
             "type": "string",
             "description": "The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this EVC.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "buyerUniId": {
             "type": "string",
             "description": "The circuit identifier that the Partner/Access  Provider (Buyer) uses to refer to this UNI.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "buyerEnniId": {
             "type": "string",
             "description": "The circuit identifier that the Partner / Access Provider (Buyer) uses to refer to this ENNI.",
-            "maxlength": 45
+            "maxLength": 45
         },
         "svlanId" : {
             "type": "string",
             "description": "The S-VLAN ID assigned by the Seller for this service or the first S-VLAN ID when a range is used.",
-            "maxlength": 4
+            "maxLength": 4
         },
         "svlanIdLast" : {
             "type": "string",
             "description": "The S-VLAN ID assigned by the Seller for this service when a range is used.",
-            "maxlength": 4
+            "maxLength": 4
         }
     }
 }

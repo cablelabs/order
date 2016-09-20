@@ -16,11 +16,11 @@
       "description": "The type of the object, orderList."
     },
     "available": {
-      "type": "number",
+      "type": "integer",
       "description": "The number of items available for this list."
     },
     "returned": {
-      "type": "number",
+      "type": "integer",
       "description": "The number of items returned for this list."
     },
     "link": {

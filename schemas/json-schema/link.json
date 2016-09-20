@@ -19,15 +19,18 @@
     },
     "href": {
       "type": "string",
-      "description": "A URL. Specifies the location of the linked document."
+      "description": "A URL. Specifies the location of the linked document.",
+      "maxLength": 2000
     },
     "rel": {
       "type": "string",
-      "description": "Specifies the relationship between the current document and the linked document."
+      "description": "Specifies the relationship between the current document and the linked document.",
+      "maxLength": 25
     },
     "title": {
       "type": "string",
-      "description": "Provide additional / advisory information (expand on the meaning of the link)."
+      "description": "Provide additional / advisory information (expand on the meaning of the link).",
+      "maxLength": 25
     },
     "method": {
       "type": "string",
@@ -39,7 +42,8 @@
     },
     "type": {
       "type": "string",
-      "description": "Specifies the media type of the linked document."
+      "description": "Specifies the media type of the linked document.",
+      "maxLength": 25
     }
   }
 }
