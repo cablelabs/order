@@ -56,12 +56,14 @@
         "enniSvlanId" : {
             "type": "integer",
             "description": "The S-VLAN ID to be used for this service or the 1st value requested when a range is used.",
-            "minimum": 1
+            "minimum": 0,
+            "maximum": 4095
         },
         "enniSvlanIdLast" : {
             "type": "integer",
             "description": "The last S-VLAN ID to be used for this service when a range is requested.",
-            "minimum": 1
+            "minimum": 1,
+            "maximum": 4095
         },
         "mtuSize": {
             "type": "integer",
