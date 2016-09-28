@@ -1606,7 +1606,7 @@
       </xs:element>
       <xs:element minOccurs="1" name="siteAddress">
         <xs:annotation>
-          <xs:documentation>A property address for the site. Either a Site Address, a Site Code or a Site Gorgraphic Point must be specified.</xs:documentation>
+          <xs:documentation>A property address for the site. Either a Site Address, a Site Code or a Site Geographic Point must be specified.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
