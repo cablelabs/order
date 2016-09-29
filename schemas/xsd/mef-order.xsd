@@ -1,11 +1,11 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:CIALib="http://cableapi.cablelabs.com/schemas/v2" elementFormDefault="qualified" targetNamespace="http://cableapi.cablelabs.com/schemas/v2">
-  <xs:element name="cialib" type="CIALib:cialib"/>
-  <xs:complexType name="cialib">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mef-order="http://cableapi.cablelabs.com/schemas/v2" elementFormDefault="qualified" targetNamespace="http://cableapi.cablelabs.com/schemas/v2">
+  <xs:element name="mef-order" type="mef-order:mef-order"/>
+  <xs:complexType name="mef-order">
     <xs:sequence>
-      <xs:element minOccurs="0" name="order" type="CIALib:order"/>
-      <xs:element minOccurs="0" name="order-create-update" type="CIALib:order-create-update"/>
-      <xs:element minOccurs="0" name="orderList" type="CIALib:orderList"/>
-      <xs:element minOccurs="0" name="orderNotification" type="CIALib:orderNotification"/>
+      <xs:element minOccurs="0" name="order" type="mef-order:order"/>
+      <xs:element minOccurs="0" name="order-create-update" type="mef-order:order-create-update"/>
+      <xs:element minOccurs="0" name="orderList" type="mef-order:orderList"/>
+      <xs:element minOccurs="0" name="orderNotification" type="mef-order:orderNotification"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="accessEplOrderItem">
@@ -125,22 +125,22 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="orderedEnniReference" type="CIALib:orderedEnniReference"/>
-            <xs:element name="existingEnniReference" type="CIALib:existingEnniReference"/>
+            <xs:element name="orderedEnniReference" type="mef-order:orderedEnniReference"/>
+            <xs:element name="existingEnniReference" type="mef-order:existingEnniReference"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="enniSiteContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="enniSiteContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The primary site contact for the ENNI site.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="enniSiteAlternateContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="enniSiteAlternateContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The secondary site contact for the ENNI site.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="enniIngressBandwidthProfile" type="CIALib:bandwidthProfile">
+      <xs:element minOccurs="0" name="enniIngressBandwidthProfile" type="mef-order:bandwidthProfile">
         <xs:annotation>
           <xs:documentation>The ingress bandwidth profile at the ENNI end of the OVC that implements the Access EPL.</xs:documentation>
         </xs:annotation>
@@ -151,22 +151,22 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="orderedUniReference" type="CIALib:orderedUniReference"/>
-            <xs:element name="existingUniReference" type="CIALib:existingUniReference"/>
+            <xs:element name="orderedUniReference" type="mef-order:orderedUniReference"/>
+            <xs:element name="existingUniReference" type="mef-order:existingUniReference"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="uniSiteContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="uniSiteContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The primary site contact for the UNI site. The UNI site contacts are ONLY required when the UNI is NOT on the same Order as the Access EPL.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="uniSiteAlternateContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="uniSiteAlternateContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The secondary site contact for the UNI site. The UNI site contacts are ONLY required when the UNI is NOT on the same Order as the Access EPL.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="uniIngressBandwidthProfile" type="CIALib:bandwidthProfile">
+      <xs:element minOccurs="0" name="uniIngressBandwidthProfile" type="mef-order:bandwidthProfile">
         <xs:annotation>
           <xs:documentation>The ingress bandwidth profile at the UNI end of the OVC that implements the Access EPL.</xs:documentation>
         </xs:annotation>
@@ -269,7 +269,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="billingContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="billingContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>Identifies the information of the person or office to be contacted on billing matters. Used to establish a new billing account. Must be specified if existingBillingAccountNumber is not specified.</xs:documentation>
         </xs:annotation>
@@ -280,9 +280,9 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="formattedAddress" type="CIALib:formattedAddress"/>
-            <xs:element name="fieldedAddress" type="CIALib:fieldedAddress"/>
-            <xs:element name="addressReference" type="CIALib:addressReference"/>
+            <xs:element name="formattedAddress" type="mef-order:formattedAddress"/>
+            <xs:element name="fieldedAddress" type="mef-order:fieldedAddress"/>
+            <xs:element name="addressReference" type="mef-order:addressReference"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -901,22 +901,22 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="billingInfo" type="CIALib:billingInformation">
+      <xs:element minOccurs="0" name="billingInfo" type="mef-order:billingInformation">
         <xs:annotation>
           <xs:documentation>An existing billing information to set up a new billing account.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="buyerOrderContact" type="CIALib:contact">
+      <xs:element minOccurs="1" name="buyerOrderContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The contact information for the buyer of this order.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerImplementationContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="buyerImplementationContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The contact information for the implementation of this order.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerTechnicalContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="buyerTechnicalContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The technical contact information for this order.</xs:documentation>
         </xs:annotation>
@@ -986,7 +986,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="serviceabilityResponse" type="CIALib:resourceReference">
+      <xs:element minOccurs="0" name="serviceabilityResponse" type="mef-order:resourceReference">
         <xs:annotation>
           <xs:documentation>Value that associates this order with a previously assigned serviceability response.</xs:documentation>
         </xs:annotation>
@@ -997,9 +997,9 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="accessEplOrderItem" type="CIALib:accessEplOrderItem"/>
-            <xs:element name="uniOrderItem" type="CIALib:uniOrderItem"/>
-            <xs:element name="disconnectOrderItem" type="CIALib:disconnectOrderItem"/>
+            <xs:element name="accessEplOrderItem" type="mef-order:accessEplOrderItem"/>
+            <xs:element name="uniOrderItem" type="mef-order:uniOrderItem"/>
+            <xs:element name="disconnectOrderItem" type="mef-order:disconnectOrderItem"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -1017,7 +1017,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="link" type="CIALib:link">
+      <xs:element minOccurs="0" name="link" type="mef-order:link">
         <xs:annotation>
           <xs:documentation>A self referencing link to the order.</xs:documentation>
         </xs:annotation>
@@ -1140,22 +1140,22 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="billingInfo" type="CIALib:billingInformation">
+      <xs:element minOccurs="0" name="billingInfo" type="mef-order:billingInformation">
         <xs:annotation>
           <xs:documentation>An existing billing information to set up a new billing account.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="buyerOrderContact" type="CIALib:contact">
+      <xs:element minOccurs="1" name="buyerOrderContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The contact information for the buyer of this order.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerImplementationContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="buyerImplementationContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The contact information for the implementation of this order.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="buyerTechnicalContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="buyerTechnicalContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The technical contact information for this order.</xs:documentation>
         </xs:annotation>
@@ -1225,7 +1225,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="serviceabilityResponse" type="CIALib:resourceReference">
+      <xs:element minOccurs="0" name="serviceabilityResponse" type="mef-order:resourceReference">
         <xs:annotation>
           <xs:documentation>Value that associates this order with a previously assigned serviceability response.</xs:documentation>
         </xs:annotation>
@@ -1236,9 +1236,9 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="accessEplOrderItem" type="CIALib:accessEplOrderItem"/>
-            <xs:element name="uniOrderItem" type="CIALib:uniOrderItem"/>
-            <xs:element name="disconnectOrderItem" type="CIALib:disconnectOrderItem"/>
+            <xs:element name="accessEplOrderItem" type="mef-order:accessEplOrderItem"/>
+            <xs:element name="uniOrderItem" type="mef-order:uniOrderItem"/>
+            <xs:element name="disconnectOrderItem" type="mef-order:disconnectOrderItem"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -1256,7 +1256,7 @@
           <xs:documentation>The number of items returned for this list.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="link" type="CIALib:link">
+      <xs:element minOccurs="0" name="link" type="mef-order:link">
         <xs:annotation>
           <xs:documentation>A self referencing link to the Order list.</xs:documentation>
         </xs:annotation>
@@ -1267,7 +1267,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="1" name="order" type="CIALib:order"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="order" type="mef-order:order"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -1285,7 +1285,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="link" type="CIALib:link">
+      <xs:element minOccurs="0" name="link" type="mef-order:link">
         <xs:annotation>
           <xs:documentation>A self referencing link to the orderNotification.</xs:documentation>
         </xs:annotation>
@@ -1575,7 +1575,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="link" type="CIALib:link">
+      <xs:element minOccurs="0" name="link" type="mef-order:link">
         <xs:annotation>
           <xs:documentation>A link for accessing the resource.</xs:documentation>
         </xs:annotation>
@@ -1610,10 +1610,10 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="formattedAddress" type="CIALib:formattedAddress"/>
-            <xs:element name="fieldedAddress" type="CIALib:fieldedAddress"/>
-            <xs:element name="geographicPoint" type="CIALib:geographicPoint"/>
-            <xs:element name="addressReference" type="CIALib:addressReference"/>
+            <xs:element name="formattedAddress" type="mef-order:formattedAddress"/>
+            <xs:element name="fieldedAddress" type="mef-order:fieldedAddress"/>
+            <xs:element name="geographicPoint" type="mef-order:geographicPoint"/>
+            <xs:element name="addressReference" type="mef-order:addressReference"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -1627,12 +1627,12 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="1" name="siteContact" type="CIALib:contact">
+      <xs:element minOccurs="1" name="siteContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The primary site contact for the site.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" name="siteAlternateContact" type="CIALib:contact">
+      <xs:element minOccurs="0" name="siteAlternateContact" type="mef-order:contact">
         <xs:annotation>
           <xs:documentation>The secondary site contact for the site.</xs:documentation>
         </xs:annotation>
@@ -1819,7 +1819,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="serviceSiteInformation" type="CIALib:serviceSiteInformation">
+      <xs:element minOccurs="0" name="serviceSiteInformation" type="mef-order:serviceSiteInformation">
         <xs:annotation>
           <xs:documentation>The service site for the UNI.</xs:documentation>
         </xs:annotation>
