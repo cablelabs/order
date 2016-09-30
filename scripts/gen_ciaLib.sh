@@ -6,16 +6,16 @@
 	schemawd=$(pwd)/../schemas/json-schema
 	xsdwd=$(pwd)/../schemas/xsd
 
-	# Reading current CIALib and writing it to a new file
+	# Reading current mef-order and writing it to a new file
 	cd ../schemas/json-schema
 
 	# Save working directory
 	schemawd=$(pwd)
 
-	#New temporary cialib schema
+	# New temporary mef-order schema
 	newCialib="$schemawd/newLibFile.json"
 
-	#Remove if temporary newCialib already exists
+	# Remove if temporary newCialib already exists
 	rm -f $newCialib
 
 	# Generate newLibFile.json from scratch
@@ -23,10 +23,10 @@
 	entry="{\n\t\"\$schema\": \"http://json-schema.org/draft-04/schema#\","
 	echo -e $entry >>"$newCialib"
 	# Third and Fourth line
-	entry="\t\"title\": \"cialib\",\n\t\"id\": \"cialib\","
+	entry="\t\"title\": \"mef-order\",\n\t\"id\": \"mef-order\","
 	echo -e $entry >>"$newCialib"
 	# Fifth and Sixth line
-	entry="\t\"description\": \"CIALib auto generation.\",\n\t\"type\": \"object\",\n\t\"properties\": {"
+	entry="\t\"description\": \"mef-order XSD auto generation.\",\n\t\"type\": \"object\",\n\t\"properties\": {"
 	echo -e $entry >>"$newCialib"
 
 	cd ../../scripts
@@ -37,7 +37,7 @@
 	# Find number of schemas used used in endpoints
 	numOfSchemas=$(grep "\$ref" *.json | cut -d\" -f4 | cut -d\/ -f3 | sort | uniq | wc -l)
 
-	#Loop through all schemas found in endpoints to add in new cialib
+	#Loop through all schemas found in endpoints to add in new mef-order
 	for Schema in $(grep "\$ref" *.json | cut -d\" -f4 | cut -d\/ -f3 | sort | uniq)
 	do
 		# List of schemas to write in newCialib
@@ -49,7 +49,7 @@
 			entry="\t\t\"$Schema\": {\"\$ref\": \"$Schema.json#\"}"
         	fi
 
-		#Write all the schemas found in new cialib
+		#Write all the schemas found in new mef-order
 		echo -e $entry >>"$newCialib"
 	done
 
@@ -71,7 +71,7 @@
                 	echo "$line" >>"$newCialib"
         	fi
 
-        	# Once we find line with properties in cialib file we stop reading
+        	# Once we find line with properties in mef-order file we stop reading
         	if [[ $line == *"definitions\":"* ]] && [ $found != 1 ]; then
                 	echo "$line" >>"$newCialib"
                 	found=1
@@ -88,13 +88,13 @@
 	tempLib="$xsdwd/tempLib.xsd"
 
 	# Converter webservice call to convert JSON to XSD. This will save response in $tempLib
-	curl -i -H "Content-type: application/json; charset=utf-8" -H "dataType: xml" --data-binary "@$newCialib" -X POST http://cl-convert.herokuapp.com/convert --output "$tempLib"
+	curl -i -H "Content-type: application/json; charset=utf-8" -H "dataType: xml" --data-binary "@$newCialib" -X POST http://cl-convert.herokuapp.com/convert?ns-qualifier="mef-order" --output "$tempLib"
 
 	# Remove temporary $newCialib
 	rm -f $newCialib
 
-	# CIALib file
-	ciaFilename="$xsdwd/CIALib.xsd"
+	# mef-order XSD file
+	ciaFilename="$xsdwd/mef-order.xsd"
 
 	#Remove if temporary newCialib already exists
 	rm -f $ciaFilename
@@ -106,7 +106,7 @@
 	# Read converted xsd and remove the unwanted lines from that xsd
 	while IFS= read -r line
 	do
-        	# Write lines from temporary response file to CIALib.xsd file
+        	# Write lines from temporary response file to mef-order.xsd file
         	if [ $found != 0 ]; then
                 	echo -e "$line" >>"$ciaFilename"
         	fi
@@ -137,10 +137,10 @@
 	# Restoring old IFS
 	IFS=$OIFS
 
-	# Adding newly generated cialib into repository
+	# Adding newly generated mef-order into repository
 	git config --global user.email "vpramod.kumar@gmail.com"
 	git config --global user.name "Pramod Kumar"
 	git add -f $ciaFilename
-	git commit -m "Pushed CIALib.xsd file."
+	git commit -m "Pushed mef-order.xsd file."
 	git push origin master
 
