@@ -9,7 +9,8 @@
         "orderItemReference",
         "quantity",
         "action",
-        "buyerUniId"
+        "buyerUniId",
+        "primarySiteContact"
     ],
     "properties": {
         "objectType": {
@@ -140,6 +141,14 @@
         "serviceSiteInformation": {
             "$ref": "serviceSiteInformation.json#",
             "description": "The service site for the UNI."
+        },
+        "primarySiteContact": {
+            "$ref": "contact.json#",
+            "description": "The primary site contact for the site."
+        },
+        "alternateSiteContact": {
+            "$ref": "contact.json#",
+            "description": "The secondary site contact for the site."
         }
     }
 }

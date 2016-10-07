@@ -7,8 +7,7 @@
     "required": [
         "objectType",
         "siteCompanyName",
-        "siteAddress",
-        "siteContact"
+        "siteAddress"
     ],
     "properties": {
         "objectType": {
@@ -51,14 +50,6 @@
             "type": "string",
             "description": "Additional information about the Site. Equates to the ASR AAI field.",
             "maxLength": 100
-        },
-        "siteContact": {
-            "$ref": "contact.json#",
-            "description": "The primary site contact for the site."
-        },
-        "siteAlternateContact": {
-            "$ref": "contact.json#",
-            "description": "The secondary site contact for the site."
         }
     }
 }
