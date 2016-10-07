@@ -15,7 +15,7 @@
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -47,7 +47,7 @@
           <xs:documentation>The circuit identifier that the Seller uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -57,7 +57,7 @@
           <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -67,7 +67,7 @@
           <xs:documentation>An identifier of the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering at the Access-EPL level.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -114,7 +114,7 @@
           <xs:documentation>The name of the service level for this Access EPL. (E.g. Gold).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="20"/>
           </xs:restriction>
         </xs:simpleType>
@@ -180,7 +180,7 @@
           <xs:documentation>The type of the reference.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -190,7 +190,7 @@
           <xs:documentation>The reference can be used to identify an address.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -264,7 +264,7 @@
           <xs:documentation>Identifies an existing billing account to which the recurring and non-recurring charges for this request will be billed. Must be specified if billing contact and billing address are not specified</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="13"/>
           </xs:restriction>
         </xs:simpleType>
@@ -295,7 +295,7 @@
           <xs:documentation>Identifies the name of the person or office.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -305,7 +305,7 @@
           <xs:documentation>Identifies the telephone number (excluding extension) of the Contact.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -315,7 +315,7 @@
           <xs:documentation>Identifies the telephone number extension of the Contact.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="6"/>
           </xs:restriction>
         </xs:simpleType>
@@ -325,7 +325,7 @@
           <xs:documentation>Identifies the electronic mail address of the Contact.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -339,7 +339,7 @@
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -369,7 +369,7 @@
           <xs:documentation>One or more of the following Seller-assigned values may be included: OVC Identifier, EVC Identifier, UNI Identifier, ENNI Identifier.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -379,7 +379,7 @@
           <xs:documentation>One or more of the following Buyer-assigned values may be included: Buyer OVC Identifier, Buyer EVC Identifier, Buyer UNI Identifier, Buyer ENNI Identifier.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -393,7 +393,7 @@
           <xs:documentation>The circuit identifier that the seller uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -403,7 +403,7 @@
           <xs:documentation>The circuit identifier that the buyer uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -417,7 +417,7 @@
           <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -427,7 +427,7 @@
           <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -441,7 +441,7 @@
           <xs:documentation>Number identifying a specific property on a public street. It may be combined with streetNrLast for ranged addresses.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
@@ -451,7 +451,7 @@
           <xs:documentation>The suffix of the first street number (in a street number range) or the suffix for the street number if there is no range.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
@@ -461,7 +461,7 @@
           <xs:documentation>Last number in a range of street numbers allocated to an address.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
@@ -471,7 +471,7 @@
           <xs:documentation>The name of the street or other street type.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -481,7 +481,7 @@
           <xs:documentation>The type of street (e.g., Street, St., Road, Rd., Alley).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -491,7 +491,7 @@
           <xs:documentation>A modifier denoting a relative direction.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="2"/>
           </xs:restriction>
         </xs:simpleType>
@@ -501,7 +501,7 @@
           <xs:documentation>The type of subunit (e.g., Flat, Suite, Tower, Unit).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -511,7 +511,7 @@
           <xs:documentation>The discriminator used for the subunit, often just a sumple number but may also be a range.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
@@ -521,7 +521,7 @@
           <xs:documentation>Describes level types within a building (e.g., Floor).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -531,7 +531,7 @@
           <xs:documentation>Used where a level type may be repeated (e.g., BASEMENT 1, BASEMENT 2).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -541,7 +541,7 @@
           <xs:documentation>Allows for buildings with well-known names to be used in an address.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -551,7 +551,7 @@
           <xs:documentation>Private streets internal to a property (e.g., a university) with an internal name not recorded by the land title office.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -561,7 +561,7 @@
           <xs:documentation>A bounded locality within a city, town or shire principally of urban character.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -571,7 +571,7 @@
           <xs:documentation>The city that the address is in.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -581,7 +581,7 @@
           <xs:documentation>The state or province that the address is in.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -591,7 +591,7 @@
           <xs:documentation>A descriptor for a postal delivery area, used to speed and simplify the delivery of mail.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="6"/>
           </xs:restriction>
         </xs:simpleType>
@@ -601,7 +601,7 @@
           <xs:documentation>The four-digit extension on an American postal code, what comes after the hyphen when specified.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -611,7 +611,7 @@
           <xs:documentation>The country that the address is in.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -625,7 +625,7 @@
           <xs:documentation>A formatted address line that contains a non-fielded street address.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -635,7 +635,7 @@
           <xs:documentation>A formatted address line that contains a non-fielded street address, sub-address (e.g. Suite number), etc.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="60"/>
           </xs:restriction>
         </xs:simpleType>
@@ -645,7 +645,7 @@
           <xs:documentation>A bounded locality within a city, town or shire principally of urban character.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -655,7 +655,7 @@
           <xs:documentation>City that the address is in.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -665,7 +665,7 @@
           <xs:documentation>The state or province that the address is in.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -675,7 +675,7 @@
           <xs:documentation>A descriptor for a postal delivery area, used to speed and simplify the delivery of mail.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="6"/>
           </xs:restriction>
         </xs:simpleType>
@@ -685,7 +685,7 @@
           <xs:documentation>The four-digit extension on an American postal code, what comes after the hyphen when specified.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -695,7 +695,7 @@
           <xs:documentation>The country that the address is in.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="50"/>
           </xs:restriction>
         </xs:simpleType>
@@ -709,7 +709,7 @@
           <xs:documentation>Latitude of the point in decimal degrees format.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
@@ -719,7 +719,7 @@
           <xs:documentation>Longitude of the point in decimal degrees format.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
@@ -733,7 +733,7 @@
           <xs:documentation>A URL. Specifies the location of the linked document.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="2000"/>
           </xs:restriction>
         </xs:simpleType>
@@ -743,7 +743,7 @@
           <xs:documentation>Specifies the relationship between the current document and the linked document.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -753,7 +753,7 @@
           <xs:documentation>Provide additional / advisory information (expand on the meaning of the link).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -774,7 +774,7 @@
           <xs:documentation>Specifies the media type of the linked document.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -788,7 +788,7 @@
           <xs:documentation>A Party Role played by an Individual or an Organization that buys products and services from a Seller. Specifically, the ID of the Service Provider (Buyer) organization placing the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -798,7 +798,7 @@
           <xs:documentation>services to a buyer. Specifically, the ID of the Partner/Access Provider (Seller) organization receiving the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -808,7 +808,7 @@
           <xs:documentation>A number that uniquely identifies a order within the buyer's enterprise.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -818,7 +818,7 @@
           <xs:documentation>The version number that the Buyer uses to refer to this particular version of the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="2"/>
           </xs:restriction>
         </xs:simpleType>
@@ -875,7 +875,7 @@
           <xs:documentation>An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -939,7 +939,7 @@
           <xs:documentation>The value associated with the Pricing Method selected (e.g. a contract or tariff id).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -960,7 +960,7 @@
           <xs:documentation>A set of characters identifying a promotion. Company specific.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="18"/>
           </xs:restriction>
         </xs:simpleType>
@@ -981,7 +981,7 @@
           <xs:documentation>Free form text used to clarify or explain the Order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="300"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1012,7 +1012,7 @@
           <xs:documentation>Unique identifier for the order that is generated by the Seller when the order is initially accepted via an API.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1027,7 +1027,7 @@
           <xs:documentation>A Party Role played by an Individual or an Organization that buys products and services from a Seller. Specifically, the ID of the Service Provider (Buyer) organization placing the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1037,7 +1037,7 @@
           <xs:documentation>services to a buyer. Specifically, the ID of the Partner/Access Provider (Seller) organization receiving the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1047,7 +1047,7 @@
           <xs:documentation>A number that uniquely identifies a order within the buyer's enterprise.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1057,7 +1057,7 @@
           <xs:documentation>The version number that the Buyer uses to refer to this particular version of the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="2"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1114,7 +1114,7 @@
           <xs:documentation>An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1178,7 +1178,7 @@
           <xs:documentation>The value associated with the Pricing Method selected (e.g. a contract or tariff id).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1199,7 +1199,7 @@
           <xs:documentation>A set of characters identifying a promotion. Company specific.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="18"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1220,7 +1220,7 @@
           <xs:documentation>Free form text used to clarify or explain the Order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="300"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1280,7 +1280,7 @@
           <xs:documentation>Unique identifier for the order that is generated by the Seller when the order is initially accepted via an API.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1295,7 +1295,7 @@
           <xs:documentation>A Party Role played by an Individual or an Organization that buys products and services from a Seller. Specifically, the ID of the Service Provider (Buyer) organization placing the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1305,7 +1305,7 @@
           <xs:documentation>An organization that provides products and services to a buyer. Specifically, the ID of the Partner/Access Provider (Seller) organization receiving the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1315,7 +1315,7 @@
           <xs:documentation>A number that uniquely identifies a order within the buyer's enterprise.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1325,7 +1325,7 @@
           <xs:documentation>The version number that the Buyer uses to refer to this particular version of the order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="2"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1335,7 +1335,7 @@
           <xs:documentation>An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1378,7 +1378,7 @@
           <xs:documentation>Identifies the Billing Account to use to bill the ordered products.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="13"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1388,7 +1388,7 @@
           <xs:documentation>The circuit identifier that the Seller uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1398,7 +1398,7 @@
           <xs:documentation>The circuit identifier that the Seller uses to refer to his EVC.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1408,7 +1408,7 @@
           <xs:documentation>The circuit identifier that the Seller uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1418,7 +1418,7 @@
           <xs:documentation>The circuit identifier that the Seller uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1428,7 +1428,7 @@
           <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1438,7 +1438,7 @@
           <xs:documentation>The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this EVC.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1448,7 +1448,7 @@
           <xs:documentation>The circuit identifier that the Partner/Access  Provider (Buyer) uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1458,7 +1458,7 @@
           <xs:documentation>The circuit identifier that the Partner / Access Provider (Buyer) uses to refer to this ENNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1468,7 +1468,7 @@
           <xs:documentation>The S-VLAN ID assigned by the Seller for this service or the first S-VLAN ID when a range is used.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1478,7 +1478,7 @@
           <xs:documentation>The S-VLAN ID assigned by the Seller for this service when a range is used.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1492,7 +1492,7 @@
           <xs:documentation>An unique identifier for an order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1502,7 +1502,7 @@
           <xs:documentation>The purchase order number for the order that contains the referenced ENNI. This is required if the ordered ENNI is not on the same order as the orderedUniReference.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1512,7 +1512,7 @@
           <xs:documentation>The order item reference for the ENNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1526,7 +1526,7 @@
           <xs:documentation>An unique identifier for an order.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1536,7 +1536,7 @@
           <xs:documentation>The purchase order number for the order that contains the referenced UNI. This is required if the ordered UNI is not on the same order as the orderedUniReference.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="16"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1546,7 +1546,7 @@
           <xs:documentation>The order item reference for the UNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1560,7 +1560,7 @@
           <xs:documentation>The resource's unique identifier.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="15"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1570,7 +1570,7 @@
           <xs:documentation>Specifies the type for the referenced resource.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1589,7 +1589,7 @@
           <xs:documentation>The name of the company that is located at the Service location. This may be different from the name of the Customer that ordered services at that Service Site.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1599,7 +1599,7 @@
           <xs:documentation>The name of the end (retail) customer for the UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1622,20 +1622,10 @@
           <xs:documentation>Additional information about the Site. Equates to the ASR AAI field.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
-      </xs:element>
-      <xs:element minOccurs="1" name="siteContact" type="mef-order:contact">
-        <xs:annotation>
-          <xs:documentation>The primary site contact for the site.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="siteAlternateContact" type="mef-order:contact">
-        <xs:annotation>
-          <xs:documentation>The secondary site contact for the site.</xs:documentation>
-        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -1646,7 +1636,7 @@
           <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="4"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1678,7 +1668,7 @@
           <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1688,7 +1678,7 @@
           <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1698,7 +1688,7 @@
           <xs:documentation>An identifier of the sellers product specification (product catalog item) that the buyer is ordering. This is optional, and specified if known to assist the seller in identifying the exact Access EPL Product that is being ordered.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="25"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1708,7 +1698,7 @@
           <xs:documentation>When the Seller has not yet assigned the Seller UNI Identifier, this field identifies the in-flight Order associated with this UNI.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="string">
+          <xs:restriction base="xs:string">
             <xs:maxLength value="45"/>
           </xs:restriction>
         </xs:simpleType>
@@ -1822,6 +1812,16 @@
       <xs:element minOccurs="0" name="serviceSiteInformation" type="mef-order:serviceSiteInformation">
         <xs:annotation>
           <xs:documentation>The service site for the UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="primarySiteContact" type="mef-order:contact">
+        <xs:annotation>
+          <xs:documentation>The primary site contact for the site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="alternateSiteContact" type="mef-order:contact">
+        <xs:annotation>
+          <xs:documentation>The secondary site contact for the site.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
