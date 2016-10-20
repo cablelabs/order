@@ -102,20 +102,6 @@
             "objectType": "orderedUniReference",
             "orderItemReference": "02"
         },
-        "uniSiteContact": {
-          "objectType": "contact",
-          "name": "string",
-          "telephoneNumber": "string",
-          "telephoneNumberExt": "string",
-          "email":"string"
-        },
-        "uniSiteAlternateContact": {
-          "objectType": "contact",
-          "name": "string",
-          "telephoneNumber": "string",
-          "telephoneNumberExt": "string",
-          "email":"string"
-        },
         "uniIngressBandwidthProfile": {
           "objectType": "bandwidthProfile",
           "committedInformationRate": {
