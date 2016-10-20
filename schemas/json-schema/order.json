@@ -180,6 +180,7 @@
                 "$ref": "orderItem.json#"
             },
             "minItems": 1,
+            "maxitems": 20,
             "uniqueItems": true,
             "description": "An array of order items for this order."
         }

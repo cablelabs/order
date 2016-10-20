@@ -118,9 +118,17 @@
         },
         "uniIngressBandwidthProfile": {
           "objectType": "bandwidthProfile",
-          "committedInformationRate": 10000000,
+          "committedInformationRate": {
+            "objectType": "informationRateQuantity",
+            "amount": 1,
+            "units": "Gbps"
+          },
           "committedBurstSize": 250000,
-          "excessInformationRate": 0,
+          "excessInformationRate": {
+            "objectType": "informationRateQuantity",
+            "amount": 1,
+            "units": "Gbps"
+          },
           "excessBurstSize": 0,
           "colorMode": "COLOR_AWARE",
           "couplingFlag": false

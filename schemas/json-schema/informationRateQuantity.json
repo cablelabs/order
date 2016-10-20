@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "informationRateQuantity",
+    "id": "informationRateQuantity",
+    "description": "A quantity to be used for specifying information rates.",
+    "type": "object",
+    "required": [
+        "objectType"
+    ],
+    "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "informationRateQuantity"
+            ],
+            "description": "The type of the object, bandwidthProfile."
+        },
+        "amount": {
+          "type": "number",
+          "required": true
+        },
+        "units": {
+          "type": "string",
+          "required": true,
+          "enum": [
+            "Mbps",
+            "Gbps"
+          ]
+        }
+    }
+}

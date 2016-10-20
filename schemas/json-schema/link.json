@@ -20,7 +20,7 @@
     "href": {
       "type": "string",
       "description": "A URL. Specifies the location of the linked document.",
-      "maxLength": 2000
+      "maxLength": 255
     },
     "rel": {
       "type": "string",
