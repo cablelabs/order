@@ -1,13 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "accessEplOrderItem",
-    "id": "accessEplOrderItem",
-    "description": "An orderable representation of an Access EPL Order Item. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
+    "title": "accessEplOrderItemDetail",
+    "id": "accessEplOrderItemDetail",
+    "description": "An orderable representation of an Access EPL Order Item based upon its product specification. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
     "type": "object",
     "required": [
         "objectType",
-        "orderItemReference",
-        "quantity",
         "action",
         "buyerOvcId"
     ],
@@ -15,19 +13,9 @@
         "objectType": {
             "type": "string",
             "enum": [
-                "accessEplOrderItem"
+                "accessEplOrderItemDetail"
             ],
-            "description": "The type of the object, accessEplOrderItem."
-        },
-        "orderItemReference": {
-            "type": "string",
-            "description": "A reference number that can be used to refer to this order item.",
-            "maxLength": 4
-        },
-        "quantity": {
-            "type": "integer",
-            "description": "The quantity for the order item.",
-            "minimum": 1
+            "description": "The type of the object, accessEplOrderItemDetail."
         },
         "action": {
             "type": "string",

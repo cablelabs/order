@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "orderItem",
+    "id": "orderItem",
+    "description": "An item on an order. The details of the order item are specified in the productSpecOrderDetails.",
+    "type": "object",
+    "required": [
+        "objectType",
+        "orderItemReference",
+        "quantity"
+    ],
+    "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "orderItem"
+            ],
+            "description": "The type of the object, orderItem."
+        },
+        "orderItemReference": {
+            "type": "string",
+            "description": "A reference number that can be used to refer to this order item.",
+            "maxLength": 4
+        },
+        "quantity": {
+            "type": "integer",
+            "description": "The quantity for the order item.",
+            "minimum": 1
+        },
+        "orderItemDetail:": {
+          "type": "object",
+          "description": "The ordering representation of the product specification being ordered with this order item.",
+          "oneOf": [
+            {
+              "$ref": "accessEplOrderItemDetail.json#"
+            },
+            {
+              "$ref": "uniOrderItemDetail.json#"
+            },
+            {
+              "$ref": "disconnectOrderItemDetail.json#"
+            }
+          ]
+        }
+    }
+}

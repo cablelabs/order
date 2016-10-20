@@ -27,6 +27,15 @@
             "description": "The name of the end (retail) customer for the UNI.",
             "maxLength": 25
         },
+        "siteAddressType": {
+            "type": "string",
+            "enum": [
+                "FIELDED_ADDRESS",
+                "FORMATTED_ADDRESS",
+                "ADDRESS_REFERENCE",
+                "GEOGRAPHIC_POINT"
+            ]
+        },
         "siteAddress": {
             "type": "object",
             "oneOf": [
