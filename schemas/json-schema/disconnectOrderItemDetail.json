@@ -1,13 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "disconnectOrderItem",
-    "id": "disconnectOrderItem",
+    "title": "disconnectOrderItemDetail",
+    "id": "disconnectOrderItemDetail",
     "description": "A request by an organization (buyer) to  another ogranization (seller) to disconnect an existing order.",
     "type": "object",
     "required": [
         "objectType",
-        "orderItemReference",
-        "quantity",
         "action",
         "sellerServiceOrEndpointId"
     ],
@@ -18,16 +16,6 @@
                 "disconnectOrderItem"
             ],
             "description": "The type of the object, disconnectOrderItem."
-        },
-        "orderItemReference": {
-            "type": "string",
-            "description": "A reference number that can be used to refer to this order item.",
-            "maxLength": 4
-        },
-        "quantity": {
-            "type": "integer",
-            "description": "The quantity for the order item.",
-            "minimum": 1
         },
         "action": {
             "type": "string",
