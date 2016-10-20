@@ -8,28 +8,8 @@
       <xs:element minOccurs="0" name="orderNotification" type="mef-order:orderNotification"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="accessEplOrderItem">
+  <xs:complexType name="accessEplOrderItemDetail">
     <xs:sequence>
-      <xs:element minOccurs="1" name="orderItemReference">
-        <xs:annotation>
-          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="4"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element minOccurs="1" name="quantity">
-        <xs:annotation>
-          <xs:documentation>The quantity for the order item.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:int">
-            <xs:minInclusive value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element minOccurs="1" name="action">
         <xs:annotation>
           <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
@@ -199,15 +179,10 @@
   </xs:complexType>
   <xs:complexType name="bandwidthProfile">
     <xs:sequence>
-      <xs:element minOccurs="0" name="committedInformationRate">
+      <xs:element minOccurs="0" name="committedInformationRate" type="mef-order:informationRateQuantity">
         <xs:annotation>
-          <xs:documentation>Defines the average rate in bits/s of Service or ENNI Frames up to which the network delivers Service or ENNI Frames and meets the performance objectives defined by the CoS.</xs:documentation>
+          <xs:documentation>The ingress bandwidth profile at the ENNI end of the OVC that implements the Access EPL.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:int">
-            <xs:minInclusive value="0"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="committedBurstSize">
         <xs:annotation>
@@ -219,15 +194,10 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="excessInformationRate">
+      <xs:element minOccurs="0" name="excessInformationRate" type="mef-order:informationRateQuantity">
         <xs:annotation>
           <xs:documentation>If specified, defines the average rate in bits/s of Service or ENNI Frames up to which the network may deliver Service or Network Frames but without any performance objectives.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:int">
-            <xs:minInclusive value="0"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element minOccurs="0" name="excessBurstSize">
         <xs:annotation>
@@ -332,28 +302,8 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="disconnectOrderItem">
+  <xs:complexType name="disconnectOrderItemDetail">
     <xs:sequence>
-      <xs:element minOccurs="1" name="orderItemReference">
-        <xs:annotation>
-          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="4"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element minOccurs="1" name="quantity">
-        <xs:annotation>
-          <xs:documentation>The quantity for the order item.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:int">
-            <xs:minInclusive value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element minOccurs="1" name="action">
         <xs:annotation>
           <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
@@ -726,6 +676,19 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="informationRateQuantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="units">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Mbps"/>
+            <xs:enumeration value="Gbps"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="link">
     <xs:sequence>
       <xs:element minOccurs="1" name="href">
@@ -734,7 +697,7 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="2000"/>
+            <xs:maxLength value="255"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -991,16 +954,14 @@
           <xs:documentation>Value that associates this order with a previously assigned serviceability response.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="orderItems">
+      <xs:element minOccurs="0" name="orderItems">
         <xs:annotation>
-          <xs:documentation>The line items being ordered (added, removed, or modified) on this order.</xs:documentation>
+          <xs:documentation>An array of order items for this order.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:choice>
-            <xs:element name="accessEplOrderItem" type="mef-order:accessEplOrderItem"/>
-            <xs:element name="uniOrderItem" type="mef-order:uniOrderItem"/>
-            <xs:element name="disconnectOrderItem" type="mef-order:disconnectOrderItem"/>
-          </xs:choice>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="orderItem" type="mef-order:orderItem"/>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -1230,15 +1191,49 @@
           <xs:documentation>Value that associates this order with a previously assigned serviceability response.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" name="orderItems">
+      <xs:element minOccurs="0" name="orderItems">
         <xs:annotation>
-          <xs:documentation>The line items being ordered (added, removed, or modified) on this order.</xs:documentation>
+          <xs:documentation>An array of order items for this order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="orderItem" type="mef-order:orderItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="orderItemReference">
+        <xs:annotation>
+          <xs:documentation>A reference number that can be used to refer to this order item.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="quantity">
+        <xs:annotation>
+          <xs:documentation>The quantity for the order item.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="orderItemDetail:">
+        <xs:annotation>
+          <xs:documentation>The ordering representation of the product specification being ordered with this order item.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="accessEplOrderItem" type="mef-order:accessEplOrderItem"/>
-            <xs:element name="uniOrderItem" type="mef-order:uniOrderItem"/>
-            <xs:element name="disconnectOrderItem" type="mef-order:disconnectOrderItem"/>
+            <xs:element name="accessEplOrderItemDetail" type="mef-order:accessEplOrderItemDetail"/>
+            <xs:element name="uniOrderItemDetail" type="mef-order:uniOrderItemDetail"/>
+            <xs:element name="disconnectOrderItemDetail" type="mef-order:disconnectOrderItemDetail"/>
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -1604,6 +1599,16 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element minOccurs="0" name="siteAddressType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="FIELDED_ADDRESS"/>
+            <xs:enumeration value="FORMATTED_ADDRESS"/>
+            <xs:enumeration value="ADDRESS_REFERENCE"/>
+            <xs:enumeration value="GEOGRAPHIC_POINT"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element minOccurs="1" name="siteAddress">
         <xs:annotation>
           <xs:documentation>A property address for the site. Either a Site Address, a Site Code or a Site Geographic Point must be specified.</xs:documentation>
@@ -1651,6 +1656,183 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element minOccurs="1" name="action">
+        <xs:annotation>
+          <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="INSTALL"/>
+            <xs:enumeration value="CHANGE"/>
+            <xs:enumeration value="NO_CHANGE"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="sellerUniId">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the seller uses to refer to this UNI.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="buyerUniId">
+        <xs:annotation>
+          <xs:documentation>The circuit identifier that the buyer uses to refer to this UNI.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="productSpecification">
+        <xs:annotation>
+          <xs:documentation>An identifier of the sellers product specification (product catalog item) that the buyer is ordering. This is optional, and specified if known to assist the seller in identifying the exact Access EPL Product that is being ordered.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="buyerOrderReference">
+        <xs:annotation>
+          <xs:documentation>When the Seller has not yet assigned the Seller UNI Identifier, this field identifies the in-flight Order associated with this UNI.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="45"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="physicalLayer">
+        <xs:annotation>
+          <xs:documentation>The layer (layer 1) that provides transparent transmission of a bit stream over a circuit built from some physical communications medium.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="10BASE_T"/>
+            <xs:enumeration value="100BASE_TX"/>
+            <xs:enumeration value="100BASE_FX"/>
+            <xs:enumeration value="1000BASE_T"/>
+            <xs:enumeration value="1000BASE_SX"/>
+            <xs:enumeration value="1000BASE_LX"/>
+            <xs:enumeration value="10GBASE_SR"/>
+            <xs:enumeration value="10GBASE_SW"/>
+            <xs:enumeration value="10GBASE_LR"/>
+            <xs:enumeration value="10GBASE_LW"/>
+            <xs:enumeration value="10GBASE_ER"/>
+            <xs:enumeration value="10GBASE_EW"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="synchronousModeEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Identifies if the synchronous transmissions are to proceed at a constant rate.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="numberOfLinks">
+        <xs:annotation>
+          <xs:documentation>The number of links supporting the UNI.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniResiliency">
+        <xs:annotation>
+          <xs:documentation>Indicates UNI resiliency and corresponding value.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="2_LINK_ACTIVE_STANDBY"/>
+            <xs:enumeration value="ALL_ACTIVE"/>
+            <xs:enumeration value="OTHER"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="maxServiceFrameSize">
+        <xs:annotation>
+          <xs:documentation>Indicates the maximum service frame size at the UNI ENNI level.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1522"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="tokenShareEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Identifies whether a given UNI is capable of sharing tokens across Bandwidth Profile Flows in an Envelope. MEF valid values are Enabled or Disabled.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="serviceMultiplexingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Service Multiplexing can be either Enabled or Disabled.  A value of True would equate to 'Enabled'.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="bundlingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="allToOneBundlingEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>All-to-One Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="linkOamEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Link OAM enables the operator to monitor and troubleshoot a single Ethernet link. For ordering, this is an optional parameter that may be requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniMegEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Request for monitoring of a UNI. For ordering, this is an optional parameter that may be requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="elmiEnabled" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Indicates the desire for management of the customer interface. For ordering, this is an optional parameter that may be requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniL2cpAddressSet">
+        <xs:annotation>
+          <xs:documentation>Identifies the discard/pass action for all non-peered layer two control protocols. Enumeration: 'CTA', 'CTB' or 'CTB-2'.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CTA"/>
+            <xs:enumeration value="CTB"/>
+            <xs:enumeration value="CTB_2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="serviceSiteInformation" type="mef-order:serviceSiteInformation">
+        <xs:annotation>
+          <xs:documentation>The service site for the UNI.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="primarySiteContact" type="mef-order:contact">
+        <xs:annotation>
+          <xs:documentation>The primary site contact for the site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="alternateSiteContact" type="mef-order:contact">
+        <xs:annotation>
+          <xs:documentation>The secondary site contact for the site.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uniOrderItemDetail">
+    <xs:sequence>
       <xs:element minOccurs="1" name="action">
         <xs:annotation>
           <xs:documentation>The action to be taken for this order item (E.g. Install, Change).</xs:documentation>
