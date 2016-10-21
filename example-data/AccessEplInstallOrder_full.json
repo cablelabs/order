@@ -117,7 +117,7 @@
             "amount": 1,
             "units": "Gbps"
           },
-          "committedBurstSize": 250000,
+          "committedBurstSize": 25000000,
           "excessInformationRate": {
             "objectType": "informationRateQuantity",
             "amount": 1,
