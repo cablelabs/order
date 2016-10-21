@@ -1,47 +1,47 @@
 {
   "objectType": "order-create-update",
-  "buyerId": "string",
-  "sellerId": "string",
-  "buyerPurchaseOrderNumber": "string",
-  "buyerOrderVersion": "string",
-  "orderDate": "YYYY-MM-DDTHH:MM+02:00",
+  "buyerId": "Verizon",
+  "sellerId": "Cox Spectrum Business",
+  "buyerPurchaseOrderNumber": "PO-12345",
+  "buyerOrderVersion": "1",
+  "orderDate": "2016-10-01T13:20+01:00",
   "orderActivity": "INSTALL",
   "desiredResponses": "CONFIRMATION_ONLY",
-  "projectId": "string",
-  "requestedCompletionDate": "YYYY-MM-DDTHH:MM+02:00",
-  "requestedStartDate": "YYYY-MM-DDTHH:MM+02:00",
+  "projectId": "PRJ-CC-482457303",
+  "requestedCompletionDate": "2016-10-11T17:20+01:00",
+  "requestedStartDate": "2016-10-05T08:00+01:00",
   "priority": 2,
   "billingInfo": {
     "objectType": "billingInformation",
-    "existingBillingAccountNumber": "string"
+    "existingBillingAccountNumber": "12345678"
   },
   "buyerOrderContact": {
     "objectType": "contact",
-    "name": "string",
-    "telephoneNumber": "string",
-    "telephoneNumberExt": "string",
-    "email":"string"
+    "name": "John Doe",
+    "telephoneNumber": "+1720-666-1234",
+    "telephoneNumberExt": "6576",
+    "email":"j.doe@verizon.com"
   },
   "buyerImplementationContact": {
     "objectType": "contact",
-    "name": "string",
-    "telephoneNumber": "string",
-    "telephoneNumberExt": "string",
-    "email":"string"
+    "name": "Mary Jones",
+    "telephoneNumber": "+1720-666-1234",
+    "telephoneNumberExt": "4536",
+    "email":"m.jones@verizon.com"
   },
   "buyerTechnicalContact": {
     "objectType": "contact",
-    "name": "string",
-    "telephoneNumber": "string",
-    "telephoneNumberExt": "string",
-    "email":"string"
+    "name": "Mark Smith",
+    "telephoneNumber": "+1303-354-5645",
+    "telephoneNumberExt": "845",
+    "email":"m.smith@verizon.com"
   },
   "pricingMethod": "CONTRACT",
-  "pricingReference": "string",
-  "pricingTerm": 0,
-  "promotionId": "string",
+  "pricingReference": "MSA-12345",
+  "pricingTerm": 24,
+  "promotionId": "SuperDeal",
   "orderType": "ACCESS_EPL",
-  "notes": "string",
+  "notes": "Notes go here.",
   "serviceabilityResponse": {
     "objectType": "resourceReference",
     "id": "srr-cc-00234",
@@ -63,8 +63,8 @@
       "orderItemDetail": {
         "objectType": "accessEplOrderItemDetail",
         "action": "INSTALL",
-        "buyerOvcId": "string",
-        "productSpecification": "string",
+        "buyerOvcId": "OVC-123-xyz",
+        "productSpecification": "accessEpl-Superfast",
         "enniSvlanId" : 100,
         "enniSvlanIdLast" : 104,
         "mtuSize": 1526,
@@ -72,28 +72,36 @@
         "classOfService": "silver",
         "enniReference": {
             "objectType": "existingEnniReference",
-            "sellerEnniId": "string",
-            "buyerEnniId": "string"
+            "sellerEnniId": "ENNI-123-abc",
+            "buyerEnniId": "ENNI-456-xyz"
         },
         "enniSiteContact": {
           "objectType": "contact",
-          "name": "string",
-          "telephoneNumber": "string",
-          "telephoneNumberExt": "string",
-          "email":"string"
+          "name": "Bob Rice",
+          "telephoneNumber": "+1320-768-9988",
+          "telephoneNumberExt": "124",
+          "email":"b.rice@verizon.com"
         },
         "enniSiteAlternateContact": {
             "objectType": "contact",
-            "name": "string",
-            "telephoneNumber": "string",
-            "telephoneNumberExt": "string",
-            "email":"string"
+            "name": "Jane Hardy",
+            "telephoneNumber": "+1320-768-9988",
+            "telephoneNumberExt": "546",
+            "email":"j.hardy@verizon.com"
         },
         "enniIngressBandwidthProfile": {
           "objectType": "bandwidthProfile",
-          "committedInformationRate": 10000000,
+          "committedInformationRate": {
+            "objectType": "informationRateQuantity",
+            "amount": 1,
+            "units": "Gbps"
+          },
           "committedBurstSize": 250000,
-          "excessInformationRate": 0,
+          "excessInformationRate": {
+            "objectType": "informationRateQuantity",
+            "amount": 1,
+            "units": "Gbps"
+          },
           "excessBurstSize": 0,
           "colorMode": "COLOR_AWARE",
           "couplingFlag": false
@@ -128,8 +136,8 @@
       "orderItemDetail": {
         "objectType": "uniOrderItemDetail",
         "action": "INSTALL",
-        "buyerUniId": "string",
-        "productSpecification": "string",
+        "buyerUniId": "UNI-343",
+        "productSpecification": "UNI-Superfast",
         "buyerOrderReference": "?????????????????????",
         "physicalLayer": "10GBASE_SR",
         "synchronousModeEnabled": true,
@@ -146,8 +154,8 @@
         "uniL2cpAddressSet": "CTB",
         "serviceSiteInformation": {
           "objectType": "serviceSiteInformation",
-          "siteCompanyName": "string",
-          "customerName": "string",
+          "siteCompanyName": "LeaseCo",
+          "customerName": "Wal-Mart",
           "siteAddressType": "FORMATTED_ADDRESS",
           "siteAddress": {
             "objectType": "formattedAddress",
@@ -162,17 +170,17 @@
           "additionalSiteInformation": "Enter through rear of building",
           "siteContact": {
             "objectType": "contact",
-            "name": "string",
-            "telephoneNumber": "string",
-            "telephoneNumberExt": "string",
-            "email":"string"
+            "name": "James Joy",
+            "telephoneNumber": "+1567-676-1334",
+            "telephoneNumberExt": "4998",
+            "email":"j.joy@walmart.com"
           },
           "siteAlternateContact": {
             "objectType": "contact",
-            "name": "string",
-            "telephoneNumber": "string",
-            "telephoneNumberExt": "string",
-            "email":"string"
+            "name": "John Patrick",
+            "telephoneNumber": "+1567-676-1334",
+            "telephoneNumberExt": "7869",
+            "email":"j.patrick@walmart.com"
           }
         }
       }
