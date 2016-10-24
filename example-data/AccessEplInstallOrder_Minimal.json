@@ -1,0 +1,79 @@
+{
+  "objectType": "order-create-update",
+  "buyerId": "Verizon",
+  "sellerId": "Cox Spectrum Business",
+  "buyerPurchaseOrderNumber": "PO-12345",
+  "buyerOrderVersion": "1",
+  "orderDate": "2016-10-01T13:20+01:00",
+  "orderActivity": "INSTALL",
+  "desiredResponses": "CONFIRMATION_ONLY",
+  "requestedCompletionDate": "2016-10-11T17:20+01:00",
+  "billingInfo": {
+    "objectType": "billingInformation",
+    "existingBillingAccountNumber": "12345678"
+  },
+  "buyerOrderContact": {
+    "objectType": "contact",
+    "name": "John Doe",
+    "telephoneNumber": "+1720-666-1234"
+  },
+  "buyerImplementationContact": {
+    "objectType": "contact",
+    "name": "Mary Jones",
+    "telephoneNumber": "+1720-666-1234"
+  },
+  "buyerTechnicalContact": {
+    "objectType": "contact",
+    "name": "Mark Smith",
+    "telephoneNumber": "+1303-354-5645"
+  },
+  "orderType": "ACCESS_EPL",
+  "orderItems": [
+    {
+      "objectType": "orderItem",
+      "orderItemReference": "01",
+      "quantity": 1,
+      "orderItemDetail": {
+        "objectType": "accessEplOrderItemDetail",
+        "action": "INSTALL",
+        "buyerOvcId": "OVC-123-xyz",
+        "enniReference": {
+            "objectType": "existingEnniReference",
+            "sellerEnniId": "ENNI-123-abc"
+        },
+        "enniSiteContact": {
+          "objectType": "contact",
+          "name": "Bob Rice",
+          "telephoneNumber": "+1320-768-9988"
+        },
+        "uniReference": {
+            "objectType": "orderedUniReference",
+            "orderItemReference": "02"
+        }
+      }
+    },
+    {
+      "objectType": "orderItem",
+      "orderItemReference": "02",
+      "quantity": 1,
+      "orderItemDetail": {
+        "objectType": "uniOrderItemDetail",
+        "action": "INSTALL",
+        "buyerUniId": "UNI-343",
+        "physicalLayer": "10GBASE_SR",
+        "serviceSiteInformation": {
+          "objectType": "serviceSiteInformation",
+          "siteCompanyName": "LeaseCo",
+          "siteAddressType": "FORMATTED_ADDRESS",
+          "siteAddress": {
+            "objectType": "formattedAddress",
+            "formattedAddressLine1": "2112 E California",
+            "city": "Oklahoma City",
+            "stateOrProvince": "OK",
+            "postcode": "73102"
+          }
+        }
+      }
+    }
+  ]
+}
