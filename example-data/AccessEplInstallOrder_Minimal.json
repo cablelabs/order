@@ -46,9 +46,25 @@
           "name": "Bob Rice",
           "telephoneNumber": "+1320-768-9988"
         },
+        "enniIngressBandwidthProfile": {
+          "objectType": "bandwidthProfile",
+          "committedInformationRate": {
+            "objectType": "informationRateQuantity",
+            "amount": 1,
+            "units": "Gbps"
+          }
+        },
         "uniReference": {
             "objectType": "orderedUniReference",
             "orderItemReference": "02"
+        },
+        "enniIngressBandwidthProfile": {
+          "objectType": "bandwidthProfile",
+          "committedInformationRate": {
+            "objectType": "informationRateQuantity",
+            "amount": 1,
+            "units": "Gbps"
+          }
         }
       }
     },
@@ -67,7 +83,7 @@
           "siteAddressType": "FORMATTED_ADDRESS",
           "siteAddress": {
             "objectType": "formattedAddress",
-            "formattedAddressLine1": "2112 E California",
+            "addressLine1": "2112 E California",
             "city": "Oklahoma City",
             "stateOrProvince": "OK",
             "postcode": "73102"

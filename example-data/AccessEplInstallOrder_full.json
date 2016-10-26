@@ -69,7 +69,7 @@
         "enniSvlanIdLast" : 104,
         "mtuSize": 1526,
         "colorForwardingEnabled": true,
-        "classOfService": "silver",
+        "classOfService": "medium",
         "enniReference": {
             "objectType": "existingEnniReference",
             "sellerEnniId": "ENNI-123-abc",
@@ -159,8 +159,8 @@
           "siteAddressType": "FORMATTED_ADDRESS",
           "siteAddress": {
             "objectType": "formattedAddress",
-            "formattedAddressLine1": "2112 E California",
-            "formattedAddressLine2": "Suite 250",
+            "addressLine1": "2112 E California",
+            "addressLine2": "Suite 250",
             "city": "Oklahoma City",
             "stateOrProvince": "OK",
             "postcode": "73102",
