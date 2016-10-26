@@ -15,12 +15,12 @@
       ],
       "description": "The type of the object, formattedAddress."
     },
-    "formattedAddressLine1": {
+    "addressLine1": {
       "type": "string",
       "description": "A formatted address line that contains a non-fielded street address.",
       "maxLength": 60
     },
-    "formattedAddressLine2": {
+    "addressLine2": {
       "type": "string",
       "description": "A formatted address line that contains a non-fielded street address, sub-address (e.g. Suite number), etc.",
       "maxLength": 60
