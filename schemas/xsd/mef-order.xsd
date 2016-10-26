@@ -570,7 +570,7 @@
   </xs:complexType>
   <xs:complexType name="formattedAddress">
     <xs:sequence>
-      <xs:element minOccurs="0" name="formattedAddressLine1">
+      <xs:element minOccurs="0" name="addressLine1">
         <xs:annotation>
           <xs:documentation>A formatted address line that contains a non-fielded street address.</xs:documentation>
         </xs:annotation>
@@ -580,7 +580,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="formattedAddressLine2">
+      <xs:element minOccurs="0" name="addressLine2">
         <xs:annotation>
           <xs:documentation>A formatted address line that contains a non-fielded street address, sub-address (e.g. Suite number), etc.</xs:documentation>
         </xs:annotation>
