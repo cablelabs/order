@@ -12,10 +12,8 @@
   "properties": {
     "objectType": {
       "type": "string",
-      "enum": [
-        "link"
-      ],
-      "description": "The type of the object, link."
+      "description": "The type of the object, link.",
+      "maxLength": 25
     },
     "href": {
       "type": "string",
