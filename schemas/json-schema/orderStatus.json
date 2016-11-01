@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "orderNotification",
-    "id": "orderNotification",
-    "description": "A notification initiated by the Seller to the Buyer providing subsequent status information on “Acknowledged” orders such as service delivery confirmation, error, and/or jeopardy messages.",
+    "title": "orderStatus",
+    "id": "orderStatus",
+    "description": "Represents the status of an in-flight order.",
     "type": "object",
     "required": [
         "objectType",
@@ -11,15 +11,16 @@
         "sellerId",
         "buyerPurchaseOrderNumber",
         "buyerOrderVersion",
+        "requestedCompletionDate",
         "orderStatus"
     ],
     "properties": {
         "objectType": {
             "type": "string",
             "enum": [
-                "orderNotification"
+                "orderStatus"
             ],
-            "description": "The type of the object, orderNotification."
+            "description": "The type of the object, orderStatus."
         },
         "orderId": {
             "type": "string",
@@ -28,7 +29,7 @@
         },
         "link": {
             "$ref": "link.json#",
-            "description": "A self referencing link to the Order."
+            "description": "A self referencing link to the order."
         },
         "buyerId": {
             "type": "string",
@@ -65,11 +66,6 @@
             "format": "date-time",
             "description": "Identifies the date the Seller expects to complete the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
-        "completionDate": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Identifies the date the Seller completed the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
-        },
         "orderStatus": {
             "type": "string",
             "enum": [
@@ -84,61 +80,6 @@
                 "PARTIAL"
             ],
             "description": "The status of the order."
-        },
-        "billingAccountNumber": {
-            "type": "string",
-            "description": "Identifies the Billing Account to use to bill the ordered products.",
-            "maxLength": 13
-        },
-        "sellerOvcId": {
-            "type": "string",
-            "description": "The circuit identifier that the Seller uses to refer to this OVC.",
-            "maxLength": 45
-        },
-        "sellerEvcId": {
-            "type": "string",
-            "description": "The circuit identifier that the Seller uses to refer to his EVC.",
-            "maxLength": 45
-        },
-        "sellerUniId": {
-            "type": "string",
-            "description": "The circuit identifier that the Seller uses to refer to this UNI.",
-            "maxLength": 45
-        },
-        "sellerEnniId": {
-            "type": "string",
-            "description": "The circuit identifier that the Seller uses to refer to this ENNI.",
-            "maxLength": 45
-        },
-        "buyerOvcId": {
-            "type": "string",
-            "description": "The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this OVC.",
-            "maxLength": 45
-        },
-        "buyerEvcId": {
-            "type": "string",
-            "description": "The circuit identifier that the Partner/Access Provider (Buyer) uses to refer to this EVC.",
-            "maxLength": 45
-        },
-        "buyerUniId": {
-            "type": "string",
-            "description": "The circuit identifier that the Partner/Access  Provider (Buyer) uses to refer to this UNI.",
-            "maxLength": 45
-        },
-        "buyerEnniId": {
-            "type": "string",
-            "description": "The circuit identifier that the Partner / Access Provider (Buyer) uses to refer to this ENNI.",
-            "maxLength": 45
-        },
-        "svlanId" : {
-            "type": "string",
-            "description": "The S-VLAN ID assigned by the Seller for this service or the first S-VLAN ID when a range is used.",
-            "maxLength": 4
-        },
-        "svlanIdLast" : {
-            "type": "string",
-            "description": "The S-VLAN ID assigned by the Seller for this service when a range is used.",
-            "maxLength": 4
         }
     }
 }

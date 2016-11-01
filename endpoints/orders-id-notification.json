@@ -15,7 +15,7 @@
         {
           "in": "path",
           "name": "id",
-          "description": "ID of an Order for that Notification needs to be fetched.",
+          "description": "ID of an Order for that Notification needs to be fetched for.",
           "required": true,
           "type": "string"
         },
