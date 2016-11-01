@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "orderStatus",
     "id": "orderStatus",
-    "description": "Reporesents the status of an in-flight order.",
+    "description": "Represents the status of an in-flight order.",
     "type": "object",
     "required": [
         "objectType",
