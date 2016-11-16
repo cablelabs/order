@@ -27,7 +27,7 @@
             "description": "The quantity for the order item.",
             "minimum": 1
         },
-        "orderItemDetail:": {
+        "orderItemDetail": {
           "type": "object",
           "description": "The ordering representation of the product specification being ordered with this order item.",
           "oneOf": [
