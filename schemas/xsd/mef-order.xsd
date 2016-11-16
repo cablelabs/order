@@ -1225,7 +1225,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element minOccurs="0" name="orderItemDetail:">
+      <xs:element minOccurs="0" name="orderItemDetail">
         <xs:annotation>
           <xs:documentation>The ordering representation of the product specification being ordered with this order item.</xs:documentation>
         </xs:annotation>
