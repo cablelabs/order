@@ -1,43 +1,22 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "uniOrderItem",
-    "id": "uniOrderItem",
+    "title": "uniProductOrder",
+    "id": "uniProductOrder",
     "description": "An orderable representation of a UNI Order Item. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
     "type": "object",
     "required": [
         "objectType",
-        "orderItemReference",
-        "quantity",
-        "action",
         "buyerUniId",
+        "productSpecification",
         "primarySiteContact"
     ],
     "properties": {
         "objectType": {
             "type": "string",
             "enum": [
-                "uniOrderItem"
+                "uniProductOrder"
             ],
-            "description": "The type of the object, uniOrderItem."
-        },
-        "orderItemReference": {
-            "type": "string",
-            "description": "A reference number that can be used to refer to this order item.",
-            "maxLength": 4
-        },
-        "quantity": {
-            "type": "integer",
-            "description": "The quantity for the order item.",
-            "minimum": 1
-        },
-        "action": {
-            "type": "string",
-            "enum": [
-                "INSTALL",
-                "CHANGE",
-                "NO_CHANGE"
-            ],
-            "description": "The action to be taken for this order item (E.g. Install, Change)."
+            "description": "The type of the object, uniProduct for an Order."
         },
         "sellerUniId": {
             "type": "string",
@@ -50,14 +29,8 @@
             "maxLength": 45
         },
         "productSpecification": {
-            "type": "string",
-            "description": "An identifier of the sellers product specification (product catalog item) that the buyer is ordering. This is optional, and specified if known to assist the seller in identifying the exact Access EPL Product that is being ordered.",
-            "maxLength": 25
-        },
-        "buyerOrderReference": {
-            "type": "string",
-            "description": "When the Seller has not yet assigned the Seller UNI Identifier, this field identifies the in-flight Order associated with this UNI.",
-            "maxLength": 45
+          "$ref": "productSpecRef.json#",
+          "description": "A reference to the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering."
         },
         "physicalLayer": {
             "type": "string",

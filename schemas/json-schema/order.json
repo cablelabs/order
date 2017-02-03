@@ -70,7 +70,7 @@
             ],
             "description": "The type of order, as defined by the business (e.g.,install, change, disconnect)."
         },
-        "status": {
+        "orderStatus": {
             "type": "string",
             "enum": [
                 "ACKNOWLEDGED",
@@ -160,8 +160,8 @@
         "orderType": {
             "type": "string",
             "enum": [
-                "UNI",
-                "ACCESS_EPL"
+              "UNI",
+              "ACCESS_EPL"
             ],
             "description": "Identifies the type of MEF service or service component that is being ordered."
         },

@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "orderNotification",
-    "id": "orderNotification",
-    "description": "A notification initiated by the Seller to the Buyer providing subsequent status information on “Acknowledged” orders such as service delivery confirmation, error, and/or jeopardy messages.",
+    "title": "orderStatusResponse",
+    "id": "orderStatusResponse",
+    "description": "The response to a request for Order status information.",
     "type": "object",
     "required": [
         "objectType",
@@ -17,9 +17,9 @@
         "objectType": {
             "type": "string",
             "enum": [
-                "orderNotification"
+                "orderStatusResponse"
             ],
-            "description": "The type of the object, orderNotification."
+            "description": "The type of the object, orderStatusResponse."
         },
         "orderId": {
             "type": "string",
@@ -46,19 +46,6 @@
             "description": "The version number that the Buyer uses to refer to this particular version of the order.",
             "maxLength": 2
         },
-        "notificationType": {
-            "type": "string",
-            "enum": [
-                "CANCELLATION",
-                "COMPLETION",
-                "CONFIGURATION",
-                "CONFIRMATION",
-                "JEOPARDY",
-                "REJECTION",
-                "STATUS_UPDATE"
-            ],
-            "description": "The type of order notification."
-        },
         "projectId": {
             "type": "string",
             "description": "An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.",
@@ -74,11 +61,6 @@
             "format": "date-time",
             "description": "Identifies the date the Seller expects to complete the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
-        "completionDate": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Identifies the date the Seller completed the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
-        },
         "orderStatus": {
             "type": "string",
             "enum": [
@@ -93,55 +75,6 @@
                 "PARTIAL"
             ],
             "description": "The status of the order."
-        },
-        "billingAccountNumber": {
-          "type": "string",
-          "description": "Identifies the Billing Account to use to bill the ordered products.",
-          "maxLength": 13
-        },
-        "sellerOvcId": {
-          "$ref": "idAssignment.json#",
-          "description": "The ID assigned by the Seller to the OVC on this Order."
-      },
-        "sellerUniIds": {
-          "type": "array",
-          "items": {
-              "$ref": "idAssignment.json#"
-          },
-          "minItems": 1,
-          "uniqueItems": true,
-          "description": "An array of The IDs assigned by the Seller to the UNIs on this Order."
-        },
-        "sellerEnniIds": {
-          "type": "array",
-          "items": {
-              "$ref": "idAssignment.json#"
-          },
-          "minItems": 1,
-          "uniqueItems": true,
-          "description": "An array of The IDs assigned by the Seller to the ENNIs on this Order."
-        },
-        "enniSvlanIds": {
-          "type": "array",
-          "items": {
-            "$ref": "svlanIdAssignment.json#"
-          },
-          "minItems": 1,
-          "uniqueItems": true,
-          "description": "An array The S-VLAN IDs (or ID ranges) assigned by the Seller to ENNIs on this Order."
-        },
-        "uniSvlanIds": {
-          "type": "array",
-          "items": {
-            "$ref": "svlanIdAssignment.json#"
-          },
-          "minItems": 1,
-          "uniqueItems": true,
-          "description": "An array of the S-VLAN IDs (or ID ranges) assigned by the Seller to UNIs on this Order."
-        },
-        "correctiveOrderExpected": {
-            "type": "boolean",
-            "description": "If true, the Buyer is expected to send a corrective (supplemental) order as a replacement order."
         },
         "orderErrors": {
           "type": "array",
