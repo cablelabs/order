@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "orderError",
+    "id": "orderError",
+    "description": "Details of an Error on an Order.",
+    "type": "object",
+    "required": [
+      "errorCode",
+      "errorSeverity"
+    ],
+    "properties": {
+      "objectType": {
+        "type": "string",
+        "enum": [
+          "orderError"
+        ],
+        "description": "The type of the object, orderError."
+      },
+      "errorCode": {
+        "type": "string",
+        "description": "The error code for the Error.",
+        "maxLength": 12
+      },
+      "errorDescription": {
+        "type": "string",
+        "description": "A description of the Error.",
+        "maxLength": 150
+      },
+      "errorInformation": {
+        "type": "string",
+        "description": "Additional (free form) information about the Error."
+      },
+      "errorSeverity": {
+        "type": "string",
+        "enum": [
+          "ERROR",
+          "WARNING",
+          "INFORMATION"
+        ],
+        "description": "The severity of the Error."
+      },
+      "orderItemReference": {
+          "type": "string",
+          "description": "A reference number that can be used to refer to the order item that this Error applies to.",
+          "maxLength": 4
+      },
+      "correctionRequired": {
+          "type": "boolean",
+          "description": "If true, indicates that this Error requires correction (via a corrective or supplemental Order)."
+      }
+    }
+  }

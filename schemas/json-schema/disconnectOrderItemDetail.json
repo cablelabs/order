@@ -6,7 +6,6 @@
     "type": "object",
     "required": [
         "objectType",
-        "action",
         "sellerServiceOrEndpointId"
     ],
     "properties": {
@@ -16,13 +15,6 @@
                 "disconnectOrderItemDetail"
             ],
             "description": "The type of the object, disconnectOrderItem."
-        },
-        "action": {
-            "type": "string",
-            "enum": [
-                "DISCONNECT"
-            ],
-            "description": "The action to be taken for this order item (E.g. Install, Change)."
         },
         "sellerServiceOrEndpointId": {
             "type": "string",

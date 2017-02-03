@@ -1,30 +1,23 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "accessEplOrderItemDetail",
-    "id": "accessEplOrderItemDetail",
+    "title": "accessEplProductOrder",
+    "id": "accessEplProductOrder",
     "description": "An orderable representation of an Access EPL Order Item based upon its product specification. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
     "type": "object",
     "required": [
         "objectType",
-        "action",
-        "buyerOvcId"
+        "productSpecification",
+        "buyerOvcId",
+        "enniReference",
+        "uniReference"
     ],
     "properties": {
         "objectType": {
             "type": "string",
             "enum": [
-                "accessEplOrderItemDetail"
+                "accessEplProductOrder"
             ],
             "description": "The type of the object, accessEplOrderItemDetail."
-        },
-        "action": {
-            "type": "string",
-            "enum": [
-                "INSTALL",
-                "CHANGE",
-                "NO_CHANGE"
-            ],
-            "description": "The action to be taken for this order item (E.g. Install, Change)."
         },
         "sellerOvcId": {
             "type": "string",
@@ -37,9 +30,8 @@
             "maxLength": 45
         },
         "productSpecification": {
-            "type": "string",
-            "description": "An identifier of the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering at the Access-EPL level.",
-            "maxLength": 25
+          "$ref": "productSpecRef.json#",
+          "description": "A reference to the Partner/Access Provider (Seller) Product Specification (product catalog item) that the buyer is ordering."
         },
         "enniSvlanId" : {
             "type": "integer",
