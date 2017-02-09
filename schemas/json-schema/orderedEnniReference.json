@@ -18,7 +18,7 @@
         },
         "orderId": {
             "type": "string",
-            "description": "An unique identifier for an order.",
+            "description": "A unique identifier for an order.",
             "maxLength": 15
         },
         "buyerPurchaseOrderNumber": {
@@ -28,7 +28,7 @@
         },
         "orderItemReference": {
             "type": "string",
-            "description": "The order item reference for the ENNI on the referenced order, or on the current order if a buyerPurchaseOrderNumber is not provided.",
+            "description": "A reference number that can be used to refer to the order item of ordered ENNI.",
             "maxLength": 4
         }
     }

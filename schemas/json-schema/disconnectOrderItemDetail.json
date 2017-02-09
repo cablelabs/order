@@ -18,12 +18,12 @@
         },
         "sellerServiceOrEndpointId": {
             "type": "string",
-            "description": "One or more of the following Seller-assigned values may be included: OVC Identifier, EVC Identifier, UNI Identifier, ENNI Identifier.",
+            "description": "One of the following Seller-assigned values may be included: OVC Identifier, EVC Identifier, UNI Identifier, ENNI Identifier.",
             "maxLength": 45
         },
         "buyerServiceOrEndpointId": {
             "type": "string",
-            "description": "One or more of the following Buyer-assigned values may be included: Buyer OVC Identifier, Buyer EVC Identifier, Buyer UNI Identifier, Buyer ENNI Identifier.",
+            "description": "One of the following Buyer-assigned values may be included: Buyer OVC Identifier, Buyer EVC Identifier, Buyer UNI Identifier, Buyer ENNI Identifier.",
             "maxLength": 45
         }
     }

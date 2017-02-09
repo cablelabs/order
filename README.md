@@ -1,57 +1,103 @@
 
-# mef-order
+# order
 Web Services focused on MEF Order
 
 > **IMPORTANT**: This project is in pre-release development. Please expect frequent changes and updates while we converge on our initial release.
 
+### Order State Machine
+The state machine for the order.
+![Order State Machine](MEF_OrderStateDiagram.png)
+
 ### API
-
-The API endpoints for MEF Order web services are designed and documented using [Swagger](http://swagger.io/). The endpoint definitions can be found in the [endpoints](endpoints) directory. We utilize a [builder](builder) to compile all of the endpoint definitions and their respective schemas into a single Swagger file, which is ultimately published to our github.io site [here](http://cablelabs.github.io/mef-order/swagger/index.html) using Swagger UI. We automate this build and deploy process with [Codeship](https://codeship.com/).
-
-### Schemas
-
-The schemas can be found in the [schemas](schemas) directory. We provide schemas in both [JSON Schema](http://json-schema.org/) and [XSD](http://www.w3schools.com/schema/). Here's an example of the kind of JSON Schema you can expect to find:
+The API endpoints for MEF Order web services are designed and documented using [JSON Schema](http://json-schema.org/). Here's an example of the kind of JSON Schema you can expect to find:
 
 ``` JSON
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "quantity",
-  "id": "quantity",
-  "description": "A base / value business entity used to represent measurements.",
-  "type": "object",
-  "properties": {
-    "amount": {
-      "type": "number",
-      "description": "A positive floating point number representing the amount of the quantity."
-    },
-    "units": {
-      "type": "string",
-      "description": "The unit of measure for the quantity, such as meters, cubic yards, kilograms [ISO 1000]."
+  "/orders": {
+    "post": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Create a new Order.",
+      "description": "This service creates a new Order.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "body",
+          "description": "",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/order-create-update"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Instance created."
+        },
+        "405": {
+          "description": "Invalid input."
+        }
+      }
     }
   }
 }
 ```
 
-### Apps
+### Schemas
+The schemas can be found in the [schemas](schemas) directory. We provide schemas in [JSON Schema](http://json-schema.org/). Here's an example of the kind of JSON Schema you can expect to find:
 
-The [apps](apps) directory will contains sample applications used to demonstrate the enterprise web services APIs.
+``` JSON
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "informationRateQuantity",
+    "id": "informationRateQuantity",
+    "description": "A quantity to be used for specifying information rates.",
+    "type": "object",
+    "required": [
+        "objectType"
+    ],
+    "properties": {
+        "objectType": {
+            "type": "string",
+            "enum": [
+                "informationRateQuantity"
+            ],
+            "description": "The type of the object, bandwidthProfile."
+        },
+        "amount": {
+          "type": "number",
+          "required": true
+        },
+        "units": {
+          "type": "string",
+          "required": true,
+          "enum": [
+            "Mbps",
+            "Gbps"
+          ]
+        }
+    }
+}
+```
 
 ### Getting started
-
 To get started, simply clone this repo:
 
 ```
-$ git clone https://github.com/cablelabs/enterprise-web-services.git
+$ git clone https://github.com/cablelabs/order.git
 ```
 
 If you're new to git and GitHub, but sure to check out the [Pro Git](https://git-scm.com/book/en/v2) book. [GitHub Help](https://help.github.com/) is also outstanding.
 
-### Contributing 
-
+### Contributing
 enterprise-web-services was originally built by [CableLabs](http://cablelabs.com/), but we could use your help! Check out our [contributing guidelines](CONTRIBUTING.md) to get started.
 
 ### Other important stuff
-
-We use an [MIT License](LICENSE.md).
+We use an [MIT License](LICENSE).
 
 Questions? Just send us an email at btech@cablelabs.com.
