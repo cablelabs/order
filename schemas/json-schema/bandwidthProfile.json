@@ -15,14 +15,14 @@
             ],
             "description": "The type of the object, bandwidthProfile."
         },
-        "committedInformationRate": { 
+        "committedInformationRate": {
             "$ref": "informationRateQuantity.json#",
-            "description": "The ingress bandwidth profile at the ENNI end of the OVC that implements the Access EPL."
+            "description": "Defines the average rate in bits/s of Service or ENNI Frames up to which the network may deliver Service or Network Frames but without any performance objectives."
         },
         "committedBurstSize": {
             "type": "integer",
             "description": "Limits the maximum number of bytes available for a burst of Service or ENNI Frames sent at the EI speed to remain CIR- onformant. MUST be >= 12176.",
-            "minimum": 0
+            "minimum": 12176
         },
         "excessInformationRate": {
             "$ref": "informationRateQuantity.json#",
