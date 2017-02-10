@@ -32,10 +32,11 @@
     {
       "objectType": "orderItem",
       "orderItemReference": "01",
+      "action": "INSTALL",
       "quantity": 1,
       "orderItemDetail": {
-        "objectType": "accessEplOrderItemDetail",
-        "action": "INSTALL",
+        "objectType": "accessEplProductOrder",
+        "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
             "objectType": "existingEnniReference",
@@ -58,7 +59,12 @@
             "objectType": "orderedUniReference",
             "orderItemReference": "02"
         },
-        "enniIngressBandwidthProfile": {
+        "uniSiteContact": {
+          "objectType": "contact",
+          "name": "Bob Rice",
+          "telephoneNumber": "+1320-768-9988"
+        },
+        "uniIngressBandwidthProfile": {
           "objectType": "bandwidthProfile",
           "committedInformationRate": {
             "objectType": "informationRateQuantity",
@@ -71,11 +77,27 @@
     {
       "objectType": "orderItem",
       "orderItemReference": "02",
+      "action": "INSTALL",
       "quantity": 1,
       "orderItemDetail": {
-        "objectType": "uniOrderItemDetail",
-        "action": "INSTALL",
+        "objectType": "uniProductOrder",
         "buyerUniId": "UNI-343",
+        "productSpecification": {
+          "objectType": "productSpecRef",
+          "code": "AEVPL100",
+          "productSpecification": {
+            "objectType": "resourceReference",
+            "id": "prd-spec-00234",
+            "type": "PRODUCT_SPEC",
+            "link": {
+              "objectType": "link",
+              "href": "http://product_spec/prod-spec-00234",
+              "rel": "self",
+              "method": "get",
+              "type": "application/json"
+            }
+          }
+        },
         "physicalLayer": "10GBASE_SR",
         "serviceSiteInformation": {
           "objectType": "serviceSiteInformation",
@@ -88,6 +110,11 @@
             "stateOrProvince": "OK",
             "postcode": "73102"
           }
+        },
+        "primarySiteContact": {
+          "objectType": "contact",
+          "name": "James Joy",
+          "telephoneNumber": "+1567-676-1334"
         }
       }
     }
