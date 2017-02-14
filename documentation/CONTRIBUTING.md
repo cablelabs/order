@@ -25,7 +25,7 @@ Some useful resources to get started:
 - [MEF Order overview][4] (aka project README)
 - [MEF Order license][5]
 
-[4]: README.md
+[4]: ../README.md
 [5]: LICENSE
 
 Questions? Just send us an email at btech@cablelabs.com.
