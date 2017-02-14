@@ -6,7 +6,7 @@ Web Services focused on MEF Order
 
 ### Order State Machine
 The state machine for the order.
-![Order State Machine](MEF_OrderStateDiagram.png)
+![Order State Machine](documentation/MEF_OrderStateDiagram.png)
 
 ### API
 The API endpoints for MEF Order web services are designed and documented using [JSON Schema](http://json-schema.org/). Here's an example of the kind of JSON Schema you can expect to find:
@@ -95,9 +95,9 @@ $ git clone https://github.com/cablelabs/order.git
 If you're new to git and GitHub, but sure to check out the [Pro Git](https://git-scm.com/book/en/v2) book. [GitHub Help](https://help.github.com/) is also outstanding.
 
 ### Contributing
-enterprise-web-services was originally built by [CableLabs](http://cablelabs.com/), but we could use your help! Check out our [contributing guidelines](CONTRIBUTING.md) to get started.
+enterprise-web-services was originally built by [CableLabs](http://cablelabs.com/), but we could use your help! Check out our [contributing guidelines](documentation/CONTRIBUTING.md) to get started.
 
 ### Other important stuff
-We use an [MIT License](LICENSE).
+We use an [MIT License](documentation/LICENSE).
 
 Questions? Just send us an email at btech@cablelabs.com.
