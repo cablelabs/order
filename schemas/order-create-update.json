@@ -14,6 +14,7 @@
         "orderActivity",
         "desiredResponses",
         "requestedCompletionDate",
+        "billingInfo",
         "buyerOrderContact",
         "orderType",
         "orderItems"
@@ -87,7 +88,7 @@
         "projectId": {
             "type": "string",
             "description": "An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.",
-            "maxLength": 16
+            "maxLength": 45
         },
         "requestedCompletionDate": {
             "type": "string",

@@ -20,7 +20,7 @@
         "name": {
             "type": "string",
             "description": "Identifies the name of the person or office.",
-            "maxLength": 15
+            "maxLength": 50
         },
         "telephoneNumber": {
             "type": "string",

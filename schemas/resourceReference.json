@@ -21,7 +21,7 @@
 		"id": {
 			"type": "string",
 			"description": "The resource's unique identifier.",
-      		"maxLength": 15
+      		"maxLength": 45
 		},
 		"type": {
 			"type": "string",
