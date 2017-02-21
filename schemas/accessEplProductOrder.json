@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "accessEplProductOrder",
     "id": "accessEplProductOrder",
-    "description": "An orderable representation of an Access EPL Order Item based upon its product specification. Properties that are not specified must be derivable from the Product that is being ordered, or by a Contract or Implementation Agreement between the Buyer and the Seller.",
+    "description": "An orderable representation of an Access EPL Product.",
     "type": "object",
     "required": [
         "objectType",
