@@ -7,8 +7,6 @@
     "required": [
         "objectType",
         "productSpecification",
-        "buyerOvcId",
-        "enniReference",
         "uniReference"
     ],
     "properties": {

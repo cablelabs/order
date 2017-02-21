@@ -6,9 +6,7 @@
     "type": "object",
     "required": [
         "objectType",
-        "buyerUniId",
-        "productSpecification",
-        "primarySiteContact"
+        "productSpecification"
     ],
     "properties": {
         "objectType": {

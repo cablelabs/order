@@ -19,7 +19,7 @@
         "orderId": {
             "type": "string",
             "description": "An unique identifier for an order.",
-            "maxLength": 15
+            "maxLength": 45
         },
         "buyerPurchaseOrderNumber": {
             "type": "string",
