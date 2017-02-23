@@ -1173,6 +1173,9 @@ POST /orders/status-response
   "sellerId": "Cox Spectrum Business",
   "buyerPurchaseOrderNumber": "PO-12345",
   "buyerOrderVersion": "1",
+  "projectId": "PRJ-CC-482457303",
+  "requestedCompletionDate": "2016-10-11T17:20+01:00",
+  "expectedCompletionDate": "2016-10-05T08:00+01:00",
   "orderStatus": "IN_PROGRESS"
 }
 ```
