@@ -1,11 +1,16 @@
 ## Orders
 
+This API describes one possible API that meets the business requirements described the Carrier Ethernet Ordering Technical Specification located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions), inclusive of CfC comments resolved as of 2/27/2016.
+
+This API is based on TMForum Order, and the Products included in the Order Items are Products that would result from applying the ONF Specification Pattern (minus JSON LD @context and @id). I.e. the TMForum Characteristic/Characteristic Value pattern is *not* used, and instead the attributes from the Product Specification (schema) are imbedded in the Product.
+
+
 **Endpoint Summary**
 
 | Action | Endpoint |
 | ------ | -------- |
 | List all orders for a Buyer. Query string is `?buyerId=value1` | GET /orders |
-| Get an order by ID or Buyer Purchase Order Number. Query string is `?id=value1`, or `?pon=value2` | GET /orders/ |
+| Get an order by ID or Buyer Purchase Order Number. Query string is `?id=value1&?pon=value2` | GET /orders |
 | Create an order | POST /orders |
 | Update an order | PUT /orders/{id} |
 | Update an order with partial attributes | PATCH /orders/{id} |
@@ -13,6 +18,8 @@
 | Hold an order | POST /orders/{id}/hold |
 | Release a held order | POST /orders/{id}/release |
 
+
+**Endpoint Descriptions and Examples**
 
 ### List all Orders
 
