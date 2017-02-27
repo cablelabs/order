@@ -15,12 +15,6 @@ The Endpoint Summary table describes each API endpoint. Following the table is a
 | Get an order notification | GET /orders/{id}/notifications |
 | Create a notification for an order | POST /orders/{id}/notifications |
 
-## Endpoint Definitions, Json Schemas and Example locations:
-
-Endpoint definitions are provided in the /endpoints directory of this repository.
-Json Schema definitions of the request and response payloads are provided in the /schemas directory of this repository.
-Example payloads are included in the /example-data directory of this repository.
-
 
 ##Endpoints
 
