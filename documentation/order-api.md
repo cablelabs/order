@@ -274,7 +274,9 @@ Status: 200 OK
 
 ```
 GET /orders&id=ORD-CC-12345
+```
 or
+```
 GET /orders&pon=PO-12345
 ```
 Retrieve an Order by ID or Buyer Purchase Order Number.

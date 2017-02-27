@@ -18,6 +18,8 @@ The Order Status and Notification API is described in [Order Status and Notifica
 
 ##Additional Documentation
 
-Endpoint definitions are provided in the /endpoints directory of this repository.
-Json Schema definitions of the request and response payloads are provided in the /schemas directory of this repository.
-Example payloads are included in the /example-data directory of this repository.
+Endpoint definitions are provided in the `/endpoints` directory of this repository.
+
+Json Schema definitions of the request and response payloads are provided in the `/schemas` directory of this repository.
+
+Example payloads are included in the `/example-data` directory of this repository.
