@@ -22,7 +22,9 @@ The Endpoint Summary table describes each API endpoint. Following the table is a
 
 ```
 GET /orders/status&id=ORD-CC-12345
+```
 or
+```
 GET /orders/status&buyerId=Verizon&sellerId=Cox&buyerPurchaseOrderNumber=PO-12345
 ```
 Return the status of an Order by Order ID. This is a synchronous API, and the status of the Order is returned in the response.
