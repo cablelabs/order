@@ -29,9 +29,9 @@
       ],
       "responses": {
         "200": {
-          "description": "Successful operation.",
+          "description": "OK (Successful operation).",
           "schema": {
-            "$ref": "#/definitions/orderStatus"
+            "$ref": "#/definitions/orderStatusResponse"
           }
         },
         "400": {

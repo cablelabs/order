@@ -1,0 +1,34 @@
+{
+  "/orders/status-request": {
+    "post": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Create a new Status Request for an Order.",
+      "description": "This service creates a new Status Request for an Order.",
+      "consumes": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "body",
+          "description": "Resource instance.",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/orderStatusRequest"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Instance created."
+        },
+        "405": {
+          "description": "Invalid input."
+        }
+      }
+    }
+  }
+}

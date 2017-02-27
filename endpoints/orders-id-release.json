@@ -1,11 +1,11 @@
 {
-  "/orders/{id}/cancel": {
+  "/orders/{id}/release": {
     "post": {
       "tags": [
         "Order"
       ],
-      "summary": "Cancel an Order.",
-      "description": "This service looks up an Order by its ID, and cancels it. It is intended to Cancel an in-flight Order.",
+      "summary": "Release a held Order.",
+      "description": "This service looks up an Order by its ID, and release the held Order.",
       "consumes": [
         "application/json",
         "application/xml"
