@@ -1,6 +1,7 @@
 ## Orders
 
-This API describes one possible API that meets the business requirements described the Carrier Ethernet Ordering Technical Specification located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions), inclusive of CfC comments resolved as of 2/27/2016.
+This repository contains an example Order API that meets the business requirements documented by the Joint OBF OS/MEF Ordering Team.
+This API conforms to the business requirements, inclusive of CfC comments resolved as of 2/27/2016.
 
 This API is based on TMForum Order, with some extensions to better support ordering of Ethernet service. The TMForum Characteristic/Characteristic Value pattern is *not* used. Instead, Product Specifications will be defined using the ONF Specification pattern, where the various concrete Product Specifications are schemas whose attributes are "injected" into the Products derived from the Product Specifications. I.e. each Property defined in the Product Specification will be included dynamically (using Json Linked Data - JSON LD) in the Product derived from the Product Specification. For the moment, Product attributes in this API are inlined as Product attributes, and the Product Specification is not referenced using JSON LD. This should be corrected once the TMForum support for the ONF Specification pattern is defined.
 

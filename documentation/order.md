@@ -1,11 +1,9 @@
 # Order
 
-This repository contains an Order API that meets the business requirements documented by the Joint OBF OS/MEF LSO Sonata Ordering Team.
-This API conforms to the business requirements stated in the Carrier Ethernet Ordering Technical Specification located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions), inclusive of CfC comments resolved as of 2/27/2016.
+This repository contains an example Order API that meets the business requirements documented by the Joint OBF OS/MEF Ordering Team.
+This API conforms to the business requirements, inclusive of CfC comments resolved as of 2/27/2016.
 
-The CfC comments are located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions) in a spreadsheet called CfCBComments-Ordering-consolidated.
-
-The Order state machine that is being used by the Joint OBF OS/MEF LSO Sonata Ordering Project is provided below. This state machine is based upon TMForum Order State machine, and will need to be revised (either by TMForum, or the Joint OBF OS/MEF LSO Sonata Ordering Team) to fully meet the needs defined in then Carrier Ethernet Ordering Technical Specification.
+The Order state machine is provided below. This state machine is based upon TMForum Order State machine, and will need to be revised (either by TMForum, or the Joint OBF OS/MEF LSO Sonata Ordering Team) to fully meet the needs of Carrier Ethernet Ordering.
 ![Order State Machine](MEF_OrderStateDiagram.png)
 
 ##API
