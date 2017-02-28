@@ -15,4 +15,4 @@ This API conforms to the business requirements stated in the Carrier Ethernet Or
 | `/example-data` | Example JSON files for an Access EPL Order |
 | `/schemas` | JSON Schema files for for the Order API |
 
-The best place to start is the [Order Markdown file in the documentation directory](/documentation/MEF_OrderStateDiagram.png)
+The best place to start is the [Order Markdown file in the documentation directory](/documentation/order.md)
