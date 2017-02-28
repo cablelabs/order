@@ -1,5 +1,47 @@
 {
   "/orders": {
+    "get": {
+      "tags": [
+        "Order"
+      ],
+      "summary": "Fetch all Orders that meet the query criteria.",
+      "description": "This service fetches all Orders that meet the query criteria.",
+      "displayName": "Orders",
+      "produces": [
+        "application/json",
+        "application/xml"
+      ],
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Query criteria for filtering the list of Orders.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "view",
+          "description": "View of the resource that you want to get.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK (Successful operation).",
+          "schema": {
+            "$ref": "#/definitions/orderList"
+          }
+        },
+        "400": {
+          "description": "Invalid ID supplied."
+        },
+        "404": {
+          "description": "Instance not found."
+        }
+      }
+    },
     "post": {
       "tags": [
         "Order"
@@ -14,7 +56,7 @@
         {
           "in": "body",
           "name": "body",
-          "description": "",
+          "description": "Resource instance.",
           "required": true,
           "schema": {
             "$ref": "#/definitions/order-create-update"
