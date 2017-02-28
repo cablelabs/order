@@ -22,8 +22,8 @@ Make your suggested changes, `git commit`, `git push` and then [submit a pull re
 ## Resources
 
 Some useful resources to get started:
-- [MEF Order overview][4] (aka project README)
-- [MEF Order license][5]
+- [Order overview][4] (aka project README)
+- [Order license][5]
 
 [4]: ../README.md
 [5]: LICENSE
