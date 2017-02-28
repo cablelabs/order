@@ -1,10 +1,10 @@
 
-# Web Services focused on MEF Order
+# An Ethernet Services Ordering API
 
 This repository contains an example Order API that meets the business requirements documented by the Joint OBF OS/MEF Ordering Team.
 This API conforms to the business requirements, inclusive of CfC comments resolved as of 2/27/2016.
 
-> **IMPORTANT**: This project is in pre-release development. Please expect frequent changes and updates while we converge on our initial release.
+> **IMPORTANT**: This project is in pre-release development. Please expect frequent changes and updates.
 
 **Repository Structure**
 
