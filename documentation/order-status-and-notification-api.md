@@ -2,7 +2,7 @@
 
 The Order Status and Notification API describes the API for Order Status and Notifications. Both synchronous and asynchronous API is provided.
 
-The Endpoint Summary table describes each API endpoint. Following the table is an example of each action at each endpoint, including sample request and response payloads.
+The Endpoint Summary table describes each Order Status and Notification API endpoint. Following the table is an example of each action at each endpoint, including sample request and response payloads.
 
 
 **Endpoint Summary**
