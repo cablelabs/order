@@ -1,15 +1,16 @@
 # Order
 
-This Order repository contains an Order API that meets the business requirements documented by the Joint OBF OS/MEF LSO Sonata Ordering Team.
+This repository contains an Order API that meets the business requirements documented by the Joint OBF OS/MEF LSO Sonata Ordering Team.
 This API conforms to the business requirements stated in the Carrier Ethernet Ordering Technical Specification located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions), inclusive of CfC comments resolved as of 2/27/2016.
-The CfC comments are also located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions) in a spreadsheet called CfCBComments-Ordering-consolidated.
 
-The Order state machine that is being used by the Joint OBF OS/MEF LSO Sonata Ordering Project is provided below. This state machine is based upon TMForum Order State machine, and will need to be revised (either by TMForum, or the Joint OBF OS/MEF LSO Sonata Ordering Team to fully meet the needs defined in then Carrier Ethernet Ordering Technical Specification.
+The CfC comments are located in [LSO Sonata - Ethernet Ordering (Joint MEF-ATIS OBF)](https://wiki.mef.net/display/AL/Ethernet+Ordering+Contributions) in a spreadsheet called CfCBComments-Ordering-consolidated.
+
+The Order state machine that is being used by the Joint OBF OS/MEF LSO Sonata Ordering Project is provided below. This state machine is based upon TMForum Order State machine, and will need to be revised (either by TMForum, or the Joint OBF OS/MEF LSO Sonata Ordering Team) to fully meet the needs defined in then Carrier Ethernet Ordering Technical Specification.
 ![Order State Machine](MEF_OrderStateDiagram.png)
 
 ##API
 
-This API is based on TMForum Order, and the Products included in the Order Items are Products that would result from applying the ONF Specification Pattern (minus JSON LD @context and @id). I.e. the TMForum Characteristic/Characteristic Value pattern is *not* used, and instead the attributes from the Product Specification (schema) are imbedded in the Product.
+This API is based on TMForum Order, with some extensions to better support ordering of Ethernet service. The TMForum Characteristic/Characteristic Value pattern is *not* used. Instead, Product Specifications will be defined using the ONF Specification pattern, where the various concrete Product Specifications are schemas whose attributes are "injected" into the Products derived from the Product Specifications. I.e. each Property defined in the Product Specification will be included dynamically (using Json Linked Data - JSON LD) in the Product derived from the Product Specification. For the moment, Product attributes in this API are inlined as Product attributes, and the Product Specification is not referenced using JSON LD. This should be corrected once the TMForum support for the ONF Specification pattern is defined.
 
 The Order API is described in [Order API](order-api.md)
 

@@ -12,8 +12,8 @@ The Endpoint Summary table describes each API endpoint. Following the table is a
 | Get status of an order (if synchronous status is supported). Query string is `?orderId=value1&buyerId=value2&sellerId=value3&buyerPurchaseOrderNumber=value4` | GET /orders/{id}/status |
 | Create a status request of an order (if asynchronous status is supported) | POST /orders/status-request |
 | Create a status response of an order (if asynchronous status is supported) | POST /orders/status-response |
-| Get an order notification | GET /orders/{id}/notifications |
-| Create a notification for an order | POST /orders/{id}/notifications |
+| Get an order notification | GET /orders/{id}/notification |
+| Create a notification for an order | POST /orders/{id}/notification |
 
 
 ##Endpoints

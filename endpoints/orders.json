@@ -14,8 +14,22 @@
       "parameters": [
         {
           "in": "query",
-          "name": "query",
-          "description": "Query criteria for filtering the list of Orders.",
+          "name": "buyerId",
+          "description": "Query criteria for filtering the list of Orders to a specific Buyer.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "id",
+          "description": "Query criteria for filtering the list of Orders to a specific Buyer Purchase Order Number.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "pon",
+          "description": "Query criteria for filtering the list of Orders to a specific Order ID.",
           "required": false,
           "type": "string"
         },
