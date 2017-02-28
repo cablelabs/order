@@ -13,10 +13,31 @@
       ],
       "parameters": [
         {
-          "in": "path",
-          "name": "id",
-          "description": "ID of an Order for that Status needs to be fetched for.",
-          "required": true,
+          "in": "query",
+          "name": "orderId",
+          "description": "ID of an Order for which status should be fetched.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "sellerId",
+          "description": "ID of Seller for the Order for which status should be fetched.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "buyerId",
+          "description": "ID of Buyer for the Order for which status should be fetched. Unse in conjunction with buyerPurchaseOrderNumber, as the buyerPurchaseOrderNumber is unique within a Buyer",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "query",
+          "name": "buyerPurchaseOrderNumber",
+          "description": "ID of buyerPurchaseOrderNumber for the Order for which status should be fetched. Unse in conjunction with buyerId, as the buyerId is unique within a Buyer",
+          "required": false,
           "type": "string"
         },
         {
