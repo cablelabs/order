@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "orderError",
-    "id": "orderError",
-    "description": "Details of an Error on an Order.",
+    "title": "orderMessage",
+    "id": "orderMessage",
+    "description": "Details of a message for an Order.",
     "type": "object",
     "required": [
       "errorCode",
@@ -14,21 +14,21 @@
         "enum": [
           "orderError"
         ],
-        "description": "The type of the object, orderError."
+        "description": "The type of the object, orderMessage."
       },
       "errorCode": {
         "type": "string",
-        "description": "The error code for the Error.",
+        "description": "The error code for the Message.",
         "maxLength": 12
       },
       "errorDescription": {
         "type": "string",
-        "description": "A description of the Error.",
+        "description": "A description of the Message.",
         "maxLength": 150
       },
       "errorInformation": {
         "type": "string",
-        "description": "Additional (free form) information about the Error."
+        "description": "Additional (free form) information about the Message."
       },
       "errorSeverity": {
         "type": "string",
@@ -37,16 +37,16 @@
           "WARNING",
           "INFORMATION"
         ],
-        "description": "The severity of the Error."
+        "description": "The severity of the Message."
       },
       "orderItemReference": {
           "type": "string",
-          "description": "A reference number that can be used to refer to the order item that this Error applies to.",
+          "description": "A reference number that can be used to refer to the order item that this Message applies to.",
           "maxLength": 4
       },
       "correctionRequired": {
           "type": "boolean",
-          "description": "If true, indicates that this Error requires correction (via a corrective or supplemental Order)."
+          "description": "If true, indicates that this Message requires correction (via a corrective or supplemental Order)."
       }
     }
   }

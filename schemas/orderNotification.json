@@ -143,14 +143,14 @@
             "type": "boolean",
             "description": "If true, the Buyer is expected to send a corrective (supplemental) order as a replacement order."
         },
-        "orderErrors": {
+        "orderMessages": {
           "type": "array",
           "items": {
-            "$ref": "orderError.json#"
+            "$ref": "orderMessage.json#"
           },
           "minItems": 1,
           "uniqueItems": true,
-          "description": "An array of errors associated with this Order."
+          "description": "An array of messages associated with this Order."
         }
     }
 }
