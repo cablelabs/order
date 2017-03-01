@@ -1,7 +1,7 @@
 # Order
 
 This repository contains an example Order API that meets the business requirements documented by the Joint OBF OS/MEF Ordering Team.
-This API conforms to the business requirements, inclusive of CfC comments resolved as of 2/27/2016.
+This API conforms to the business requirements, inclusive of CfC comments resolved as of 2/27/2017.
 
 The Order state machine is provided below. This state machine is based upon TMForum Order State machine, and will need to be revised (either by TMForum, or the Joint OBF OS/MEF LSO Sonata Ordering Team) to fully meet the needs of Carrier Ethernet Ordering.
 ![Order State Machine](MEF_OrderStateDiagram.png)

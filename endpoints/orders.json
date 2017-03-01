@@ -21,14 +21,14 @@
         },
         {
           "in": "query",
-          "name": "id",
+          "name": "pon",
           "description": "Query criteria for filtering the list of Orders to a specific Buyer Purchase Order Number.",
           "required": false,
           "type": "string"
         },
         {
           "in": "query",
-          "name": "pon",
+          "name": "id",
           "description": "Query criteria for filtering the list of Orders to a specific Order ID.",
           "required": false,
           "type": "string"
@@ -47,9 +47,6 @@
           "schema": {
             "$ref": "#/definitions/orderList"
           }
-        },
-        "400": {
-          "description": "Invalid ID supplied."
         },
         "404": {
           "description": "Instance not found."
