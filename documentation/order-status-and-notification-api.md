@@ -16,7 +16,7 @@ The Endpoint Summary table describes each Order Status and Notification API endp
 | Create a notification for an order | POST /orders/{id}/notification |
 
 
-##Endpoints
+## Endpoints
 
 ### Get status of an order (if synchronous status is supported)
 
