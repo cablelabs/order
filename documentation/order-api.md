@@ -797,7 +797,6 @@ This API is called at a Seller endpoint.
 ``` JSON
 {
   "objectType": "order-create-update",
-  "id": "ORD-CC-45678",
   "buyerId": "Verizon",
   "sellerId": "Cox Spectrum Business",
   "buyerPurchaseOrderNumber": "PO-12345",
