@@ -23,7 +23,6 @@
         },
         "units": {
           "type": "string",
-          "required": true,
           "enum": [
             "Mbps",
             "Gbps"
