@@ -16,3 +16,7 @@ This API conforms to the business requirements, inclusive of CfC comments resolv
 | `/schemas` | JSON Schema files for for the Order API |
 
 The best place to start is the [Order Markdown file in the documentation directory](/documentation/order.md)
+
+## Other important stuff
+
+We use an [MIT License](LICENSE).
