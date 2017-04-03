@@ -154,8 +154,6 @@ Status: 200 OK
     "objectType": "idAssignment",
     "sellerAssignedId": "OVC-123-abc",
     "buyerAssignedId": "OVC-123-xyz",
-    "orderId": "ORD-CC-12345",
-    "buyerPurchaseOrderNumber": "PO-12345",
     "orderItemReference": "1"
   },
   "sellerUniIds": [
@@ -163,9 +161,7 @@ Status: 200 OK
       "objectType": "idAssignment",
       "sellerAssignedId": "UNI-123-abc",
       "buyerAssignedId": "UNI-123-xyz",
-      "orderId": "ORD-CC-12345",
-      "buyerPurchaseOrderNumber": "PO-12345",
-      "orderItemReference": "1"
+      "orderItemReference": "2"
     }
   ],
   "sellerEnniIds": [
@@ -173,9 +169,7 @@ Status: 200 OK
       "objectType": "idAssignment",
       "sellerAssignedId": "ENNI-123-abc",
       "buyerAssignedId": "ENNI-123-xyz",
-      "orderId": "ORD-CC-12345",
-      "buyerPurchaseOrderNumber": "PO-12345",
-      "orderItemReference": "1"
+      "orderItemReference": "3"
     }
   ],
   "enniSvlanIds": [
@@ -192,8 +186,8 @@ Status: 200 OK
       "objectType": "svlanIdAssignment",
       "sellerEnniId": "ENNI-123-abc",
       "sellerUniId": "UNI-123-abc",
-      "svlanId": 1,
-      "svlanIdLast": 2
+      "svlanId": 10,
+      "svlanIdLast": 20
     }
   ],
   "correctiveOrderExpected": "false"
