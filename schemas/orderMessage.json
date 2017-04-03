@@ -18,7 +18,7 @@
       },
       "code": {
         "type": "string",
-        "description": "The error code for the Message.",
+        "description": "The code associated with this Message.",
         "maxLength": 12
       },
       "description": {
