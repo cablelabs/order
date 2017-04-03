@@ -16,21 +16,21 @@
         ],
         "description": "The type of the object, orderMessage."
       },
-      "errorCode": {
+      "code": {
         "type": "string",
         "description": "The error code for the Message.",
         "maxLength": 12
       },
-      "errorDescription": {
+      "description": {
         "type": "string",
         "description": "A description of the Message.",
         "maxLength": 150
       },
-      "errorInformation": {
+      "messageInformation": {
         "type": "string",
         "description": "Additional (free form) information about the Message."
       },
-      "errorSeverity": {
+      "severity": {
         "type": "string",
         "enum": [
           "ERROR",
