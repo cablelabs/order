@@ -38,6 +38,21 @@
             "description": "The quantity for the order item.",
             "minimum": 1
         },
+        "orderItemStatus": {
+            "type": "string",
+            "enum": [
+                "ACKNOWLEDGED",
+                "IN_PROGRESS",
+                "CANCELLED",
+                "COMPLETED",
+                "REJECTED",
+                "PENDING",
+                "HELD",
+                "FAILED",
+                "PARTIAL"
+            ],
+            "description": "The status of the order."
+        },
         "orderItemDetail": {
           "type": "object",
           "description": "The ordering representation of the product specification being ordered with this order item.",

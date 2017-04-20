@@ -54,15 +54,20 @@
                 "CONFIGURATION",
                 "CONFIRMATION",
                 "JEOPARDY",
-                "REJECTION",
+                "ERROR",
                 "STATUS_UPDATE"
             ],
             "description": "The type of order notification."
         },
+        "notificationVersion": {
+            "type": "string",
+            "description": "An integer string that indicates the version of the Notification. Tha value must be incremented on each Notification sent by the Seller to the Buyer..",
+            "maxLength": 2
+        },
         "projectId": {
             "type": "string",
             "description": "An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.",
-            "maxLength": 45
+            "maxLength": 16
         },
         "requestedCompletionDate": {
             "type": "string",
@@ -93,6 +98,25 @@
                 "PARTIAL"
             ],
             "description": "The status of the order."
+        },
+        "orderCancellationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Identifies the date that the Seller cancelled the Order."
+        },
+        "orderCancellationReason": {
+          "type": "string",
+          "description": "An optional free-form text field for the seller to provide additional information regarding the reason that the order was cancelled.",
+          "maxlength": 300
+        },
+        "sellerOrderContact": {
+            "$ref": "contact.json#",
+            "description": "TIdentifies the name of the person or office that is handling the Order within the Seller's organization."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free form text to clarify or explain the notification.",
+          "maxLength": 300
         },
         "billingAccountNumber": {
           "type": "string",
@@ -139,9 +163,14 @@
           "uniqueItems": true,
           "description": "An array of the S-VLAN IDs (or ID ranges) assigned by the Seller to UNIs on this Order."
         },
-        "correctiveOrderExpected": {
+        "correctionOrderExpected": {
             "type": "boolean",
             "description": "If true, the Buyer is expected to send a corrective (supplemental) order as a replacement order."
+        },
+        "correctionOrderDueDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date by which the corrected/amended order must be sent to the Seller to ensure that the order is not CANCELLED. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
         "orderMessages": {
           "type": "array",

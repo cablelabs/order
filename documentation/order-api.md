@@ -111,6 +111,7 @@ Status: 200 OK
           "orderItemReference": "01",
           "action": "INSTALL",
           "quantity": 1,
+          "orderItemStatus": "IN_PROGRESS",
           "orderItemDetail": {
             "objectType": "accessEplProductOrder",
             "sellerOvcId": "OVC-123-abc",
@@ -199,6 +200,7 @@ Status: 200 OK
           "orderItemReference": "02",
           "action": "INSTALL",
           "quantity": 1,
+          "orderItemStatus": "IN_PROGRESS",
           "orderItemDetail": {
             "objectType": "uniProductOrder",
             "sellerUniId": "UNI-334",
@@ -357,6 +359,7 @@ Status: 200 OK
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -445,6 +448,7 @@ Status: 200 OK
       "orderItemReference": "02",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "uniProductOrder",
         "sellerUniId": "UNI-334",
@@ -563,6 +567,7 @@ Create an Order. This API is called at a Seller endpoint.
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -608,6 +613,7 @@ Create an Order. This API is called at a Seller endpoint.
       "orderItemReference": "02",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "uniProductOrder",
         "buyerUniId": "UNI-343",
@@ -696,6 +702,7 @@ Status: 201 Created
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -741,6 +748,7 @@ Status: 201 Created
       "orderItemReference": "02",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "uniProductOrder",
         "buyerUniId": "UNI-343",
@@ -831,6 +839,7 @@ This API is called at a Seller endpoint.
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -920,6 +929,7 @@ Status: 200 OK
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -1017,6 +1027,7 @@ Status: 201 Cancelled
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -1115,6 +1126,7 @@ Status: 201 Held
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -1213,6 +1225,7 @@ Status: 201 Released
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",

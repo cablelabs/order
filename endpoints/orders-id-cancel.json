@@ -5,7 +5,7 @@
         "Order"
       ],
       "summary": "Cancel an Order.",
-      "description": "This service looks up an Order by its ID, and cancels it. It is intended to Cancel an in-flight Order.",
+      "description": "This service looks up an Order by its ID, and cancels it. It is intended to allow a buyer to Cancel an in-flight Order.",
       "consumes": [
         "application/json",
         "application/xml"

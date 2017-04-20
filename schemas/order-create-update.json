@@ -88,7 +88,7 @@
         "projectId": {
             "type": "string",
             "description": "An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.",
-            "maxLength": 45
+            "maxLength": 16
         },
         "requestedCompletionDate": {
             "type": "string",

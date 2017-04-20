@@ -44,7 +44,17 @@ Status: 200 OK
   "projectId": "PRJ-CC-482457303",
   "requestedCompletionDate": "2016-10-11T17:20+01:00",
   "expectedCompletionDate": "2016-10-05T08:00+01:00",
-  "orderStatus": "IN_PROGRESS"
+  "orderStatus": "IN_PROGRESS",
+  "orderItemStatuses": [
+    {
+      "orderItemReference": "01",
+      "orderItemStatus": "COMPLETE"
+    },
+    {
+      "orderItemReference": "02",
+      "orderItemStatus": "IN_PROGRESS"
+    }
+  ]
 }
 ```
 
@@ -120,7 +130,17 @@ Status: 201 Created
   "projectId": "PRJ-CC-482457303",
   "requestedCompletionDate": "2016-10-11T17:20+01:00",
   "expectedCompletionDate": "2016-10-05T08:00+01:00",
-  "orderStatus": "IN_PROGRESS"
+  "orderStatus": "IN_PROGRESS",
+  "orderItemStatuses": [
+    {
+      "orderItemReference": "01",
+      "orderItemStatus": "COMPLETE"
+    },
+    {
+      "orderItemReference": "02",
+      "orderItemStatus": "IN_PROGRESS"
+    }
+  ]
 }
 ```
 
@@ -145,10 +165,16 @@ Status: 200 OK
   "buyerPurchaseOrderNumber": "PO-12345",
   "buyerOrderVersion": "1",
   "notificationType": "CONFIRMATION",
+  "notificationVersion": "01",
   "projectId": "PRJ-CC-482457303",
   "requestedCompletionDate": "2016-10-11T17:20+01:00",
   "expectedCompletionDate": "2016-10-05T08:00+01:00",
   "orderStatus": "IN_PROGRESS",
+  "sellerOrderContact": {
+    "objectType": "contact",
+    "name": "Janis Freewheel",
+    "telephoneNumber": "+1868-334-0565"
+  },
   "billingAccountNumber": "12345678",
   "sellerOvcId": {
     "objectType": "idAssignment",
@@ -190,7 +216,7 @@ Status: 200 OK
       "svlanIdLast": 20
     }
   ],
-  "correctiveOrderExpected": "false"
+  "correctionOrderExpected": "false"
 }
 ```
 
@@ -200,7 +226,7 @@ Status: 200 OK
 POST /orders/{id}/notifications
 ```
 This API is used to create an Order Notification.
-The example below creates a REJECT notification.
+The example below creates a ERROR notification.
 This API is called at a Buyer endpoint.
 
 **Request**
@@ -213,9 +239,15 @@ This API is called at a Buyer endpoint.
     "sellerId": "Cox",
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
-    "notificationType": "REJECTION",
+    "notificationType": "ERROR",
+    "notificationVersion": "03",
     "projectId": "Costco0954",
     "requestedCompletionDate": "Dog",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
     "orderMessages": [
       {
         "code": "FMT002",
@@ -225,7 +257,7 @@ This API is called at a Buyer endpoint.
         "correctionRequired": false
       }
     ],
-    "correctiveOrderExpected": false
+    "correctionOrderExpected": false
 }
 ```
 
@@ -240,9 +272,15 @@ Status: 201 Created
     "sellerId": "Cox",
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
-    "notificationType": "REJECTION",
+    "notificationType": "ERROR",
+    "notificationVersion": "04",
     "projectId": "Costco0954",
     "requestedCompletionDate": "Dog",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
     "orderMessages": [
       {
         "code": "FMT002",
@@ -252,13 +290,13 @@ Status: 201 Created
         "correctionRequired": false
       }
     ],
-    "correctiveOrderExpected": false
+    "correctionOrderExpected": false
 }
 ```
 
 ### Example Order Notifications ###
 
-**Rejection Notification**
+**ERROR Notification**
 ``` JSON
 {
     "objectType": "orderNotification",
@@ -267,9 +305,15 @@ Status: 201 Created
     "sellerId": "Cox",
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
-    "notificationType": "REJECTION",
+    "notificationType": "ERROR",
+    "notificationVersion": "01",
     "projectId": "Costco0954",
     "requestedCompletionDate": "Dog",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
     "orderMessages": [
       {
         "code": "FMT002",
@@ -279,7 +323,7 @@ Status: 201 Created
         "correctionRequired": false
       }
     ],
-    "correctiveOrderExpected": false
+    "correctionOrderExpected": false
 }
 ```
 
@@ -293,10 +337,16 @@ Status: 201 Created
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
     "notificationType": "CONFIRMATION",
+    "notificationVersion": "02",
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
     "orderStatus": "IN_PROGRESS",
-    "expectedCompletionDate": "2016-10-11"
+    "expectedCompletionDate": "2016-10-11",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    }
 }
 ```
 
@@ -310,10 +360,16 @@ Status: 201 Created
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
     "notificationType": "CONFIGURATION",
+    "notificationVersion": "03",
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
     "orderStatus": "IN_PROGRESS",
     "expectedCompletionDate": "2016-10-11",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
     "billingAccountNumber": "10128627954C12",
     "sellerOvcId": "CKT-10-O-293848176253",
     "sellerUniIds": [
@@ -343,7 +399,7 @@ Status: 201 Created
 }
 ```
 
-**CANCELLATION Notification (This represents a Buyer initiated Cancellation, which differs from a Seller initiated Cancellation only in the orderErrors returned)**
+**CANCELLATION Notification (This represents a Seller initiated Cancellation**
 ``` JSON
 {
     "objectType": "orderNotification",
@@ -353,45 +409,18 @@ Status: 201 Created
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
     "notificationType": "CANCELLATION",
-    "projectId": "Costco0954",
-    "requestedCompletionDate": "2016-10-11T17:20+01:00",
-    "orderMessages": [
-      {
-        "code": "CAN001",
-        "description": "Buyer Initiated Cancellation",
-        "messageInformation": "The order was cancelled by f.fullerton@verizon.com at 2016-10-03T15:10+45:00",
-        "severity": "INFORMATION",
-        "correctionRequired": false
-      }
-    ],
-    "correctiveOrderExpected": false
+    "notificationVersion": "04",
+    "orderDate": "2016-10-11T17:20+01:00",
+    "orderCancellationDate": "2016-14-14T13:10+10:10",
+    "orderCancellationReason": "Correction Order not received"
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
 }
 ```
 
-**CANCELLATION Notification (This represents a Seller initiated Cancellation, which differs from a Buyer initiated Cancellation only in the orderErrors returned)**
-``` JSON
-{
-    "objectType": "orderNotification",
-    "orderId": "ORD-CC-0293479283",
-    "buyerId": "Verizon",
-    "sellerId": "Cox",
-    "buyerPurchaseOrderNumber": "PO14432",
-    "buyerOrderVersion": "04",
-    "notificationType": "CANCELLATION",
-    "projectId": "Costco0954",
-    "requestedCompletionDate": "2016-10-11T17:20+01:00",
-    "orderMessages": [
-      {
-        "code": "CAN002",
-        "description": "Seller Initiated Cancellation",
-        "messageInformation": "The order was cancelled because no corrective order provided.",
-        "severity": "INFORMATION",
-        "correctionRequired": false
-      }
-    ],
-    "correctiveOrderExpected": false
-}
-```
 
 **COMPLETION Notification**
 ``` JSON
@@ -403,9 +432,10 @@ Status: 201 Created
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
     "notificationType": "COMPLETION",
+    "notificationVersion": "02",
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
-    "orderStatus": "IN_PROGRESS",
+    "orderStatus": "COMPLETED",
     "expectedCompletionDate": "2016-10-11",
     "completionDate": "2016-10-11",
     "billingAccountNumber": "10128627954C12",
@@ -447,20 +477,25 @@ Status: 201 Created
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
     "notificationType": "JEOPARDY",
+    "notificationVersion": "02",
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
     "orderStatus": "HELD",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
     "expectedCompletionDate": "2016-11-02",
     "orderMessages": [
       {
         "code": "JEP002",
-        "description": "Order Jeopardy Notification - expected completion date updated.",
         "MessageInformation": "Awaiting contractor confirmation for inside wiring to customer location.",
         "severity": "INFORMATION",
         "correctionRequired": false
       }
     ],
-    "correctiveOrderExpected": false
+    "correctionOrderExpected": false
 }
 ```
 
@@ -474,28 +509,35 @@ Status: 201 Created
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
     "notificationType": "STATUS_UADATE",
+    "notificationVersion": "02",
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
     "orderStatus": "PENDING",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
     "expectedCompletionDate": "2016-11-02",
     "orderMessages": [
       {
         "code": "PRD045",
-        "description": "Invalid Pricing Term.",
+        "field": "Pricing Term.",
         "MessageInformation": "The pricing term specified 'dog' is not valid. A pricing term of 12 months has been used. If a different pricing term is desired, submit a new order version.",
-        "severity": "WARNING",
+        "severity": "INFORMATION",
         "orderItemReference": "01",
         "correctionRequired": false
       },
       {
         "code": "PRD16",
-        "description": "The product specified 'Super UNI II' does not exist. Correct the product and submit a new order version. This order will be automatically cancelled in 45 days if a new order version is not received",
-        "MessageInformation": "Awaiting contractor confirmation for inside wiring to customer location.",
+        "field": "Product Specification",
+        "MessageInformation": "The product specified 'Super UNI II' does not exist. Correct the product and submit a new order version. This order will be automatically cancelled in 45 days if a new order version is not received",
         "severity": "ERROR",
         "orderItemReference": "02",
         "correctionRequired": true
       }
     ],
-    "correctiveOrderExpected": true
+    "correctionOrderExpected": true,
+    "correctionOrderDueDate": "2016-11-02"
 }
 ```

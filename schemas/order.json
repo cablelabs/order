@@ -98,17 +98,32 @@
         "projectId": {
             "type": "string",
             "description": "An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.",
-            "maxLength": 45
+            "maxLength": 16
         },
         "requestedCompletionDate": {
             "type": "string",
             "format": "date-time",
             "description": "Identifies the buyer's desired due date (requested delivery date) formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
+        "expectedCompletionDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Identifies the date the Seller expects to complete the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
+        },
+        "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Identifies the date the Seller completed the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
+        },
         "requestedStartDate": {
             "type": "string",
             "format": "date-time",
             "description": "If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
+        },
+        "restorationPriority": {
+          "type":"string",
+          "description": "Within the United States, indicates the provisioning and restoration priority as defined under the TSP Service Vendor Handbook",
+          "maxlength": 12
         },
         "priority": {
             "type": "integer",
