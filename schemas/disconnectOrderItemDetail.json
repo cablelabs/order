@@ -16,12 +16,12 @@
             ],
             "description": "The type of the object, disconnectOrderItem."
         },
-        "sellerServiceOrEndpointId": {
+        "sellerNetworkIdentifier": {
             "type": "string",
             "description": "One of the following Seller-assigned values may be included: OVC Identifier, EVC Identifier, UNI Identifier, ENNI Identifier.",
             "maxLength": 45
         },
-        "buyerServiceOrEndpointId": {
+        "buyerNetworkIdentifier": {
             "type": "string",
             "description": "One of the following Buyer-assigned values may be included: Buyer OVC Identifier, Buyer EVC Identifier, Buyer UNI Identifier, Buyer ENNI Identifier.",
             "maxLength": 45

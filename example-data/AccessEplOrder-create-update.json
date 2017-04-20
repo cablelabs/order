@@ -34,6 +34,7 @@
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -79,6 +80,7 @@
       "orderItemReference": "02",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "uniProductOrder",
         "buyerUniId": "UNI-343",

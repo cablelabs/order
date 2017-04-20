@@ -21,32 +21,32 @@
         "description": "The code associated with this Message.",
         "maxLength": 12
       },
-      "description": {
+      "field": {
         "type": "string",
-        "description": "A description of the Message.",
-        "maxLength": 150
+        "description": "The field / attribute on the Order associated with the Message.",
+        "maxLength": 100
       },
       "messageInformation": {
         "type": "string",
-        "description": "Additional (free form) information about the Message."
+        "description": "A description of the error condition or information to be conveyed to the Buyer.",
+        "maxLength": 150
       },
       "severity": {
         "type": "string",
         "enum": [
           "ERROR",
-          "WARNING",
           "INFORMATION"
         ],
         "description": "The severity of the Message."
       },
       "orderItemReference": {
           "type": "string",
-          "description": "A reference number that can be used to refer to the order item that this Message applies to.",
+          "description": "A reference to the item on the Order to which this notification applies.",
           "maxLength": 4
       },
       "correctionRequired": {
           "type": "boolean",
-          "description": "If true, indicates that this Message requires correction (via a corrective or supplemental Order)."
+          "description": "Indicates whether the Buyer must submit an updated Order to resolve the error/jeopardy condition."
       }
     }
   }

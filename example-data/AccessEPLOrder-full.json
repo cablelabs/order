@@ -1,66 +1,72 @@
 {
-  "objectType": "order-create-update",
-  "buyerId": "Verizon",
-  "sellerId": "Cox Spectrum Business",
-  "buyerPurchaseOrderNumber": "PO-12345",
-  "buyerOrderVersion": "1",
-  "orderDate": "2016-10-01T13:20+01:00",
-  "orderActivity": "INSTALL",
-  "desiredResponses": "CONFIRMATION_ONLY",
-  "projectId": "PRJ-CC-482457303",
-  "requestedCompletionDate": "2016-10-11T17:20+01:00",
-  "requestedStartDate": "2016-10-05T08:00+01:00",
-  "priority": 2,
-  "billingInfo": {
-    "objectType": "billingInformation",
-    "existingBillingAccountNumber": "12345678"
-  },
-  "buyerOrderContact": {
-    "objectType": "contact",
-    "name": "John Doe",
-    "telephoneNumber": "+1720-666-1234",
-    "telephoneNumberExt": "6576",
-    "email":"j.doe@verizon.com"
-  },
-  "buyerImplementationContact": {
-    "objectType": "contact",
-    "name": "Mary Jones",
-    "telephoneNumber": "+1720-666-1234",
-    "telephoneNumberExt": "4536",
-    "email":"m.jones@verizon.com"
-  },
-  "buyerTechnicalContact": {
-    "objectType": "contact",
-    "name": "Mark Smith",
-    "telephoneNumber": "+1303-354-5645",
-    "telephoneNumberExt": "845",
-    "email":"m.smith@verizon.com"
-  },
-  "pricingMethod": "CONTRACT",
-  "pricingReference": "MSA-12345",
-  "pricingTerm": 24,
-  "promotionId": "SuperDeal",
-  "orderType": "ACCESS_EPL",
-  "notes": "Notes go here.",
-  "serviceabilityResponse": {
-    "objectType": "resourceReference",
-    "id": "srr-cc-00234",
-    "type": "SERVICEABILITY_RESPONSE",
+    "objectType": "order",
+    "id": "ORD-CC-12345",
     "link": {
-      "objectType": "link",
-      "href": "http://serviceability_responses/srr-cc-00234",
-      "rel": "self",
-      "title": "Retrieve the Serviceability Response",
-      "method": "get",
-      "type": "application/json"
-    }
-  },
-  "orderItems": [
+      "href": "http://orders/ORD-CC-12345"
+    },
+    "buyerId": "Verizon",
+    "sellerId": "Cox Spectrum Business",
+    "buyerPurchaseOrderNumber": "PO-12345",
+    "buyerOrderVersion": "1",
+    "orderDate": "2016-10-01T13:20+01:00",
+    "orderActivity": "INSTALL",
+    "orderStatus": "IN_PROGRESS",
+    "desiredResponses": "CONFIRMATION_ONLY",
+    "projectId": "PRJ-CC-482457303",
+    "requestedCompletionDate": "2016-10-11T17:20+01:00",
+    "requestedStartDate": "2016-10-05T08:00+01:00",
+    "priority": 2,
+    "billingInfo": {
+      "objectType": "billingInformation",
+      "existingBillingAccountNumber": "12345678"
+    },
+    "buyerOrderContact": {
+      "objectType": "contact",
+      "name": "John Doe",
+      "telephoneNumber": "+1720-666-1234",
+      "telephoneNumberExt": "6576",
+      "email":"j.doe@verizon.com"
+    },
+    "buyerImplementationContact": {
+      "objectType": "contact",
+      "name": "Mary Jones",
+      "telephoneNumber": "+1720-666-1234",
+      "telephoneNumberExt": "4536",
+      "email":"m.jones@verizon.com"
+    },
+    "buyerTechnicalContact": {
+      "objectType": "contact",
+      "name": "Mark Smith",
+      "telephoneNumber": "+1303-354-5645",
+      "telephoneNumberExt": "845",
+      "email":"m.smith@verizon.com"
+    },
+    "pricingMethod": "CONTRACT",
+    "pricingReference": "MSA-12345",
+    "pricingTerm": 24,
+    "promotionId": "SuperDeal",
+    "orderType": "ACCESS_EPL",
+    "notes": "Notes go here.",
+    "serviceabilityResponse": {
+      "objectType": "resourceReference",
+      "id": "srr-cc-00234",
+      "type": "SERVICEABILITY_RESPONSE",
+      "link": {
+        "objectType": "link",
+        "href": "http://serviceability_responses/srr-cc-00234",
+        "rel": "self",
+        "title": "Retrieve the Serviceability Response",
+        "method": "get",
+        "type": "application/json"
+      }
+    },
+    "orderItems": [
     {
       "objectType": "orderItem",
       "orderItemReference": "01",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "accessEplProductOrder",
         "sellerOvcId": "OVC-123-abc",
@@ -142,13 +148,14 @@
           "colorMode": "COLOR_AWARE",
           "couplingFlag": false
         }
-       }
-      },
+      }
+    },
     {
       "objectType": "orderItem",
       "orderItemReference": "02",
       "action": "INSTALL",
       "quantity": 1,
+      "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
         "objectType": "uniProductOrder",
         "sellerUniId": "UNI-334",

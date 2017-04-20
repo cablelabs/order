@@ -49,7 +49,7 @@
         "projectId": {
             "type": "string",
             "description": "An identifier that is used to group Orders that represent a unit of functionality that is important to a Buyer. A Project can be used to relate multiple Orders together.",
-            "maxLength": 45
+            "maxLength": 16
         },
         "requestedCompletionDate": {
             "type": "string",
@@ -60,6 +60,11 @@
             "type": "string",
             "format": "date-time",
             "description": "Identifies the date the Seller expects to complete the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
+        },
+        "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Identifies the date the Seller completed the Order. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
         "orderStatus": {
             "type": "string",
@@ -76,9 +81,43 @@
             ],
             "description": "The status of the order."
         },
-        "correctiveOrderExpected": {
+        "orderItemStatuses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "orderItemReference": {
+                  "type": "string",
+                  "description": "A reference number that can be used to refer to this order item.",
+                  "maxLength": 4
+              },
+              "orderItemStatus": {
+                  "type": "string",
+                  "enum": [
+                      "ACKNOWLEDGED",
+                      "IN_PROGRESS",
+                      "CANCELLED",
+                      "COMPLETED",
+                      "REJECTED",
+                      "PENDING",
+                      "HELD",
+                      "FAILED",
+                      "PARTIAL"
+                  ],
+                  "description": "The status of the order."
+              }
+            }
+          },
+          "description": "An optional array that allows the Seller to provide status on each Order Item."
+        },
+        "correctionOrderExpected": {
             "type": "boolean",
             "description": "If true, the Buyer is expected to send a corrective (supplemental) order as a replacement order."
+        },
+        "correctionOrderDueDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date by which the corrected/amended order must be sent to the Seller to ensure that the order is not CANCELLED. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
         "orderMessages": {
           "type": "array",
