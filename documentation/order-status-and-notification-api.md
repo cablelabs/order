@@ -412,7 +412,7 @@ Status: 201 Created
     "notificationVersion": "04",
     "orderDate": "2016-10-11T17:20+01:00",
     "orderCancellationDate": "2016-14-14T13:10+10:10",
-    "orderCancellationReason": "Correction Order not received"
+    "orderCancellationReason": "Correction Order not received",
     "sellerOrderContact": {
       "objectType": "contact",
       "name": "Janis Freewheel",
