@@ -207,8 +207,8 @@ Status: 200 OK
             "buyerUniId": "UNI-343",
             "productSpecification": {
               "objectType": "productSpecRef",
-              "name": "Access EVPL 100",
-              "code": "AEVPL100",
+              "name": "UNI 100",
+              "code": "UNI100",
               "productSpecification": {
                 "objectType": "resourceReference",
                 "id": "prd-spec-00234",
@@ -455,8 +455,8 @@ Status: 200 OK
         "buyerUniId": "UNI-343",
         "productSpecification": {
           "objectType": "productSpecRef",
-          "name": "Access EVPL 100",
-          "code": "AEVPL100",
+          "name": "UNI 100",
+          "code": "UNI100",
           "productSpecification": {
             "objectType": "resourceReference",
             "id": "prd-spec-00234",
@@ -618,8 +618,8 @@ Create an Order. This API is called at a Seller endpoint.
         "objectType": "uniProductOrder",
         "buyerUniId": "UNI-343",
         "productSpecification": {
-          "objectType": "productSpecRef",
-          "code": "AEVPL100",
+          "name": "UNI 100",
+          "code": "UNI100",
           "productSpecification": {
             "objectType": "resourceReference",
             "id": "prd-spec-00234",
@@ -754,7 +754,8 @@ Status: 201 Created
         "buyerUniId": "UNI-343",
         "productSpecification": {
           "objectType": "productSpecRef",
-          "code": "AEVPL100",
+          "name": "UNI 100",
+          "code": "UNI100",
           "productSpecification": {
             "objectType": "resourceReference",
             "id": "prd-spec-00234",
