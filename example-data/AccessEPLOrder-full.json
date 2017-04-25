@@ -162,8 +162,8 @@
         "buyerUniId": "UNI-343",
         "productSpecification": {
           "objectType": "productSpecRef",
-          "name": "Access EVPL 100",
-          "code": "AEVPL100",
+          "name": "UNI 100",
+          "code": "UNI100",
           "productSpecification": {
             "objectType": "resourceReference",
             "id": "prd-spec-00234",
