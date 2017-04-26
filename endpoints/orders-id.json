@@ -81,11 +81,8 @@
             "$ref": "#/definitions/order"
           }
         },
-        "400": {
-          "description": "Invalid ID supplied."
-        },
-        "404": {
-          "description": "Instance not found."
+        "405": {
+          "description": "Invalid input."
         }
       }
     },
@@ -128,11 +125,8 @@
             "$ref": "#/definitions/order"
           }
         },
-        "400": {
-          "description": "Invalid ID supplied."
-        },
-        "404": {
-          "description": "Instance not found."
+        "405": {
+          "description": "Invalid input."
         }
       }
     }

@@ -1,10 +1,10 @@
 {
-  "/orders/{id}/status": {
+  "/orders/status": {
     "get": {
       "tags": [
         "Order"
       ],
-      "summary": "Find the status of an Order.",
+      "summary": "Find the status of an Order. This endpoint is used to provide synchronous Order status.",
       "description": "This service looks up an Order status.",
       "displayName": "Order Status",
       "produces": [
