@@ -1,6 +1,6 @@
 ## Order Status Interface
 
-The Order Status API describes the API for Order Status interactions. Both synchronous and asynchronous API is provided.
+This file describes the API for Order Status interactions. Both synchronous and asynchronous API is provided.
 
 The Endpoint Summary table describes each Order Status endpoint. Following the table is an example of each action at each endpoint, including sample request and response payloads.
 
