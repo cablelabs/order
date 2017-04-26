@@ -202,7 +202,6 @@ Status: 200 OK
     {
       "objectType": "svlanIdAssignment",
       "sellerEnniId": "ENNI-123-abc",
-      "sellerUniId": "UNI-123-abc",
       "svlanId": 1,
       "svlanIdLast": 2
     }
@@ -210,7 +209,6 @@ Status: 200 OK
   "uniSvlanIds": [
     {
       "objectType": "svlanIdAssignment",
-      "sellerEnniId": "ENNI-123-abc",
       "sellerUniId": "UNI-123-abc",
       "svlanId": 10,
       "svlanIdLast": 20
@@ -342,6 +340,28 @@ Status: 201 Created
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
     "orderStatus": "IN_PROGRESS",
     "expectedCompletionDate": "2016-10-11",
+    "billingAccountNumber": "10128627954C12",
+    "sellerOvcId": "CKT-10-O-293848176253",
+    "sellerUniIds": [
+      {
+        "sellerAssignedId": "CKT-10-O-293848176253",
+        "orderItemReference": "02"
+      }
+    ],
+    "sellerEnniIds": [
+      {
+        "sellerAssignedId": "CKT-14-G-092349235",
+        "buyerAssignedId": "10.VLXP.553622.22.MJD"
+      }
+    ],
+    "enniSvlanIds": [
+      {
+        "objectType": "svlanIdAssignment",
+        "sellerEnniId": "ENNI-123-abc",
+        "svlanId": 100,
+        "svlanIdLast": 120
+      }
+    ],
     "sellerOrderContact": {
       "objectType": "contact",
       "name": "Janis Freewheel",
@@ -364,7 +384,6 @@ Status: 201 Created
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
     "orderStatus": "IN_PROGRESS",
-    "expectedCompletionDate": "2016-10-11",
     "sellerOrderContact": {
       "objectType": "contact",
       "name": "Janis Freewheel",
@@ -386,14 +405,10 @@ Status: 201 Created
     ],
     "enniSvlanIds": [
       {
+        "objectType": "svlanIdAssignment",
         "sellerEnniId": "CKT-14-G-092349235",
-        "svlanId": 1141
-      }
-    ],
-    "svlanIdLast": [
-      {
-        "sellerEnniId": "CKT-14-G-092349235",
-        "svlanId": 1145
+        "svlanId": 1141,
+        "svlanIdLast": 1147
       }
     ]
 }
