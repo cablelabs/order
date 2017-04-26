@@ -43,7 +43,8 @@ The Order Notification API is described in [Order Notification API](order-notifi
         "correctionRequired": false
       }
     ],
-    "correctionOrderExpected": false
+    "correctionOrderExpected": true,
+    "correctionOrderDueDate": "2016-11-02"
 }
 ```
 
