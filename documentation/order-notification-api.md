@@ -1,148 +1,19 @@
-## Order Status and Notification Interface
+## Order Notification Interface
 
-The Order Status and Notification API describes the API for Order Status and Notifications. Both synchronous and asynchronous API is provided.
+The Order Notification API describes the API for Order Notifications.
 
-The Endpoint Summary table describes each Order Status and Notification API endpoint. Following the table is an example of each action at each endpoint, including sample request and response payloads.
+The Endpoint Summary table describes each Order Notification API endpoint. Following the table is an example of each action at each endpoint, including sample request and response payloads.
 
 
 **Endpoint Summary**
 
 | Action | Endpoint |
 | ------ | -------- |
-| Get status of an order (if synchronous status is supported). Query string is `?orderId=value1&buyerId=value2&sellerId=value3&buyerPurchaseOrderNumber=value4` | GET /orders/{id}/status |
-| Create a status request of an order (if asynchronous status is supported) | POST /orders/status-request |
-| Create a status response of an order (if asynchronous status is supported) | POST /orders/status-response |
 | Get an order notification | GET /orders/{id}/notification |
 | Create a notification for an order | POST /orders/{id}/notification |
 
 
 ## Endpoints
-
-### Get status of an order (if synchronous status is supported)
-
-```
-GET /orders/status&id=ORD-CC-12345
-```
-or
-```
-GET /orders/status&buyerId=Verizon&sellerId=Cox&buyerPurchaseOrderNumber=PO-12345
-```
-Return the status of an Order by Order ID. This is a synchronous API, and the status of the Order is returned in the response.
-This API is called at a Seller endpoint.
-
-**Response**
-
-Status: 200 OK
-``` JSON
-{
-  "objectType": "orderStatusResponse",
-  "orderId": "ORD-CC-12345",
-  "buyerId": "Verizon",
-  "sellerId": "Cox",
-  "buyerPurchaseOrderNumber": "PO-12345",
-  "buyerOrderVersion": "1",
-  "projectId": "PRJ-CC-482457303",
-  "requestedCompletionDate": "2016-10-11T17:20+01:00",
-  "expectedCompletionDate": "2016-10-05T08:00+01:00",
-  "orderStatus": "IN_PROGRESS",
-  "orderItemStatuses": [
-    {
-      "orderItemReference": "01",
-      "orderItemStatus": "COMPLETE"
-    },
-    {
-      "orderItemReference": "02",
-      "orderItemStatus": "IN_PROGRESS"
-    }
-  ]
-}
-```
-
-### Create a status request of an order (if asynchronous status is supported)
-
-```
-POST /orders/status-request
-```
-Request the status of an Order by ID.
-This is an asynchronous API, called at a Seller endpoint.
-
-**Request**
-
-``` JSON
-{
-  "objectType": "orderStatusRequest",
-  "orderId": "ORD-CC-12345",
-  "buyerId": "Verizon",
-  "sellerId": "Cox Spectrum Business",
-  "buyerPurchaseOrderNumber": "PO-12345"
-}
-```
-
-**Response**
-
-Status: 201 Created
-``` JSON
-{
-  "objectType": "orderStatusRequest",
-  "orderId": "ORD-CC-12345",
-  "buyerId": "Verizon",
-  "sellerId": "Cox Spectrum Business",
-  "buyerPurchaseOrderNumber": "PO-12345"
-}
-```
-
-### Create a status response of an order (if asynchronous status is supported)
-
-```
-POST /orders/status-response
-```
-Reply with the status of an Order.
-This API is called at a Buyer endpoint.
-
-**Request**
-
-``` JSON
-{
-  "objectType": "orderStatusResponse",
-  "orderId": "ORD-CC-12345",
-  "buyerId": "Verizon",
-  "sellerId": "Cox Spectrum Business",
-  "buyerPurchaseOrderNumber": "PO-12345",
-  "buyerOrderVersion": "1",
-  "projectId": "PRJ-CC-482457303",
-  "requestedCompletionDate": "2016-10-11T17:20+01:00",
-  "expectedCompletionDate": "2016-10-05T08:00+01:00",
-  "orderStatus": "IN_PROGRESS"
-}
-```
-
-**Response**
-
-Status: 201 Created
-``` JSON
-{
-  "objectType": "orderStatusResponse",
-  "orderId": "ORD-CC-12345",
-  "buyerId": "Verizon",
-  "sellerId": "Cox Spectrum Business",
-  "buyerPurchaseOrderNumber": "PO-12345",
-  "buyerOrderVersion": "1",
-  "projectId": "PRJ-CC-482457303",
-  "requestedCompletionDate": "2016-10-11T17:20+01:00",
-  "expectedCompletionDate": "2016-10-05T08:00+01:00",
-  "orderStatus": "IN_PROGRESS",
-  "orderItemStatuses": [
-    {
-      "orderItemReference": "01",
-      "orderItemStatus": "COMPLETE"
-    },
-    {
-      "orderItemReference": "02",
-      "orderItemStatus": "IN_PROGRESS"
-    }
-  ]
-}
-```
 
 ### Get an order notification
 
@@ -213,8 +84,7 @@ Status: 200 OK
       "svlanId": 10,
       "svlanIdLast": 20
     }
-  ],
-  "correctionOrderExpected": "false"
+  ]
 }
 ```
 
@@ -262,35 +132,7 @@ This API is called at a Buyer endpoint.
 **Response**
 
 Status: 201 Created
-``` JSON
-{
-    "objectType": "orderNotification",
-    "orderId": "ORD-CC-0293479283",
-    "buyerId": "Verizon",
-    "sellerId": "Cox",
-    "buyerPurchaseOrderNumber": "PO14432",
-    "buyerOrderVersion": "04",
-    "notificationType": "ERROR",
-    "notificationVersion": "04",
-    "projectId": "Costco0954",
-    "requestedCompletionDate": "Dog",
-    "sellerOrderContact": {
-      "objectType": "contact",
-      "name": "Janis Freewheel",
-      "telephoneNumber": "+1868-334-0565"
-    },
-    "orderMessages": [
-      {
-        "code": "FMT002",
-        "description": "Desired Completion Date Invalid",
-        "messageInformation": "The Desired Completion Date specified is not a valid date",
-        "severity": "ERROR",
-        "correctionRequired": false
-      }
-    ],
-    "correctionOrderExpected": false
-}
-```
+
 
 ### Example Order Notifications ###
 
