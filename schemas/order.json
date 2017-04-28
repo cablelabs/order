@@ -177,7 +177,7 @@
             "type": "string",
             "enum": [
               "UNI",
-              "ACCESS_EPL"
+              "ACCESS_E_LINE"
             ],
             "description": "Identifies the type of MEF service or service component that is being ordered."
         },

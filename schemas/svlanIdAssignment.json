@@ -29,12 +29,7 @@
       "svlanId": {
       "type": "integer",
       "minimum": 0,
-      "description": "The SVLAN ID (or the starting SVLAN ID) assigned to this UNI or ENNI"
-      },
-      "svlanIdLast": {
-        "type": "integer",
-        "minimum": 0,
-        "description": "The ending SVLAN ID of the SVLAN ID range assigned to this UNI or ENNI"
+      "description": "The SVLAN ID assigned to this UNI or ENNI"
       }
     }
 }

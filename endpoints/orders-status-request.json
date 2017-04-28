@@ -4,7 +4,7 @@
       "tags": [
         "Order"
       ],
-      "summary": "Create a new Status Request for an Order.",
+      "summary": "Create a new Status Request for an Order. This Endpoint allows for asynchronous Order status.",
       "description": "This service creates a new Status Request for an Order.",
       "consumes": [
         "application/json",

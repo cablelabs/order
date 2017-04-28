@@ -27,7 +27,7 @@
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",

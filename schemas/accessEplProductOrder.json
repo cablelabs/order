@@ -33,26 +33,20 @@
         },
         "enniSvlanId" : {
             "type": "integer",
-            "description": "The S-VLAN ID to be used for this service or the 1st value requested when a range is used.",
+            "description": "The S-VLAN ID to be used for this service.",
             "minimum": 0,
             "maximum": 4095
         },
-        "enniSvlanIdLast" : {
+        "ovcMaximumFrameSize": {
             "type": "integer",
-            "description": "The last S-VLAN ID to be used for this service when a range is requested.",
-            "minimum": 1,
-            "maximum": 4095
-        },
-        "mtuSize": {
-            "type": "integer",
-            "description": "The maximum transmission unit size specifies the maximum length ENNI Frame in bytes allowed at the ENNI. An integer greater or equal to 1526.",
+            "description": "The maximum frame size provides the upper bounds on the length of an ingress frame . An integer greater or equal to 1526.",
             "minimum": 1526
         },
         "colorForwardingEnabled": {
             "type": "boolean",
             "description": "Color Forwarding is an OVC attribute defining the relationship between the color on an egress ENNI frame and the color of the corresponding ingress ENNI Frame or Service Frame.  For ordering, this attribute identifies if the Buyer requests Color Forwarding for this service"
         },
-        "classOfService": {
+        "classOfServiceName": {
             "type": "string",
             "description": "The name of the service level for this Access EPL. (E.g. Gold).",
             "maxLength": 20
