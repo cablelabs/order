@@ -67,22 +67,14 @@
             ],
             "description": "Indicates UNI resiliency and corresponding value."
         },
-        "maxServiceFrameSize": {
+        "uniMaximumServiceFrameSize": {
             "type": "integer",
-            "description": "Indicates the maximum service frame size at the UNI ENNI level.",
+            "description": "Indicates the maximum service frame size that can be reliably processed at the UNI level. An integer greater or equal to 1522.",
             "minimum": 1522
         },
         "tokenShareEnabled": {
             "type": "boolean",
             "description": "Identifies whether a given UNI is capable of sharing tokens across Bandwidth Profile Flows in an Envelope. MEF valid values are Enabled or Disabled."
-        },
-        "serviceMultiplexingEnabled": {
-            "type": "boolean",
-            "description": "Service Multiplexing can be either Enabled or Disabled.  A value of True would equate to 'Enabled'."
-        },
-        "bundlingEnabled": {
-            "type": "boolean",
-            "description": "Bundling can be either Enabled or Disabled.  A value of True would equate to 'Enabled'."
         },
         "allToOneBundlingEnabled": {
             "type": "boolean",
@@ -109,6 +101,16 @@
             ],
             "description": "Identifies the discard/pass action for all non-peered layer two control protocols. Enumeration: 'CTA', 'CTB' or 'CTB-2'."
         },
+        "uniL2cpPeerings": {
+          "type": "array",
+          "items": {
+              "$ref": "layer2ControlProtocol.json#"
+          },
+          "minItems": 1,
+          "maxitems": 20,
+          "uniqueItems": true,
+          "description": "An array of Layer 2 Control Protocols to peer at the UNI."
+      },
         "serviceSiteInformation": {
             "$ref": "serviceSiteInformation.json#",
             "description": "The service site for the UNI."

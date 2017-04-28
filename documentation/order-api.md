@@ -90,7 +90,7 @@ Status: 200 OK
       "pricingReference": "MSA-12345",
       "pricingTerm": 24,
       "promotionId": "SuperDeal",
-      "orderType": "ACCESS_EPL",
+      "orderType": "ACCESS_E_LINE",
       "notes": "Notes go here.",
       "serviceabilityResponse": {
         "objectType": "resourceReference",
@@ -118,10 +118,9 @@ Status: 200 OK
             "buyerOvcId": "OVC-123-xyz",
             "productSpecification": "accessEpl-Superfast",
             "enniSvlanId" : 100,
-            "enniSvlanIdLast" : 104,
-            "mtuSize": 1526,
+            "ovcMaximumFrameSize": 1526,
             "colorForwardingEnabled": true,
-            "classOfService": "medium",
+            "classOfServiceName": "medium",
             "enniReference": {
                 "objectType": "existingEnniReference",
                 "sellerEnniId": "ENNI-123-abc",
@@ -227,15 +226,69 @@ Status: 200 OK
             "synchronousModeEnabled": true,
             "numberOfLinks": 1,
             "uniResiliency": "NONE",
-            "maxServiceFrameSize": 1522,
+            "uniMaximumServiceFrameSize": 1522,
             "tokenShareEnabled": false,
-            "serviceMultiplexingEnabled": false,
-            "bundlingEnabled": false,
             "allToOneBundlingEnabled": true,
             "linkOamEnabled": true,
             "uniMegEnabled": true,
             "elmiEnabled": false,
-            "uniL2cpAddressSet": "CTB",
+            "uniL2cpPeerings": [
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-00",
+                "protocolIdentifier": {
+                  "etherType": "0x8809",
+                  "subtypes": "0x01"
+                }
+              },
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-00",
+                "protocolIdentifier": {
+                  "etherType": "0x8809",
+                  "subtypes": "0x02"
+                }
+              },
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-02",
+                "protocolIdentifier": {
+                  "etherType": "0x8809",
+                  "subtypes": "0x01"
+                }
+              },
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-02",
+                "protocolIdentifier": {
+                  "etherType": "0x8809",
+                  "subtypes": "0x02"
+                }
+              },
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-03",
+                "protocolIdentifier": {
+                  "etherType": "0x8809",
+                  "subtypes": "0x01"
+                }
+              },
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-03",
+                "protocolIdentifier": {
+                  "etherType": "0x8809",
+                  "subtypes": "0x02"
+                }
+              },
+              {
+                "objectType": "layer2ControlProtocol",
+                "destinationAddress": "01-80-C2-00-00-20",
+                "protocolIdentifier": {
+                  "etherType": "0x88F5"
+                }
+              }
+            ],
             "serviceSiteInformation": {
               "objectType": "serviceSiteInformation",
               "siteCompanyName": "LeaseCo",
@@ -338,7 +391,7 @@ Status: 200 OK
     "pricingReference": "MSA-12345",
     "pricingTerm": 24,
     "promotionId": "SuperDeal",
-    "orderType": "ACCESS_EPL",
+    "orderType": "ACCESS_E_LINE",
     "notes": "Notes go here.",
     "serviceabilityResponse": {
       "objectType": "resourceReference",
@@ -366,10 +419,9 @@ Status: 200 OK
         "buyerOvcId": "OVC-123-xyz",
         "productSpecification": "accessEpl-Superfast",
         "enniSvlanId" : 100,
-        "enniSvlanIdLast" : 104,
-        "mtuSize": 1526,
+        "ovcMaximumFrameSize": 1526,
         "colorForwardingEnabled": true,
-        "classOfService": "medium",
+        "classOfServiceName": "medium",
         "enniReference": {
             "objectType": "existingEnniReference",
             "sellerEnniId": "ENNI-123-abc",
@@ -475,10 +527,8 @@ Status: 200 OK
         "synchronousModeEnabled": true,
         "numberOfLinks": 1,
         "uniResiliency": "NONE",
-        "maxServiceFrameSize": 1522,
+        "uniMaximumServiceFrameSize": 1522,
         "tokenShareEnabled": false,
-        "serviceMultiplexingEnabled": false,
-        "bundlingEnabled": false,
         "allToOneBundlingEnabled": true,
         "linkOamEnabled": true,
         "uniMegEnabled": true,
@@ -560,7 +610,7 @@ Create an Order. This API is called at a Seller endpoint.
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",
@@ -695,7 +745,7 @@ Status: 201 Created
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",
@@ -833,7 +883,7 @@ This API is called at a Seller endpoint.
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",
@@ -923,7 +973,7 @@ Status: 200 OK
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",
@@ -1021,7 +1071,7 @@ Status: 201 Cancelled
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",
@@ -1120,7 +1170,7 @@ Status: 201 Held
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",
@@ -1219,7 +1269,7 @@ Status: 201 Released
     "name": "Mark Smith",
     "telephoneNumber": "+1303-354-5645"
   },
-  "orderType": "ACCESS_EPL",
+  "orderType": "ACCESS_E_LINE",
   "orderItems": [
     {
       "objectType": "orderItem",

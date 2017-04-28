@@ -73,16 +73,14 @@ Status: 200 OK
     {
       "objectType": "svlanIdAssignment",
       "sellerEnniId": "ENNI-123-abc",
-      "svlanId": 1,
-      "svlanIdLast": 2
+      "svlanId": 1448,
     }
   ],
   "uniSvlanIds": [
     {
       "objectType": "svlanIdAssignment",
       "sellerUniId": "UNI-123-abc",
-      "svlanId": 10,
-      "svlanIdLast": 20
+      "svlanId": 10
     }
   ]
 }

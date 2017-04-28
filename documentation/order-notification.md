@@ -7,10 +7,10 @@ The Order Notification API is described in [Order Notification API](order-notifi
 |  **Notification Type** | **Notification Trigger** | **Notification Purpose** | **Key Information** |
 |  :------ | :------ | :------ | :------ |
 |  ERROR | Order is rejected after SUBMIT | Notify Buyer that Order needs to be corrected and either corrected, or a new replacement order submitted. | buyerPurchaseOrderNumber, buyerOrderVersion, status, and Order Messages. |
-|  CONFIRMATION | Seller accepts Order into OM system, and assigns expectedCompletionDate, and configures seller assigned IDs | Notify Buyer that the Order is fully accepted, and of the Seller’s committed completion date for the Order, and Seller assigned IDs. | buyerPurchaseOrderNumber, buyerOrderVersion, and the expectedCompletionDate,  billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, enniSvlanId, and enniSvlanIdLast for the Order. |
-|  CONFIGURATION | Seller assigns configuration information (new billing account number, sellerUniId, sellerEnniId, sellerOvcId, enniSvlanId, and enniSvlanIdLast) | Notify Buyer of Seller assigned configuration items relevant to the Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, enniSvlanId, and enniSvlanIdLast |
+|  CONFIRMATION | Seller accepts Order into OM system, and assigns expectedCompletionDate, and configures seller assigned IDs | Notify Buyer that the Order is fully accepted, and of the Seller’s committed completion date for the Order, and Seller assigned IDs. | buyerPurchaseOrderNumber, buyerOrderVersion, and the expectedCompletionDate,  billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId for the Order. |
+|  CONFIGURATION | Seller assigns configuration information (new billing account number, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId) | Notify Buyer of Seller assigned configuration items relevant to the Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId |
 |  CANCELLATION | Seller (or Buyer) Cancels Order | Notify Buyer that the Order is cancelled in the Seller system, and will not be processed further.<br/>The Buyer may resubmit a corrected Order as a new Order (i.e. new buyerPurchaseOrderNumber). | buyerPurchaseOrderNumber, buyerOrderVersion, cancellation date and cancellation reason. |
-|  COMPLETION | Seller completes the Order (and marks it as Complete in their OM system). | Notify the Buyer that the Order is completely implemented, and there will be no further notifications for this Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, completionDate, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, enniSvlanId, and enniSvlanIdLast. |
+|  COMPLETION | Seller completes the Order (and marks it as Complete in their OM system). | Notify the Buyer that the Order is completely implemented, and there will be no further notifications for this Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, completionDate, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId. |
 |  JEOPARDY | Seller believes that the expectedCompletionDate may be in jeopardy. | Notify the Buyer that the expectedCompletionDate may not be met, the reason that the expectedCompletionDate may not be met, and whether the Buyer is expected to correct the Order and respond with a new buyerOrderVersion. | Key information includes: buyerPurchaseOrderNumber, buyerOrderVersion, jeopardy reason, and whether the Seller expects the Buyer to submit an update (supplemental order) with a new buyerOrderVersion. |
 |  STATUS_UPDATE | Conveys changes in Order Status to the Buyer.<br/><br/>After an order is Accepted, but prior to a COMFIRMATION notification being sent by the Seller, order errors are communicated via a STATUS_UPDATE Notification.<br/><br/>Changes to the Order status are communicated via a STATUS_UPDATE Notification (except for Order Completion, which is communicated via a COMPLETION Notification). | Notify the Buyer or order status changes, or that there is something that needs to be corrected in the Order before it can be fulfilled by the Seller. | buyerPurchaseOrderNumber, buyerOrderVersion, orderStatus, and what needs correction or clarification, and whether the Seller expects the Buyer to submit an update (supplemental order) with a new buyerOrderVersion. |
 
@@ -95,16 +95,14 @@ The Order Notification API is described in [Order Notification API](order-notifi
     {
       "objectType": "svlanIdAssignment",
       "sellerEnniId": "ENNI-123-abc",
-      "svlanId": 1,
-      "svlanIdLast": 2
+      "svlanId": 1235
     }
   ],
   "uniSvlanIds": [
     {
       "objectType": "svlanIdAssignment",
       "sellerUniId": "UNI-123-abc",
-      "svlanId": 10,
-      "svlanIdLast": 20
+      "svlanId": 10
     }
   ]
 }
@@ -149,8 +147,7 @@ The Order Notification API is described in [Order Notification API](order-notifi
       {
         "objectType": "svlanIdAssignment",
         "sellerEnniId": "ENNI-123-abc",
-        "svlanId": 1,
-        "svlanIdLast": 2
+        "svlanId": 1
       }
     ]
 }
@@ -214,8 +211,7 @@ The Order Notification API is described in [Order Notification API](order-notifi
       {
         "objectType": "svlanIdAssignment",
         "sellerEnniId": "ENNI-123-abc",
-        "svlanId": 1,
-        "svlanIdLast": 2
+        "svlanId": 1
       }
     ]
 }
