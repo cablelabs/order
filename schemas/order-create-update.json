@@ -61,7 +61,7 @@
             ],
             "description": "The type of order, as defined by the business (e.g.,install, change, disconnect)."
         },
-        "status": {
+        "orderStatus": {
             "type": "string",
             "enum": [
                 "ACKNOWLEDGED",
@@ -99,6 +99,11 @@
             "type": "string",
             "format": "date-time",
             "description": "If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
+        },
+        "restorationPriority": {
+          "type":"string",
+          "description": "Within the United States, indicates the provisioning and restoration priority as defined under the TSP Service Vendor Handbook",
+          "maxlength": 12
         },
         "priority": {
             "type": "integer",
