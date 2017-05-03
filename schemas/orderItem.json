@@ -58,7 +58,7 @@
           "description": "The ordering representation of the product specification being ordered with this order item.",
           "oneOf": [
             {
-              "$ref": "accessEplProductOrder.json#"
+              "$ref": "accessElineProductOrder.json#"
             },
             {
               "$ref": "uniProductOrder.json#"

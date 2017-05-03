@@ -36,7 +36,7 @@
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
