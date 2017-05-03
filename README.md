@@ -12,7 +12,7 @@ This API conforms to the business requirements, inclusive of CfC comments resolv
 | ------ | -------- |
 | `/documentation` | Markdown files containing documentation for this repository. |
 | `/endpoints` | JSON files that describe the various API endpoints |
-| `/example-data` | Example JSON files for an Access EPL Order |
+| `/example-data` | Example JSON files for an Access Eline Order |
 | `/schemas` | JSON Schema files for for the Order API |
 
 The best place to start is the [Order Markdown file in the documentation directory](/documentation/order.md)

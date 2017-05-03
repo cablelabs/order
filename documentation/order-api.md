@@ -113,10 +113,10 @@ Status: 200 OK
           "quantity": 1,
           "orderItemStatus": "IN_PROGRESS",
           "orderItemDetail": {
-            "objectType": "accessEplProductOrder",
+            "objectType": "accessElineProductOrder",
             "sellerOvcId": "OVC-123-abc",
             "buyerOvcId": "OVC-123-xyz",
-            "productSpecification": "accessEpl-Superfast",
+            "productSpecification": "accessEline-Superfast",
             "enniSvlanId" : 100,
             "ovcMaximumFrameSize": 1526,
             "colorForwardingEnabled": true,
@@ -414,10 +414,10 @@ Status: 200 OK
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
-        "productSpecification": "accessEpl-Superfast",
+        "productSpecification": "accessLine-Superfast",
         "enniSvlanId" : 100,
         "ovcMaximumFrameSize": 1526,
         "colorForwardingEnabled": true,
@@ -619,7 +619,7 @@ Create an Order. This API is called at a Seller endpoint.
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
@@ -754,7 +754,7 @@ Status: 201 Created
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
@@ -892,7 +892,7 @@ This API is called at a Seller endpoint.
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
@@ -982,7 +982,7 @@ Status: 200 OK
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
@@ -1080,7 +1080,7 @@ Status: 201 Cancelled
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
@@ -1179,7 +1179,7 @@ Status: 201 Held
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
@@ -1278,7 +1278,7 @@ Status: 201 Released
       "quantity": 1,
       "orderItemStatus": "IN_PROGRESS",
       "orderItemDetail": {
-        "objectType": "accessEplProductOrder",
+        "objectType": "accessElineProductOrder",
         "sellerOvcId": "OVC-123-abc",
         "buyerOvcId": "OVC-123-xyz",
         "enniReference": {
