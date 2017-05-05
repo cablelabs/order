@@ -236,57 +236,43 @@ Status: 200 OK
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-00",
-                "protocolIdentifier": {
-                  "etherType": "0x8809",
-                  "subtypes": "0x01"
-                }
+                "etherType": "0x8809",
+                "subtypes": "0x01"
               },
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-00",
-                "protocolIdentifier": {
-                  "etherType": "0x8809",
-                  "subtypes": "0x02"
-                }
+                "etherType": "0x8809",
+                "subtypes": "0x02"
               },
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-02",
-                "protocolIdentifier": {
-                  "etherType": "0x8809",
-                  "subtypes": "0x01"
-                }
+                "etherType": "0x8809",
+                "subtypes": "0x01"
               },
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-02",
-                "protocolIdentifier": {
-                  "etherType": "0x8809",
-                  "subtypes": "0x02"
-                }
+                "etherType": "0x8809",
+                "subtypes": "0x02"
               },
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-03",
-                "protocolIdentifier": {
-                  "etherType": "0x8809",
-                  "subtypes": "0x01"
-                }
+                "etherType": "0x8809",
+                "subtypes": "0x01"
               },
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-03",
-                "protocolIdentifier": {
-                  "etherType": "0x8809",
-                  "subtypes": "0x02"
-                }
+                "etherType": "0x8809",
+                "subtypes": "0x02"
               },
               {
                 "objectType": "layer2ControlProtocol",
                 "destinationAddress": "01-80-C2-00-00-20",
-                "protocolIdentifier": {
-                  "etherType": "0x88F5"
-                }
+                "etherType": "0x88F5"
               }
             ],
             "serviceSiteInformation": {

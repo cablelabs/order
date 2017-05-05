@@ -22,25 +22,15 @@
         "description": "The MAC Address used for the Layer 2 Control Protocol.",
         "maxLength": 17
       },
-      "protocolIdentifier": {
-        "type": "object",
-        "required": [
-          "etherType"
-          ],
-        "properties": {
-          "etherType": {
-            "type": "string",
-            "description": "A two-octet field in an Ethernet frame used to indicate which protocol is encapsulated in the payload of the frame.",
-            "maxLength": 6
-          },
-          "subtype": {
-            "type": "string",
-            "description": "Subtype for Slow Protocols, in hexadecimal format.",
-            "maxLength": 6
-          }
-        },
-        "description": "The id assigned by the Seller for the UNI for this SVLAN ID assignment.",
-        "maxLength": 45
+      "etherType": {
+        "type": "string",
+        "description": "A two-octet field in an Ethernet frame used to indicate which protocol is encapsulated in the payload of the frame.",
+        "maxLength": 6
+      },
+      "subtype": {
+        "type": "string",
+        "description": "Subtype for Slow Protocols, in hexadecimal format.",
+        "maxLength": 6
       },
       "linkId": {
       "type": "string",
