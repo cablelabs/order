@@ -6,7 +6,8 @@
     "type": "object",
     "required": [
         "objectType",
-        "productSpecification"
+        "productSpecification",
+        "uniReference"
     ],
     "properties": {
         "objectType": {
