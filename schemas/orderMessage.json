@@ -5,8 +5,9 @@
     "description": "Details of a message for an Order.",
     "type": "object",
     "required": [
-      "errorCode",
-      "errorSeverity"
+      "messageInformation",
+      "errorSeverity",
+      "correctionRequired"
     ],
     "properties": {
       "objectType": {
