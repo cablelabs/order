@@ -120,6 +120,15 @@
             "format": "date-time",
             "description": "If specified, identifies the buyer's desired  date for order processing to start.  Formatted as  YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
         },
+        "correctionOrderExpected": {
+            "type": "boolean",
+            "description": "If true, the Buyer is expected to send a corrective (supplemental) order as a replacement order."
+        },
+        "correctionOrderDueDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date by which the corrected/amended order must be sent to the Seller to ensure that the order is not CANCELLED. Formatted as YYYY-MM-DD (eg 1997-07-16) or YYYY-MM-DDThh:mmTZD (eg 1997-07-16T19:20+01:00)."
+        },
         "restorationPriority": {
           "type":"string",
           "description": "Within the United States, indicates the provisioning and restoration priority as defined under the TSP Service Vendor Handbook",
