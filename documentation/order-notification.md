@@ -6,7 +6,8 @@ The Order Notification API is described in [Order Notification API](order-notifi
 
 |  **Notification Type** | **Notification Trigger** | **Notification Purpose** | **Key Information** |
 |  :------ | :------ | :------ | :------ |
-|  ERROR | Order is rejected after SUBMIT | Notify Buyer that Order needs to be corrected and either corrected, or a new replacement order submitted. | buyerPurchaseOrderNumber, buyerOrderVersion, status, and Order Messages. |
+|  REJECTION | Order is rejected after SUBMIT | Notify Buyer that Order was not accepted by the Seller. A new Order will need to be submitted by the Buyer. | buyerPurchaseOrderNumber, buyerOrderVersion, status, and Order Messages. |
+|  ERROR_OR_INFORMATION | Subsequent to the Order being ACKNOWLEDGED by the Seller, ERROR_OR_INFORMATION Notifications can be used to commumicate Errors, or Informational Messages to the Buyer. | Notify Buyer that Order of Information about the Order, or that the Order needs to be corrected and a new replacement (correction) Order submitted. | buyerPurchaseOrderNumber, buyerOrderVersion, status, and Order Messages. |
 |  CONFIRMATION | Seller accepts Order into OM system, and assigns expectedCompletionDate, and configures seller assigned IDs | Notify Buyer that the Order is fully accepted, and of the Seller’s committed completion date for the Order, and Seller assigned IDs. | buyerPurchaseOrderNumber, buyerOrderVersion, and the expectedCompletionDate,  billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId for the Order. |
 |  CONFIGURATION | Seller assigns configuration information (new billing account number, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId) | Notify Buyer of Seller assigned configuration items relevant to the Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId |
 |  CANCELLATION | Seller (or Buyer) Cancels Order | Notify Buyer that the Order is cancelled in the Seller system, and will not be processed further.<br/>The Buyer may resubmit a corrected Order as a new Order (i.e. new buyerPurchaseOrderNumber). | buyerPurchaseOrderNumber, buyerOrderVersion, cancellation date and cancellation reason. |
@@ -16,7 +17,7 @@ The Order Notification API is described in [Order Notification API](order-notifi
 
 ### Example Order Notifications ###
 
-**ERROR Notification**
+**ERROR_OR_INFORMATION Notification**
 ``` JSON
 {
     "objectType": "orderNotification",
@@ -25,7 +26,7 @@ The Order Notification API is described in [Order Notification API](order-notifi
     "sellerId": "Cox",
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
-    "notificationType": "ERROR",
+    "notificationType": "ERROR_OR_INFORMATION",
     "notificationVersion": "01",
     "projectId": "Costco0954",
     "requestedCompletionDate": "Dog",
@@ -217,7 +218,7 @@ The Order Notification API is described in [Order Notification API](order-notifi
 }
 ```
 
-**JEOPARDY Notification**
+**JEOPARDY Notification Example 1**
 ``` JSON
 {
     "objectType": "orderNotification",
@@ -246,6 +247,38 @@ The Order Notification API is described in [Order Notification API](order-notifi
       }
     ],
     "correctionOrderExpected": false
+}
+```
+
+**JEOPARDY Notification Example 2**
+``` JSON
+{
+    "objectType": "orderNotification",
+    "orderId": "ORD-CC-0293479283",
+    "buyerId": "Verizon",
+    "sellerId": "Cox",
+    "buyerPurchaseOrderNumber": "PO14432",
+    "buyerOrderVersion": "04",
+    "notificationType": "JEOPARDY",
+    "notificationVersion": "02",
+    "projectId": "Costco0954",
+    "requestedCompletionDate": "2016-10-11T17:20+01:00",
+    "orderStatus": "HELD",
+    "sellerOrderContact": {
+      "objectType": "contact",
+      "name": "Janis Freewheel",
+      "telephoneNumber": "+1868-334-0565"
+    },
+    "expectedCompletionDate": "2016-11-02",
+    "orderMessages": [
+      {
+        "code": "JEP001",
+        "MessageInformation": "Unable to gain access to customer location. Reschedule installation, and provide correction Order with new Requested Due Date.",
+        "severity": "INFORMATION",
+        "correctionRequired": false
+      }
+    ],
+    "correctionOrderExpected": true
 }
 ```
 

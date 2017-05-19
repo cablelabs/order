@@ -53,8 +53,9 @@
                 "COMPLETION",
                 "CONFIGURATION",
                 "CONFIRMATION",
+                "ERROR_OR_INFORMATION",
                 "JEOPARDY",
-                "ERROR",
+                "REJECTION",
                 "STATUS_UPDATE"
             ],
             "description": "The type of order notification."
