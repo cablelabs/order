@@ -6,14 +6,14 @@ The Order Notification API is described in [Order Notification API](order-notifi
 
 |  **Notification Type** | **Notification Trigger** | **Notification Purpose** | **Key Information** |
 |  :------ | :------ | :------ | :------ |
-|  REJECTION | Order is rejected after SUBMIT | Notify Buyer that Order was not accepted by the Seller. A new Order will need to be submitted by the Buyer. | buyerPurchaseOrderNumber, buyerOrderVersion, status, and Order Messages. |
-|  ERROR_OR_INFORMATION | Subsequent to the Order being ACKNOWLEDGED by the Seller, ERROR_OR_INFORMATION Notifications can be used to commumicate Errors, or Informational Messages to the Buyer. | Notify Buyer that Order of Information about the Order, or that the Order needs to be corrected and a new replacement (correction) Order submitted. | buyerPurchaseOrderNumber, buyerOrderVersion, status, and Order Messages. |
-|  CONFIRMATION | Seller accepts Order into OM system, and assigns expectedCompletionDate, and configures seller assigned IDs | Notify Buyer that the Order is fully accepted, and of the Seller’s committed completion date for the Order, and Seller assigned IDs. | buyerPurchaseOrderNumber, buyerOrderVersion, and the expectedCompletionDate,  billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId for the Order. |
-|  CONFIGURATION | Seller assigns configuration information (new billing account number, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId) | Notify Buyer of Seller assigned configuration items relevant to the Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId |
-|  CANCELLATION | Seller (or Buyer) Cancels Order | Notify Buyer that the Order is cancelled in the Seller system, and will not be processed further.<br/>The Buyer may resubmit a corrected Order as a new Order (i.e. new buyerPurchaseOrderNumber). | buyerPurchaseOrderNumber, buyerOrderVersion, cancellation date and cancellation reason. |
-|  COMPLETION | Seller completes the Order (and marks it as Complete in their OM system). | Notify the Buyer that the Order is completely implemented, and there will be no further notifications for this Order. | buyerPurchaseOrderNumber, buyerOrderVersion, status, completionDate, billingAccountNumber, sellerUniId, sellerEnniId, sellerOvcId, and enniSvlanId. |
-|  JEOPARDY | Seller believes that the expectedCompletionDate may be in jeopardy. | Notify the Buyer that the expectedCompletionDate may not be met, the reason that the expectedCompletionDate may not be met, and whether the Buyer is expected to correct the Order and respond with a new buyerOrderVersion. | Key information includes: buyerPurchaseOrderNumber, buyerOrderVersion, jeopardy reason, and whether the Seller expects the Buyer to submit an update (supplemental order) with a new buyerOrderVersion. |
-|  STATUS_UPDATE | Conveys changes in Order Status to the Buyer.<br/><br/>After an order is Accepted, but prior to a COMFIRMATION notification being sent by the Seller, order errors are communicated via a STATUS_UPDATE Notification.<br/><br/>Changes to the Order status are communicated via a STATUS_UPDATE Notification (except for Order Completion, which is communicated via a COMPLETION Notification). | Notify the Buyer or order status changes, or that there is something that needs to be corrected in the Order before it can be fulfilled by the Seller. | buyerPurchaseOrderNumber, buyerOrderVersion, orderStatus, and what needs correction or clarification, and whether the Seller expects the Buyer to submit an update (supplemental order) with a new buyerOrderVersion. |
+|  REJECTION | Order is rejected after SUBMIT | Notify Buyer that Order was not accepted by the Seller. A new Order will need to be submitted by the Buyer. | Buyer Purchase Order Number, Buyer Order Version, Order Status, and Order Messages. |
+|  ERROR_OR_INFORMATION | Subsequent to the Order being ACKNOWLEDGED by the Seller, ERROR_OR_INFORMATION Notifications can be used to communicate Errors, or Informational Messages to the Buyer. The ERROR_OR_INFORMATION Notification may be sent any time that an ERROR or INFORMATION needs to be communicated to the Buyer, regardless of whether the Order Status has changed as a result of the ERROR or INFORMATION. | Notify Buyer of Information about the Order, or that the Order needs to be corrected and a new replacement (correction) Order submitted. | Buyer Purchase Order Number, Buyer Order Version, Order Status, and Order Messages. |
+|  CONFIRMATION | Seller accepts Order into their system, assigns the Expected Completion Date, and configures the seller assigned IDs | Notify Buyer that the Order is fully accepted, the Seller’s expected completion date for the Order, and the IDs assigned by the Seller. | Buyer Purchase Order Number, Buyer Order Version, Expected Completion Date, Billing Account Number, Seller UNI Id, Seller ENNI Id, Seller OVC Id, and ENN SVLAN Id for the Order. |
+|  CONFIGURATION | Seller assigns configuration information (new Billing Account Number, Seller UNI Id, Seller ENNI Id, Seller OVC Id, and ENN SVLAN Id for the Order) | Notify Buyer of Seller assigned configuration items relevant to the Order. | Buyer Purchase Order Number, Buyer Order Version, Expected Completion Date, Billing Account Number, Seller UNI Id, Seller ENNI Id, Seller OVC Id, and ENN SVLAN I |
+|  CANCELLATION | Seller (or Buyer) Cancels Order | Notify Buyer that the Order is cancelled in the Seller system, and will not be processed further. The Buyer may resubmit a corrected Order as a new Order (i.e. new Buyer Purchase Order Number). | Buyer Purchase Order Number, Buyer Order Version, Cancellation Date and Cancellation Reason. |
+|  COMPLETION | Seller completes the Order (and marks it as Complete in their OM system). | Notify the Buyer that the Order is completely implemented, and there will be no further notifications for this Order. | Buyer Purchase Order Number, Buyer Order Version, Expected Completion Date, Billing Account Number, Seller UNI Id, Seller ENNI Id, Seller OVC Id, and ENN SVLAN Id for the Order. |
+|  JEOPARDY | Seller believes that the Expected Completion Date may be in jeopardy. | Notify the Buyer that the Expected Completion Date may not be met, the reason that the Expected Completion Date may not be met, and whether the Buyer is expected to correct the Order and respond with a corrected Order with a new Buyer Order Version. | Key information includes: Buyer Purchase Order Number, Buyer Order Version, Jeopardy Reason, and whether the Seller expects the Buyer to submit a correction order with a new Buyer Order Version. |
+|  STATUS_UPDATE | Conveys changes in Order Status to the Buyer. Changes to the Order Status are communicated via a STATUS_UPDATE Notification (except for Order Completion, which is communicated via a COMPLETION Notification), and Order Status changes that are the result of an ERROR (which are communicated on an ERROR_OR_INFORMATION Notification). | Notify the Buyer or order status changes. | Buyer Purchase Order Number, Buyer Order Version, Order Status, what needs to be corrected or clarified, and whether the Seller expects the Buyer to submit an Correction Order with a new Buyer Order Version. |
 
 ### Example Order Notifications ###
 
@@ -295,32 +295,12 @@ The Order Notification API is described in [Order Notification API](order-notifi
     "notificationVersion": "02",
     "projectId": "Costco0954",
     "requestedCompletionDate": "2016-10-11T17:20+01:00",
-    "orderStatus": "PENDING",
+    "orderStatus": "IN_PROGRESS",
     "sellerOrderContact": {
       "objectType": "contact",
       "name": "Janis Freewheel",
       "telephoneNumber": "+1868-334-0565"
     },
-    "expectedCompletionDate": "2016-11-02",
-    "orderMessages": [
-      {
-        "code": "PRD045",
-        "field": "Pricing Term.",
-        "MessageInformation": "The pricing term specified 'dog' is not valid. A pricing term of 12 months has been used. If a different pricing term is desired, submit a new order version.",
-        "severity": "INFORMATION",
-        "orderItemReference": "01",
-        "correctionRequired": false
-      },
-      {
-        "code": "PRD16",
-        "field": "Product Specification",
-        "MessageInformation": "The product specified 'Super UNI II' does not exist. Correct the product and submit a new order version. This order will be automatically cancelled in 45 days if a new order version is not received",
-        "severity": "ERROR",
-        "orderItemReference": "02",
-        "correctionRequired": true
-      }
-    ],
-    "correctionOrderExpected": true,
-    "correctionOrderDueDate": "2016-11-02"
+    "expectedCompletionDate": "2016-11-02"
 }
 ```
