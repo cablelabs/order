@@ -154,7 +154,7 @@ The Order Notification API is described in [Order Notification API](order-notifi
 }
 ```
 
-**CANCELLATION Notification (This represents a Seller initiated Cancellation**
+**CANCELLATION Notification (This represents a Seller initiated Cancellation)**
 ``` JSON
 {
     "objectType": "orderNotification",
