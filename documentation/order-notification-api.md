@@ -105,7 +105,7 @@ This API is called at a Buyer endpoint.
     "sellerId": "Cox",
     "buyerPurchaseOrderNumber": "PO14432",
     "buyerOrderVersion": "04",
-    "notificationType": "ERROR",
+    "notificationType": "ERROR_OR_INFORMATION",
     "notificationVersion": "03",
     "projectId": "Costco0954",
     "requestedCompletionDate": "Dog",
@@ -123,7 +123,8 @@ This API is called at a Buyer endpoint.
         "correctionRequired": false
       }
     ],
-    "correctionOrderExpected": false
+    "correctionOrderExpected": true,
+    "correctionOrderDueDate": "2016-11-02"
 }
 ```
 
